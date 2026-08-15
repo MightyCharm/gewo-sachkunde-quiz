@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>§34a GeWo Tester</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>§34a GeWo - Test Your Knowledge</h1>
+    </header>
+    <main>
+      <div class="container-game-control">
+        <button id="btn-start" class="btn-start">START</button>
+        <button id="btn-quit" class="btn-quit">QUIT</button>
+      </div>
+
+      <div class="container-stats hidden">
+        <p class="para-stats">
+          <span class="stats-description">Gesamt:</span>
+          <span id="stat-total-current" class="stats-value">0</span>/
+          <span id="stat-total-max" class="stats-value">20</span>
+        </p>
+        <p class="para-stats">
+          <span class="stats-description">Gewusst:</span
+          ><span id="stat-knew-current" class="stats-value">0</span>
+        </p>
+        <p class="para-stats">
+          <span class="stats-description">Nicht Gewusst:</span
+          ><span id="stat-do-not-know-current" class="stats-value">0</span>
+        </p>
+      </div>
+
+      <div class="container-question hidden">
+        <p>
+          What.............what........what.......what
+          What.............what........what.......what
+          What.............what........what.......what
+        </p>
+      </div>
+
+      <div class="container-answer hidden">
+        <p>
+          This is the answer ..... this is the answer .... this is the
+          answer..... This is the answer ..... this is the answer .... this is
+          the answer..... This is the answer ..... this is the answer .... this
+          is the answer.....
+        </p>
+      </div>
+
+      <div class="container-check hidden">
+        <button id="btn-know" class="btn-know">Gewusst</button>
+        <button id="btn-did-not-know" class="btn-did-not-know">
+          Nicht gewusst
+        </button>
+      </div>
+    </main>
+    <footer>
+      <ul>
+        <li>@Sololearn 2026</li>
+      </ul>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
