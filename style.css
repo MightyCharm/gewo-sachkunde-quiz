@@ -139,34 +139,34 @@ main {
   padding: 1rem;
 }
 
-.btn-know {
+.btn-correct {
   padding: 0.5rem;
   min-width: 100px;
   border: none;
   font-weight: bold;
   outline: 1px solid transparent;
-  color: rgb(13, 125, 13);
+  /* color: rgb(13, 125, 13); */
   background-color: white;
   transition: outline 1.3s ease;
 }
 
-.btn-know:hover {
+.btn-correct:hover {
   cursor: pointer;
   outline: 1px solid rgb(13, 125, 13);
 }
 
-.btn-did-not-know {
+.btn-wrong {
   padding: 0.5rem;
   min-width: 100px;
   border: none;
   font-weight: bold;
   outline: 1px solid transparent;
-  color: red;
+  /* color: red; */
   background-color: white;
   transition: outline 0.3s ease;
 }
 
-.btn-did-not-know:hover {
+.btn-wrong:hover {
   cursor: pointer;
   outline: 1px solid red;
 }
