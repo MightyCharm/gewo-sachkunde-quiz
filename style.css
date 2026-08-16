@@ -79,7 +79,7 @@ main {
   outline: 1px solid transparent;
   border: none;
   background-color: white;
-  transition: all 0.5s ease;
+  transition: outline 0.5s ease;
 }
 
 .btn-start:hover,
@@ -147,7 +147,7 @@ main {
   outline: 1px solid transparent;
   color: rgb(13, 125, 13);
   background-color: white;
-  transition: all 1.3s ease;
+  transition: outline 1.3s ease;
 }
 
 .btn-know:hover {
@@ -163,7 +163,7 @@ main {
   outline: 1px solid transparent;
   color: red;
   background-color: white;
-  transition: all 0.3s ease;
+  transition: outline 0.3s ease;
 }
 
 .btn-did-not-know:hover {
