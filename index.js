@@ -160,3 +160,42 @@ btnWrong.addEventListener("click", () => {
 });
 
 initialize();
+
+const data = [
+  {
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "Was ist Föderalismus?",
+    answer:
+      "Ein staatliches Organisationsprinzip, bei dem die Staatsgewalt zwischen Bund und Bundesländern aufgeteilt ist.",
+  },
+  {
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "Was ist das Grundgesetz?",
+    answer:
+      "Die Verfassung. Steht über allen anderen Gesetzen und regelt die Grundrechte der Bürger sowie die Staatsorganisation",
+  },
+  {
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: 'Erkäre den Begriff "öffentliches Recht".',
+    answer:
+      "Regelt die Rechtsbeziehung zwischen Staat u. Bürger im Verhältnis der Über- und Unterordnung. Beispiele: GewO, Strafrecht.",
+  },
+  {
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: 'Erkläre den Begriff "Privatrecht".',
+    answer:
+      "Regelt die Rechtsbeziehung zwischen Bürger u. Bürger im Verhältnis der Gleichordnung. Beispiel: BGB.",
+  },
+  {
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "Was sind die sogenannten Grundrechte?",
+    answer:
+      "Primär Abwehrrechte des Bürgers gegen den Staat, entfalten Drittwirkung auch für Bürger untereinander. Artikel 1-19 GG.",
+  },
+  {
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "Was sind die sogenannten Rechtsgüter?",
+    answer:
+      "Konkrete Werte und Güter, die die Rechtsordnung schützt. Leben , Gesundheit, Freiheit, Ehre, Eigentum...",
+  },
+];
