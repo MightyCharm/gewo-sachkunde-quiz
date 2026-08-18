@@ -1,3 +1,4 @@
+const main = document.getElementById("main");
 const btnStart = document.getElementById("btn-start");
 const btnQuit = document.getElementById("btn-quit");
 const btnShowAnswer = document.getElementById("btn-show-answer");
@@ -55,9 +56,7 @@ function resetGameStats() {
 function resetData() {
   //console.log("resetData()");
   quizData = [];
-  //========================================
   indexCurrentQuestion = 0;
-  //========================================
 }
 
 function resetGame() {
@@ -73,7 +72,7 @@ function createQuizData() {
     quizData.push(data[index]);
     index++;
   }
-  console.log(quizData);
+  //console.log(quizData);
 }
 
 function toggleVisibilityGame(state) {
@@ -142,11 +141,8 @@ function setStatsLogic(value) {
       break;
   }
   countQuestions = countCorrect + countWrong;
-  console.log(`${countQuestions}: ${countCorrect} ${countWrong}`);
+  //console.log(`${countQuestions}: ${countCorrect} ${countWrong}`);
   if (countQuestions >= totalQuestions) {
-    console.log(
-      `Game Over: totalQuestions: ${totalQuestions} countQuestions: ${countQuestions}, `,
-    );
     toggleVisibilityGame(GAME_OVER);
     return;
   }
@@ -161,7 +157,6 @@ function updateStatsUI() {
   spanWrong.textContent = countWrong;
 }
 
-//=================================================
 function displayQuestion() {
   containerQuestion.textContent = quizData[indexCurrentQuestion].question;
 }
@@ -171,47 +166,56 @@ function setIndexCurrentQuestion() {
     indexCurrentQuestion += 1;
   }
 }
-//=================================================
 
-btnStart.addEventListener("click", () => {
-  resetGame();
-  createQuizData();
+function mainEventHandler(event) {
+  //console.log("mainEventHandler()");
+  const button = event.target.closest("button");
+  if (!button) return;
+  console.log(button);
+  const btnId = button.id;
+  console.log(btnId);
+  switch (btnId) {
+    case "btn-start":
+      resetGame();
+      createQuizData();
+      displayQuestion();
+      updateStatsUI();
+      toggleVisibilityGame(GAME_START);
+      setButtonState(GAME_START);
+      break;
 
-  //=======================
-  displayQuestion();
-  //=======================
-  toggleVisibilityGame(GAME_START);
-  setButtonState(GAME_START);
-  updateStatsUI();
-});
+    case "btn-quit":
+      updateStatsUI();
+      toggleVisibilityGame(GAME_QUIT);
+      setButtonState(GAME_QUIT);
+      break;
 
-btnQuit.addEventListener("click", () => {
-  updateStatsUI();
-  toggleVisibilityGame(GAME_QUIT);
-  setButtonState(GAME_QUIT);
-});
+    case "btn-show-answer":
+      setIndexCurrentQuestion();
+      toggleVisibilityGame(GAME_SHOW_ANSWER);
+      break;
 
-btnShowAnswer.addEventListener("click", () => {
-  setIndexCurrentQuestion();
-  toggleVisibilityGame(GAME_SHOW_ANSWER);
-});
+    case "btn-correct":
+      toggleVisibilityGame(GAME_ANSWER_CORRECT);
+      setStatsLogic(GAME_ANSWER_CORRECT);
+      displayQuestion();
+      updateStatsUI();
+      break;
 
-btnCorrect.addEventListener("click", () => {
-  //=======================
-  displayQuestion();
-  //=======================
-  toggleVisibilityGame(GAME_ANSWER_CORRECT);
-  setStatsLogic(GAME_ANSWER_CORRECT);
-  updateStatsUI();
-});
+    case "btn-wrong":
+      toggleVisibilityGame(GAME_ANSWER_WRONG);
+      setStatsLogic(GAME_ANSWER_WRONG);
+      displayQuestion();
+      updateStatsUI();
 
-btnWrong.addEventListener("click", () => {
-  //=======================
-  displayQuestion();
-  //=======================
-  toggleVisibilityGame(GAME_ANSWER_WRONG);
-  setStatsLogic(GAME_ANSWER_WRONG);
-  updateStatsUI();
+      break;
+    default:
+      console.log("no btn was clicked");
+  }
+}
+
+main.addEventListener("click", (event) => {
+  mainEventHandler(event);
 });
 
 initialize();
@@ -260,5 +264,3 @@ const data = [
       "Konkrete Werte und Güter, die die Rechtsordnung schützt. Leben , Gesundheit, Freiheit, Ehre, Eigentum...",
   },
 ];
-
-// next commit: show all questions create a flow for that
