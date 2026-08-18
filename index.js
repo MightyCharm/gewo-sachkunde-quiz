@@ -23,6 +23,7 @@ let countCorrect = 0;
 let countWrong = 0;
 
 let quizData = [];
+let indexCurrentQuestion = 0;
 
 const GAME_ANSWER_CORRECT = "correct";
 const GAME_ANSWER_WRONG = "wrong";
@@ -52,23 +53,27 @@ function resetGameStats() {
 }
 
 function resetData() {
+  //console.log("resetData()");
   quizData = [];
+  //========================================
+  indexCurrentQuestion = 0;
+  //========================================
 }
 
 function resetGame() {
+  //console.log("resetGame()");
   resetGameStats();
   resetData();
 }
 
 function createQuizData() {
   //console.log("createQuizData()");
-  // need an idea how to grab data so my quizData is neat
   let index = 0;
   while (index < data.length && index < totalQuestions) {
     quizData.push(data[index]);
     index++;
   }
-  //console.log(quizData);
+  console.log(quizData);
 }
 
 function toggleVisibilityGame(state) {
@@ -127,7 +132,7 @@ function setButtonState(state) {
 }
 
 function setStatsLogic(value) {
-  console.log("setStateLogic()");
+  //console.log("setStateLogic()");
   switch (value) {
     case GAME_ANSWER_CORRECT:
       countCorrect += 1;
@@ -156,12 +161,25 @@ function updateStatsUI() {
   spanWrong.textContent = countWrong;
 }
 
+//=================================================
+function displayQuestion() {
+  containerQuestion.textContent = quizData[indexCurrentQuestion].question;
+}
+
+function setIndexCurrentQuestion() {
+  if (indexCurrentQuestion < quizData.length - 1) {
+    indexCurrentQuestion += 1;
+  }
+}
+//=================================================
+
 btnStart.addEventListener("click", () => {
-  //===========================
   resetGame();
   createQuizData();
-  //=========================
 
+  //=======================
+  displayQuestion();
+  //=======================
   toggleVisibilityGame(GAME_START);
   setButtonState(GAME_START);
   updateStatsUI();
@@ -174,16 +192,23 @@ btnQuit.addEventListener("click", () => {
 });
 
 btnShowAnswer.addEventListener("click", () => {
+  setIndexCurrentQuestion();
   toggleVisibilityGame(GAME_SHOW_ANSWER);
 });
 
 btnCorrect.addEventListener("click", () => {
+  //=======================
+  displayQuestion();
+  //=======================
   toggleVisibilityGame(GAME_ANSWER_CORRECT);
   setStatsLogic(GAME_ANSWER_CORRECT);
   updateStatsUI();
 });
 
 btnWrong.addEventListener("click", () => {
+  //=======================
+  displayQuestion();
+  //=======================
   toggleVisibilityGame(GAME_ANSWER_WRONG);
   setStatsLogic(GAME_ANSWER_WRONG);
   updateStatsUI();
@@ -235,3 +260,5 @@ const data = [
       "Konkrete Werte und Güter, die die Rechtsordnung schützt. Leben , Gesundheit, Freiheit, Ehre, Eigentum...",
   },
 ];
+
+// next commit: show all questions create a flow for that
