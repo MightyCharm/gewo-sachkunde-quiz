@@ -21,6 +21,9 @@ let totalQuestions = 3;
 
 let countCorrect = 0;
 let countWrong = 0;
+
+let quizData = [];
+
 const GAME_ANSWER_CORRECT = "correct";
 const GAME_ANSWER_WRONG = "wrong";
 
@@ -31,7 +34,7 @@ const GAME_QUIT = "game_quit";
 const GAME_SHOW_ANSWER = "game_show_answer";
 
 function initialize() {
-  console.log("inititalize()");
+  //console.log("inititalize()");
   spanTotalCurrent.textContent = countQuestions;
   spanTotalMax.textContent = totalQuestions;
   spanCorrect.textContent = countCorrect;
@@ -42,13 +45,34 @@ function initialize() {
 }
 
 function resetGameStats() {
+  //console.log("resetGameStats()");
   countQuestions = 0;
   countCorrect = 0;
   countWrong = 0;
 }
 
+function resetData() {
+  quizData = [];
+}
+
+function resetGame() {
+  resetGameStats();
+  resetData();
+}
+
+function createQuizData() {
+  //console.log("createQuizData()");
+  // need an idea how to grab data so my quizData is neat
+  let index = 0;
+  while (index < data.length && index < totalQuestions) {
+    quizData.push(data[index]);
+    index++;
+  }
+  //console.log(quizData);
+}
+
 function toggleVisibilityGame(state) {
-  console.log("toggleVisibilityGame(state):", state);
+  //console.log("toggleVisibilityGame(state):", state);
   switch (state) {
     case GAME_MAIN_MENU:
     case GAME_QUIT:
@@ -84,7 +108,7 @@ function toggleVisibilityGame(state) {
 }
 
 function setButtonState(state) {
-  console.log("setButtonState(state):", state);
+  //console.log("setButtonState(state):", state);
   switch (state) {
     case GAME_MAIN_MENU:
       btnQuit.disabled = true;
@@ -103,6 +127,7 @@ function setButtonState(state) {
 }
 
 function setStatsLogic(value) {
+  console.log("setStateLogic()");
   switch (value) {
     case GAME_ANSWER_CORRECT:
       countCorrect += 1;
@@ -123,6 +148,7 @@ function setStatsLogic(value) {
 }
 
 function updateStatsUI() {
+  //console.log("updateStatsUI()");
   spanTotalCurrent.textContent = countQuestions;
   spanTotalMax.textContent = totalQuestions;
 
@@ -131,13 +157,17 @@ function updateStatsUI() {
 }
 
 btnStart.addEventListener("click", () => {
+  //===========================
+  resetGame();
+  createQuizData();
+  //=========================
+
   toggleVisibilityGame(GAME_START);
   setButtonState(GAME_START);
   updateStatsUI();
 });
 
 btnQuit.addEventListener("click", () => {
-  resetGameStats();
   updateStatsUI();
   toggleVisibilityGame(GAME_QUIT);
   setButtonState(GAME_QUIT);
@@ -163,36 +193,42 @@ initialize();
 
 const data = [
   {
+    id: 1,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: "Was ist Föderalismus?",
     answer:
       "Ein staatliches Organisationsprinzip, bei dem die Staatsgewalt zwischen Bund und Bundesländern aufgeteilt ist.",
   },
   {
+    id: 2,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: "Was ist das Grundgesetz?",
     answer:
       "Die Verfassung. Steht über allen anderen Gesetzen und regelt die Grundrechte der Bürger sowie die Staatsorganisation",
   },
   {
+    id: 3,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: 'Erkäre den Begriff "öffentliches Recht".',
     answer:
       "Regelt die Rechtsbeziehung zwischen Staat u. Bürger im Verhältnis der Über- und Unterordnung. Beispiele: GewO, Strafrecht.",
   },
   {
+    id: 4,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: 'Erkläre den Begriff "Privatrecht".',
     answer:
       "Regelt die Rechtsbeziehung zwischen Bürger u. Bürger im Verhältnis der Gleichordnung. Beispiel: BGB.",
   },
   {
+    id: 5,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: "Was sind die sogenannten Grundrechte?",
     answer:
       "Primär Abwehrrechte des Bürgers gegen den Staat, entfalten Drittwirkung auch für Bürger untereinander. Artikel 1-19 GG.",
   },
   {
+    id: 5,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: "Was sind die sogenannten Rechtsgüter?",
     answer:
