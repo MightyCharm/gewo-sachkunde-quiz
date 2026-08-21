@@ -46,6 +46,16 @@ function initialize() {
   setButtonState(GAME_MAIN_MENU);
 }
 
+function createQuizData() {
+  //console.log("createQuizData()");
+  let index = 0;
+  while (index < data.length && index < totalQuestions) {
+    quizData.push(data[index]);
+    index++;
+  }
+  //console.log(quizData);
+}
+
 function resetGameStats() {
   //console.log("resetGameStats()");
   countQuestions = 0;
@@ -59,56 +69,14 @@ function resetData() {
   indexCurrentQuestion = 0;
 }
 
+function clearContainerAnswer() {
+  containerAnswer.textContent = "";
+}
+
 function resetGame() {
   //console.log("resetGame()");
   resetGameStats();
   resetData();
-}
-
-function createQuizData() {
-  //console.log("createQuizData()");
-  let index = 0;
-  while (index < data.length && index < totalQuestions) {
-    quizData.push(data[index]);
-    index++;
-  }
-  //console.log(quizData);
-}
-
-function toggleVisibilityGame(state) {
-  //console.log("toggleVisibilityGame(state):", state);
-  switch (state) {
-    case GAME_MAIN_MENU:
-    case GAME_QUIT:
-      containerStats.classList.add("hidden");
-      containerQuestion.classList.add("hidden");
-      containerAnswer.classList.add("hidden");
-      containerShowAnswer.classList.add("hidden");
-      containerCheck.classList.add("hidden");
-      break;
-    case GAME_START:
-      containerStats.classList.remove("hidden");
-      containerQuestion.classList.remove("hidden");
-      containerShowAnswer.classList.remove("hidden");
-      break;
-    case GAME_SHOW_ANSWER:
-      containerAnswer.classList.remove("hidden");
-      containerShowAnswer.classList.add("hidden");
-      containerCheck.classList.remove("hidden");
-      break;
-    case GAME_ANSWER_CORRECT:
-    case GAME_ANSWER_WRONG:
-      containerShowAnswer.classList.remove("hidden");
-      containerCheck.classList.add("hidden");
-      break;
-    case GAME_OVER:
-      containerQuestion.classList.add("hidden");
-      containerAnswer.classList.add("hidden");
-      containerShowAnswer.classList.add("hidden");
-      break;
-    default:
-      console.log("should not see me 1.");
-  }
 }
 
 function setButtonState(state) {
@@ -148,8 +116,8 @@ function setStatsLogic(value) {
   }
 }
 
-function updateStatsUI() {
-  //console.log("updateStatsUI()");
+function displayStats() {
+  //console.log("displayStats()");
   spanTotalCurrent.textContent = countQuestions;
   spanTotalMax.textContent = totalQuestions;
 
@@ -161,9 +129,51 @@ function displayQuestion() {
   containerQuestion.textContent = quizData[indexCurrentQuestion].question;
 }
 
+function displayAnswer() {
+  //console.log(quizData[indexCurrentQuestion]);
+  containerAnswer.textContent = quizData[indexCurrentQuestion].answer;
+}
+
 function setIndexCurrentQuestion() {
   if (indexCurrentQuestion < quizData.length - 1) {
     indexCurrentQuestion += 1;
+  }
+}
+
+function toggleVisibilityGame(state) {
+  //console.log("toggleVisibilityGame(state):", state);
+  switch (state) {
+    case GAME_MAIN_MENU:
+    case GAME_QUIT:
+      containerStats.classList.add("hidden");
+      containerQuestion.classList.add("hidden");
+      containerAnswer.classList.add("hidden");
+      containerShowAnswer.classList.add("hidden");
+      containerCheck.classList.add("hidden");
+      break;
+    case GAME_START:
+      containerStats.classList.remove("hidden");
+      containerQuestion.classList.remove("hidden");
+      containerShowAnswer.classList.remove("hidden");
+      break;
+    case GAME_SHOW_ANSWER:
+      containerAnswer.classList.remove("hidden");
+      containerShowAnswer.classList.add("hidden");
+      containerCheck.classList.remove("hidden");
+      break;
+    case GAME_ANSWER_CORRECT:
+    case GAME_ANSWER_WRONG:
+      containerAnswer.classList.add("hidden"); //
+      containerShowAnswer.classList.remove("hidden");
+      containerCheck.classList.add("hidden");
+      break;
+    case GAME_OVER:
+      containerQuestion.classList.add("hidden");
+      containerAnswer.classList.add("hidden");
+      containerShowAnswer.classList.add("hidden");
+      break;
+    default:
+      console.log("should not see me 1.");
   }
 }
 
@@ -171,27 +181,28 @@ function mainEventHandler(event) {
   //console.log("mainEventHandler()");
   const button = event.target.closest("button");
   if (!button) return;
-  console.log(button);
+  //console.log(button);
   const btnId = button.id;
-  console.log(btnId);
+  //console.log(btnId);
   switch (btnId) {
     case "btn-start":
       resetGame();
       createQuizData();
       displayQuestion();
-      updateStatsUI();
+      displayStats();
       toggleVisibilityGame(GAME_START);
       setButtonState(GAME_START);
       break;
 
     case "btn-quit":
-      updateStatsUI();
+      displayStats();
       toggleVisibilityGame(GAME_QUIT);
       setButtonState(GAME_QUIT);
       break;
 
     case "btn-show-answer":
       setIndexCurrentQuestion();
+      displayAnswer();
       toggleVisibilityGame(GAME_SHOW_ANSWER);
       break;
 
@@ -199,15 +210,16 @@ function mainEventHandler(event) {
       toggleVisibilityGame(GAME_ANSWER_CORRECT);
       setStatsLogic(GAME_ANSWER_CORRECT);
       displayQuestion();
-      updateStatsUI();
+      displayStats();
+      clearContainerAnswer();
       break;
 
     case "btn-wrong":
       toggleVisibilityGame(GAME_ANSWER_WRONG);
       setStatsLogic(GAME_ANSWER_WRONG);
       displayQuestion();
-      updateStatsUI();
-
+      displayStats();
+      clearContainerAnswer();
       break;
     default:
       console.log("no btn was clicked");
