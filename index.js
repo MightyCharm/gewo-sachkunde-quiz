@@ -1,3 +1,7 @@
+// This program should be a helpful tool for people who want to work as
+// security in germany. For that they need to pass a test from the
+// IHK (Industrie- und Handelskammer). It contains a variety of topics
+// to make sure people have the right tools for this kind of job.
 const main = document.getElementById("main");
 const btnStart = document.getElementById("btn-start");
 const btnQuit = document.getElementById("btn-quit");
@@ -236,7 +240,7 @@ const data = [
   {
     id: 1,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
-    question: "Was ist Föderalismus?",
+    question: "Was bedeutet Föderalismus?",
     answer:
       "Ein staatliches Organisationsprinzip, bei dem die Staatsgewalt zwischen Bund und Bundesländern aufgeteilt ist.",
   },

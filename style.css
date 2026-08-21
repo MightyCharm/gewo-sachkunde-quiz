@@ -31,6 +31,12 @@ body {
   align-items: center;
   min-height: 100vh;
   max-width: 600px;
+
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
 }
 
 header {
@@ -52,10 +58,7 @@ main {
   align-items: center;
   gap: 1rem;
   padding: 1rem 0rem;
-
   width: 100%;
-
-  /* border: 5px solid red; */
 }
 
 .container-game-control,
@@ -109,14 +112,15 @@ main {
 .para-stats {
   display: flex;
   gap: 0.2rem;
+  font-size: 1.1rem;
 }
 
 .stats-description {
-  color: red;
+  opacity: 0.8;
 }
 
 .stats-value {
-  color: green;
+  font-weight: 500;
 }
 
 .container-question {
@@ -126,6 +130,7 @@ main {
   width: 100%;
   height: 100%;
   padding: 1rem;
+  font-weight: 700;
 }
 
 .container-answer {
