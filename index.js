@@ -205,8 +205,8 @@ function mainEventHandler(event) {
       break;
 
     case "btn-show-answer":
-      setIndexCurrentQuestion();
       displayAnswer();
+      setIndexCurrentQuestion();
       toggleVisibilityGame(GAME_SHOW_ANSWER);
       break;
 
