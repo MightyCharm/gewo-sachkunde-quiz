@@ -279,4 +279,39 @@ const data = [
     answer:
       "Konkrete Werte und Güter, die die Rechtsordnung schützt. Leben , Gesundheit, Freiheit, Ehre, Eigentum...",
   },
+  {
+    id: 6,
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "§227 BGB ?",
+    answer:
+      "Notwehr ist diejenige Verteidigung, welche erforderlich ist, um einen gegenwärtigen rechtswidrigen Angriff von sich oder einem anderen abzuwenden.",
+  },
+  {
+    id: 7,
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "§228 BGB ?",
+    answer:
+      "Verteidigungsnotstand(Defensivnotstand). Erlaubt die Beschädigung/Zerstörung einer fremden Sache, um eine von ihr ausgehenden Gefahr abzuwenden.",
+  },
+  {
+    id: 8,
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "§904 BGB ?",
+    answer:
+      "Angriffsnotstand. Erlaubt die Beschädigung einer Sache von der keine Gefahr ausgeht, um eine gegenwärtige Gefahr abzuwenden. Der drohende Schaden muss unverhältnismäßig größer sein als der verursachte Schaden.",
+  },
+  {
+    id: 9,
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "§229 BGB ?",
+    answer:
+      "Allgemeine Selbsthilfe. Erlaubt das Festnehmen eines fluchtverdächtigen zur Sicherung zivilrechtlicher Ansprüche wenn obrigkeitliche Hilfe nicht rechtzeitig verfügbar ist und sofortiges Eingreifen notwendig ist.",
+  },
+  {
+    id: 10,
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "§859 BGB ?",
+    answer:
+      "Selbsthilfe des Besitzers. Umfasst Besitzwehr (sich gegen eine verbotene Eigenmacht mit Gewalt wehren) und Besitzkehr (eine weggenommene Sache sofort mit Gewalt zurückzuholen).",
+  },
 ];
