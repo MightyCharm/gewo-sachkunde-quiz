@@ -11,7 +11,13 @@ const btnWrong = document.getElementById("btn-wrong");
 
 const containerGameControl = document.querySelector(".container-game-control");
 const containerStats = document.querySelector(".container-stats");
+//==================================================================
 const containerQuestion = document.querySelector(".container-question");
+const headerQuestionCategory = document.getElementById(
+  "header-question-category",
+);
+const paraQuestion = document.getElementById("para-question");
+//==================================================================
 const containerAnswer = document.querySelector(".container-answer");
 const containerShowAnswer = document.querySelector(".container-show-answer");
 const containerCheck = document.querySelector(".container-check");
@@ -22,7 +28,7 @@ const spanCorrect = document.getElementById("stat-correct");
 const spanWrong = document.getElementById("stat-wrong");
 
 let countQuestions = 0;
-let totalQuestions = 3;
+let totalQuestions = 10;
 
 let countCorrect = 0;
 let countWrong = 0;
@@ -130,7 +136,8 @@ function displayStats() {
 }
 
 function displayQuestion() {
-  containerQuestion.textContent = quizData[indexCurrentQuestion].question;
+  headerQuestionCategory.textContent = quizData[indexCurrentQuestion].category;
+  paraQuestion.textContent = quizData[indexCurrentQuestion].question;
 }
 
 function displayAnswer() {
