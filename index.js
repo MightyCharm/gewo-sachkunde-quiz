@@ -322,3 +322,5 @@ const data = [
       "Selbsthilfe des Besitzers. Umfasst Besitzwehr (sich gegen eine verbotene Eigenmacht mit Gewalt wehren) und Besitzkehr (eine weggenommene Sache sofort mit Gewalt zurückzuholen).",
   },
 ];
+
+// feat(ui):; improve footer (more text better color)

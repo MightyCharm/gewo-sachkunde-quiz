@@ -7,13 +7,12 @@
 
 :root {
   --col-header: white;
-  --bg-header: hsl(240, 75%, 34%);
-
+  --bg-header: hsl(207, 44%, 40%);
   --col-container: black;
   --bg-container: rgb(230, 229, 229);
 
   --col-footer: white;
-  --bg-footer: hsl(240, 75%, 34%);
+  --bg-footer: hsl(207, 44%, 40%);
 }
 
 html {
@@ -40,11 +39,31 @@ body {
 }
 
 header {
-  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  gap: 1rem;
   width: 100%;
   height: 100%;
   color: var(--col-header);
   background-color: var(--bg-header);
+}
+
+.header-span-icon {
+}
+
+.fa-shield-dog {
+  transform: translateY(2px);
+}
+
+.header-span-paragraph-sign {
+  display: inline-block;
+  transform: translateY(-2px);
+}
+
+.header-span-text {
+  font-size: 1.6rem;
 }
 
 main {
@@ -131,7 +150,6 @@ main {
   height: 100%;
   padding: 1rem;
   font-weight: 700;
-  /* border: 1px solid red; */
 }
 
 .question-header {
@@ -194,7 +212,7 @@ main {
   outline: 1px solid transparent;
   /* color: rgb(13, 125, 13); */
   background-color: white;
-  transition: outline 1.3s ease;
+  transition: outline 1s ease;
 }
 
 .btn-correct:hover {
@@ -210,7 +228,7 @@ main {
   outline: 1px solid transparent;
   /* color: red; */
   background-color: white;
-  transition: outline 0.3s ease;
+  transition: outline 1s ease;
 }
 
 .btn-wrong:hover {
@@ -232,6 +250,10 @@ footer {
   height: 100%;
   color: var(--col-footer);
   background-color: var(--bg-footer);
+}
+
+.footer-span-icon {
+  margin-right: 0.4rem;
 }
 
 /* special classes */
