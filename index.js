@@ -11,13 +11,13 @@ const btnWrong = document.getElementById("btn-wrong");
 
 const containerGameControl = document.querySelector(".container-game-control");
 const containerStats = document.querySelector(".container-stats");
-//==================================================================
+
 const containerQuestion = document.querySelector(".container-question");
 const headerQuestionCategory = document.getElementById(
   "header-question-category",
 );
 const paraQuestion = document.getElementById("para-question");
-//==================================================================
+
 const containerAnswer = document.querySelector(".container-answer");
 const containerShowAnswer = document.querySelector(".container-show-answer");
 const containerCheck = document.querySelector(".container-check");
@@ -242,7 +242,15 @@ main.addEventListener("click", (event) => {
 });
 
 initialize();
-
+// 1. Recht der öffentlichen Sicherheit und Ordnung (Grundrechte, Polizeirecht, Staatsaufbau)
+// 2. Gewerberecht (GewO, Bewachungsverodrnung)
+// 3. BVürgerliches Gesetzbuch (BGB)
+// 4. Strafrecht und Strafverfahrensrecht (StGB, StPO, Festnahmerechte)
+// 5. Datenschutzrecht (DSGVO, BDSG)
+// 6. Unfallverhütungsvorschriften (DGUV Vorschrift 23)
+// 7. Umgang mit Waffen (WaffG, Schusswaffengebrauch)
+// 8. Umgang mit Menschen (Deeskalatation, Kommunikation, Verhalten)
+// 9. Grundzüge der Sicherheitstechnik (Zutrittskontrolle, Videoüberwachung)
 const data = [
   {
     id: 1,
@@ -288,39 +296,72 @@ const data = [
   },
   {
     id: 6,
-    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    category: "Bürgerliches Gesetzbuch",
     question: "§227 BGB ?",
     answer:
-      "Notwehr ist diejenige Verteidigung, welche erforderlich ist, um einen gegenwärtigen rechtswidrigen Angriff von sich oder einem anderen abzuwenden.",
+      "Notwehr. Notwehr ist diejenige Verteidigung, welche erforderlich ist, um einen gegenwärtigen rechtswidrigen Angriff von sich oder einem anderen abzuwenden.",
   },
   {
     id: 7,
-    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    category: "Bürgerliches Gesetzbuch",
     question: "§228 BGB ?",
     answer:
       "Verteidigungsnotstand(Defensivnotstand). Erlaubt die Beschädigung/Zerstörung einer fremden Sache, um eine von ihr ausgehenden Gefahr abzuwenden.",
   },
   {
     id: 8,
-    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    category: "Bürgerliches Gesetzbuch",
     question: "§904 BGB ?",
     answer:
       "Angriffsnotstand. Erlaubt die Beschädigung einer Sache von der keine Gefahr ausgeht, um eine gegenwärtige Gefahr abzuwenden. Der drohende Schaden muss unverhältnismäßig größer sein als der verursachte Schaden.",
   },
   {
     id: 9,
-    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    category: "Bürgerliches Gesetzbuch",
     question: "§229 BGB ?",
     answer:
       "Allgemeine Selbsthilfe. Erlaubt das Festnehmen eines fluchtverdächtigen zur Sicherung zivilrechtlicher Ansprüche wenn obrigkeitliche Hilfe nicht rechtzeitig verfügbar ist und sofortiges Eingreifen notwendig ist.",
   },
   {
     id: 10,
-    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    category: "Bürgerliches Gesetzbuch",
     question: "§859 BGB ?",
     answer:
       "Selbsthilfe des Besitzers. Umfasst Besitzwehr (sich gegen eine verbotene Eigenmacht mit Gewalt wehren) und Besitzkehr (eine weggenommene Sache sofort mit Gewalt zurückzuholen).",
   },
+  {
+    id: 11,
+    category: "Bürgerliches Gesetzbuch",
+    question: "§823 BGB ?",
+    answer:
+      "Schadensersatzpflicht. Wer vorsätzlich oder fahrlässig das Rechtsgut eines anderen widerrechtlich verletzt ist zum Ersatz des entstanden Schadens verpflichtet.",
+  },
+  {
+    id: 12,
+    category: "Bürgerliches Gesetzbuch",
+    question: "§253 BGB ?",
+    answer:
+      "Immaterieller Schaden (Schmerzensgeld). Geldentschädigung nur wenn Gesetz es bestimmt, wie bei Verletzungen von Körper, Freiheit oder sexueller Selbstbestimmung.",
+  },
+  {
+    id: 13,
+    category: "Bürgerliches Gesetzbuch",
+    question: "§985 BGB ?",
+    answer:
+      "Herausgabeanspruch. Der Eigentümer kann von dem Besitzer die Herausgabe der Sache verlangen.",
+  },
+  {
+    id: 14,
+    category: "Bürgerliches Gesetzbuch",
+    question: "§833 BGB",
+    answer:
+      "Tierhalterhaftung. Tierhalter muss grundsätzlich für Schäden die sein Tier anrichtet haften (Gefährdungshaftung), auch dann wenn er nicht schuldhaft gehandelt hat (Ausnahme: Nutztiere).",
+  },
+  {
+    id: 15,
+    category: "Bürgerliches Gesetzbuch",
+    question: "Gliederung des BGB?",
+    answer:
+      "Aufgeteilt in 5 Bücher: 1) Allgemeiner Teil (enthält Grundregeln für das gesamte BGB), 2) Recht der Schuldverhältnisse, 3) Sachenrecht, 4) Familienrecht, 5) Erbrecht.",
+  },
 ];
-
-// feat(ui):; improve footer (more text better color)
