@@ -28,7 +28,7 @@ const spanCorrect = document.getElementById("stat-correct");
 const spanWrong = document.getElementById("stat-wrong");
 
 let countQuestions = 0;
-let totalQuestions = 10;
+let totalQuestions = undefined;
 
 let countCorrect = 0;
 let countWrong = 0;
@@ -47,22 +47,22 @@ const GAME_SHOW_ANSWER = "game_show_answer";
 
 function initialize() {
   //console.log("inititalize()");
-  spanTotalCurrent.textContent = countQuestions;
-  spanTotalMax.textContent = totalQuestions;
-  spanCorrect.textContent = countCorrect;
-  spanWrong.textContent = countWrong;
-
   toggleVisibilityGame(GAME_MAIN_MENU);
   setButtonState(GAME_MAIN_MENU);
 }
 
 function createQuizData() {
-  //console.log("createQuizData()");
-  let index = 0;
-  while (index < data.length && index < totalQuestions) {
-    quizData.push(data[index]);
-    index++;
+  quizData = [...data]; // change this line for small/big dataset
+  totalQuestions = quizData.length;
+
+  for (let i = quizData.length - 1; i >= 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    const randomValue = quizData[randomIndex];
+    const currentValue = quizData[i];
+    quizData[randomIndex] = currentValue;
+    quizData[i] = randomValue;
   }
+  //console.log(quizData.length);
   //console.log(quizData);
 }
 
@@ -251,6 +251,38 @@ initialize();
 // 7. Umgang mit Waffen (WaffG, Schusswaffengebrauch)
 // 8. Umgang mit Menschen (Deeskalatation, Kommunikation, Verhalten)
 // 9. Grundzüge der Sicherheitstechnik (Zutrittskontrolle, Videoüberwachung)
+
+const testData = [
+  {
+    id: 1,
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "Was bedeutet Föderalismus?",
+    answer:
+      "Ein staatliches Organisationsprinzip, bei dem die Staatsgewalt zwischen Bund und Bundesländern aufgeteilt ist.",
+  },
+  {
+    id: 2,
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "Was ist das Grundgesetz?",
+    answer:
+      "Die Verfassung. Steht über allen anderen Gesetzen und regelt die Grundrechte der Bürger sowie die Staatsorganisation",
+  },
+  {
+    id: 3,
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: 'Erkäre den Begriff "öffentliches Recht".',
+    answer:
+      "Regelt die Rechtsbeziehung zwischen Staat u. Bürger im Verhältnis der Über- und Unterordnung. Beispiele: GewO, Strafrecht.",
+  },
+  {
+    id: 4,
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: 'Erkläre den Begriff "Privatrecht".',
+    answer:
+      "Regelt die Rechtsbeziehung zwischen Bürger u. Bürger im Verhältnis der Gleichordnung. Beispiel: BGB.",
+  },
+];
+
 const data = [
   {
     id: 1,
@@ -288,77 +320,77 @@ const data = [
       "Primär Abwehrrechte des Bürgers gegen den Staat, entfalten Drittwirkung auch für Bürger untereinander. Artikel 1-19 GG.",
   },
   {
-    id: 5,
+    id: 6,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: "Was sind die sogenannten Rechtsgüter?",
     answer:
       "Konkrete Werte und Güter, die die Rechtsordnung schützt. Leben , Gesundheit, Freiheit, Ehre, Eigentum...",
   },
   {
-    id: 6,
+    id: 7,
     category: "Bürgerliches Gesetzbuch",
     question: "§227 BGB ?",
     answer:
       "Notwehr. Notwehr ist diejenige Verteidigung, welche erforderlich ist, um einen gegenwärtigen rechtswidrigen Angriff von sich oder einem anderen abzuwenden.",
   },
   {
-    id: 7,
+    id: 8,
     category: "Bürgerliches Gesetzbuch",
     question: "§228 BGB ?",
     answer:
       "Verteidigungsnotstand(Defensivnotstand). Erlaubt die Beschädigung/Zerstörung einer fremden Sache, um eine von ihr ausgehenden Gefahr abzuwenden.",
   },
   {
-    id: 8,
+    id: 9,
     category: "Bürgerliches Gesetzbuch",
     question: "§904 BGB ?",
     answer:
       "Angriffsnotstand. Erlaubt die Beschädigung einer Sache von der keine Gefahr ausgeht, um eine gegenwärtige Gefahr abzuwenden. Der drohende Schaden muss unverhältnismäßig größer sein als der verursachte Schaden.",
   },
   {
-    id: 9,
+    id: 10,
     category: "Bürgerliches Gesetzbuch",
     question: "§229 BGB ?",
     answer:
       "Allgemeine Selbsthilfe. Erlaubt das Festnehmen eines fluchtverdächtigen zur Sicherung zivilrechtlicher Ansprüche wenn obrigkeitliche Hilfe nicht rechtzeitig verfügbar ist und sofortiges Eingreifen notwendig ist.",
   },
   {
-    id: 10,
+    id: 11,
     category: "Bürgerliches Gesetzbuch",
     question: "§859 BGB ?",
     answer:
       "Selbsthilfe des Besitzers. Umfasst Besitzwehr (sich gegen eine verbotene Eigenmacht mit Gewalt wehren) und Besitzkehr (eine weggenommene Sache sofort mit Gewalt zurückzuholen).",
   },
   {
-    id: 11,
+    id: 12,
     category: "Bürgerliches Gesetzbuch",
     question: "§823 BGB ?",
     answer:
       "Schadensersatzpflicht. Wer vorsätzlich oder fahrlässig das Rechtsgut eines anderen widerrechtlich verletzt ist zum Ersatz des entstanden Schadens verpflichtet.",
   },
   {
-    id: 12,
+    id: 13,
     category: "Bürgerliches Gesetzbuch",
     question: "§253 BGB ?",
     answer:
       "Immaterieller Schaden (Schmerzensgeld). Geldentschädigung nur wenn Gesetz es bestimmt, wie bei Verletzungen von Körper, Freiheit oder sexueller Selbstbestimmung.",
   },
   {
-    id: 13,
+    id: 14,
     category: "Bürgerliches Gesetzbuch",
     question: "§985 BGB ?",
     answer:
       "Herausgabeanspruch. Der Eigentümer kann von dem Besitzer die Herausgabe der Sache verlangen.",
   },
   {
-    id: 14,
+    id: 15,
     category: "Bürgerliches Gesetzbuch",
     question: "§833 BGB",
     answer:
       "Tierhalterhaftung. Tierhalter muss grundsätzlich für Schäden die sein Tier anrichtet haften (Gefährdungshaftung), auch dann wenn er nicht schuldhaft gehandelt hat (Ausnahme: Nutztiere).",
   },
   {
-    id: 15,
+    id: 16,
     category: "Bürgerliches Gesetzbuch",
     question: "Gliederung des BGB?",
     answer:
