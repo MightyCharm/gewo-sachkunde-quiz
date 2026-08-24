@@ -17,6 +17,7 @@ const headerQuestionCategory = document.getElementById(
   "header-question-category",
 );
 const paraQuestion = document.getElementById("para-question");
+const paraQuestionID = document.getElementById("id-question");
 
 const containerAnswer = document.querySelector(".container-answer");
 const containerShowAnswer = document.querySelector(".container-show-answer");
@@ -62,8 +63,6 @@ function createQuizData() {
     quizData[randomIndex] = currentValue;
     quizData[i] = randomValue;
   }
-  //console.log(quizData.length);
-  //console.log(quizData);
 }
 
 function resetGameStats() {
@@ -136,8 +135,10 @@ function displayStats() {
 }
 
 function displayQuestion() {
-  headerQuestionCategory.textContent = quizData[indexCurrentQuestion].category;
-  paraQuestion.textContent = quizData[indexCurrentQuestion].question;
+  const currentQuestion = quizData[indexCurrentQuestion];
+  headerQuestionCategory.textContent = currentQuestion.category;
+  paraQuestion.textContent = currentQuestion.question;
+  paraQuestionID.textContent = currentQuestion.id;
 }
 
 function displayAnswer() {
