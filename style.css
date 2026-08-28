@@ -13,6 +13,8 @@
 
   --col-footer: white;
   --bg-footer: hsl(207, 44%, 40%);
+
+  --btn-transition-time: 0.3s;
 }
 
 html {
@@ -92,7 +94,7 @@ main {
   outline: 1px solid transparent;
   border: none;
   background-color: white;
-  transition: outline 0.5s ease;
+  transition: outline var(--btn-transition-time) ease;
 }
 
 .btn-start:hover,
@@ -113,8 +115,6 @@ main {
   width: 100%;
 
   z-index: 10;
-
-  border: 1px solid rgb(175, 14, 14);
 }
 
 .container-end-screen {
@@ -229,7 +229,7 @@ main {
   outline: 1px solid transparent;
   border: none;
   background-color: white;
-  transition: outline 0.5s ease;
+  transition: outline var(--btn-transition-time) ease;
 }
 
 .btn-show-answer:hover {
@@ -247,7 +247,9 @@ main {
   padding: 1rem;
 }
 
-.btn-correct {
+.btn-correct,
+.btn-wrong,
+.btn-result {
   padding: 0.5rem;
   min-width: 100px;
   border: none;
@@ -255,7 +257,7 @@ main {
   outline: 1px solid transparent;
   /* color: rgb(13, 125, 13); */
   background-color: white;
-  transition: outline 1s ease;
+  transition: outline var(--btn-transition-time) ease;
 }
 
 .btn-correct:hover {
@@ -263,20 +265,14 @@ main {
   outline: 1px solid rgb(13, 125, 13);
 }
 
-.btn-wrong {
-  padding: 0.5rem;
-  min-width: 100px;
-  border: none;
-  font-weight: bold;
-  outline: 1px solid transparent;
-  /* color: red; */
-  background-color: white;
-  transition: outline 1s ease;
-}
-
 .btn-wrong:hover {
   cursor: pointer;
   outline: 1px solid red;
+}
+
+.btn-result:hover {
+  cursor: pointer;
+  outline: 1px solid rgb(124, 124, 124);
 }
 
 ul {
@@ -304,5 +300,9 @@ footer {
   visibility: hidden;
 }
 
-@media screen and (min-width: 500px) {
+.removed {
+  display: none;
+}
+
+.rem @media screen and (min-width: 500px) {
 }

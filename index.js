@@ -8,6 +8,7 @@ const btnQuit = document.getElementById("btn-quit");
 const btnShowAnswer = document.getElementById("btn-show-answer");
 const btnCorrect = document.getElementById("btn-correct");
 const btnWrong = document.getElementById("btn-wrong");
+const btnResult = document.getElementById("btn-result");
 
 const containerStartScreen = document.getElementById("container-start");
 const containerEndScreen = document.getElementById("container-end");
@@ -46,6 +47,7 @@ const GAME_ANSWER_WRONG = "wrong";
 const GAME_MAIN_MENU = "game_main_menu";
 const GAME_START = "game_start";
 const GAME_OVER = "game_over";
+const GAME_RESULT = "game_result";
 const GAME_QUIT = "game_quit";
 const GAME_SHOW_ANSWER = "game_show_answer";
 
@@ -56,6 +58,7 @@ function initialize() {
 }
 
 function createQuizData() {
+  console.log("createQuizData()");
   quizData = [...testData]; // change this line for small/big dataset
   totalQuestions = quizData.length;
 
@@ -82,6 +85,7 @@ function resetData() {
 }
 
 function clearContainerAnswer() {
+  //console.log("clearContainerAnswer()");
   containerAnswer.textContent = "";
 }
 
@@ -105,7 +109,7 @@ function setButtonState(state) {
       btnStart.disabled = false;
       btnQuit.disabled = true;
       break;
-    case GAME_OVER: // called from setStatsLogic
+    case GAME_OVER:
       btnQuit.disabled = true;
       break;
     default:
@@ -124,9 +128,8 @@ function setStatsLogic(value) {
       break;
   }
   countQuestions = countCorrect + countWrong;
-  //console.log(`${countQuestions}: ${countCorrect} ${countWrong}`);
+
   if (countQuestions >= totalQuestions) {
-    setButtonState(GAME_OVER);
     toggleVisibilityGame(GAME_OVER);
     return;
   }
@@ -142,6 +145,7 @@ function displayStats() {
 }
 
 function displayQuestion() {
+  //console.log("displayQuestion()");
   const currentQuestion = quizData[indexCurrentQuestion];
   headerQuestionCategory.textContent = currentQuestion.category;
   paraQuestion.textContent = currentQuestion.question;
@@ -154,13 +158,14 @@ function displayAnswer() {
 }
 
 function setIndexCurrentQuestion() {
+  //console.log("setIndexCurrentQuestion()");
   if (indexCurrentQuestion < quizData.length - 1) {
     indexCurrentQuestion += 1;
   }
 }
 
 function toggleVisibilityGame(state) {
-  console.log("toggleVisibilityGame(state):", state);
+  //console.log("toggleVisibilityGame(state):", state);
   switch (state) {
     case GAME_MAIN_MENU:
     case GAME_QUIT:
@@ -190,14 +195,24 @@ function toggleVisibilityGame(state) {
       containerShowAnswer.classList.remove("hidden");
       containerCheck.classList.add("hidden");
       break;
-    case GAME_OVER: // called from setStatsLogic
-      containerEndScreen.classList.remove("hidden");
+    case GAME_OVER:
       containerGameControl.classList.add("hidden");
-      containerStats.classList.add("hidden");
-
       containerQuestion.classList.add("hidden");
       containerAnswer.classList.add("hidden");
       containerShowAnswer.classList.add("hidden");
+      // show container and remove gewusst/nicht gewusst buttons , show Ergebnis button instead
+      containerCheck.classList.remove("hidden"); // show container again
+      btnCorrect.classList.add("removed");
+      btnWrong.classList.add("removed");
+      btnResult.classList.remove("removed");
+      break;
+    case GAME_RESULT:
+      containerStats.classList.add("hidden");
+      containerCheck.classList.add("hidden");
+      btnCorrect.classList.remove("removed");
+      btnWrong.classList.remove("removed");
+      btnResult.classList.add("removed");
+      containerEndScreen.classList.remove("hidden");
       break;
     default:
       console.log("should not see me 1.");
@@ -236,17 +251,25 @@ function mainEventHandler(event) {
     case "btn-correct":
       toggleVisibilityGame(GAME_ANSWER_CORRECT);
       setStatsLogic(GAME_ANSWER_CORRECT);
-      displayQuestion();
       displayStats();
       clearContainerAnswer();
+      if (countQuestions >= totalQuestions) break;
+      displayQuestion();
+
       break;
 
     case "btn-wrong":
       toggleVisibilityGame(GAME_ANSWER_WRONG);
       setStatsLogic(GAME_ANSWER_WRONG);
-      displayQuestion();
       displayStats();
       clearContainerAnswer();
+      if (countQuestions >= totalQuestions) break;
+      displayQuestion();
+      break;
+
+    case "btn-result":
+      setButtonState(GAME_OVER);
+      toggleVisibilityGame(GAME_RESULT);
       break;
     case "btn-main-menu":
       toggleVisibilityGame(GAME_MAIN_MENU);
@@ -417,5 +440,3 @@ const data = [
       "Aufgeteilt in 5 Bücher: 1) Allgemeiner Teil (enthält Grundregeln für das gesamte BGB), 2) Recht der Schuldverhältnisse, 3) Sachenrecht, 4) Familienrecht, 5) Erbrecht.",
   },
 ];
-
-// feat(ui): add start and end screen overlays with visibility logic
