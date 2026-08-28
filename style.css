@@ -18,17 +18,14 @@
 html {
   display: flex;
   justify-content: center;
-  align-items: center;
-
-  min-height: 100%;
+  height: 100%;
+  /* border: 5px solid red; */
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  /* min-height: 100%; */
   max-width: 600px;
   width: 100%;
 
@@ -37,6 +34,8 @@ body {
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+
+  /* border: 5px solid rgb(143, 143, 143); */
 }
 
 header {
@@ -68,19 +67,11 @@ header {
 }
 
 main {
-  flex: 1;
-
-  display: grid;
-  grid-template-rows:
-    auto auto minmax(120px, auto) minmax(120px, auto)
-    auto auto;
-  justify-items: center;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 0rem;
-  width: 100%;
+  position: relative;
+  /* border: 5px solid rgb(63, 12, 184); */
 }
-
+.container-start-screen,
+.container-end-screen,
 .container-game-control,
 .container-stats,
 .container-question,
@@ -92,18 +83,9 @@ main {
   background-color: var(--bg-container);
 }
 
-.container-game-control {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
-}
-
 .btn-start,
-.btn-quit {
+.btn-quit,
+.btn-main {
   min-width: 100px;
   padding: 0.5rem;
   font-weight: bold;
@@ -114,9 +96,61 @@ main {
 }
 
 .btn-start:hover,
-.btn-quit:hover {
+.btn-quit:hover,
+.btn-main:hover {
   cursor: pointer;
   outline: 1px solid rgb(124, 124, 124);
+}
+
+.container-start-screen {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+  z-index: 10;
+
+  border: 1px solid rgb(175, 14, 14);
+}
+
+.container-end-screen {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  border: 1px solid green;
+}
+
+.container-game-content {
+  display: grid;
+  grid-template-rows:
+    auto auto minmax(120px, auto) minmax(120px, auto)
+    auto auto;
+
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  border: 5px solid pink;
+}
+
+.container-game-control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
 }
 
 .container-stats {

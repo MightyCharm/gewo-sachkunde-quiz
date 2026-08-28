@@ -24,44 +24,54 @@
       </h1>
     </header>
     <main id="main">
-      <div class="container-game-control">
+      <div id="container-start" class="container-start-screen">
         <button id="btn-start" class="btn-start">START</button>
-        <button id="btn-quit" class="btn-quit">QUIT</button>
       </div>
-
-      <div class="container-stats hidden">
-        <p class="para-stats">
-          <span class="stats-description">Gesamt:</span>
-          <span id="stat-total-current" class="stats-value"></span>/
-          <span id="stat-total-max" class="stats-value"></span>
-        </p>
-        <p class="para-stats">
-          <span class="stats-description">Gewusst:</span
-          ><span id="stat-correct" class="stats-value"></span>
-        </p>
-        <p class="para-stats">
-          <span class="stats-description">Nicht Gewusst:</span
-          ><span id="stat-wrong" class="stats-value"></span>
-        </p>
+      <div id="container-end" class="container-end-screen hidden">
+        <button id="btn-main-menu" class="btn-main">Menu</button>
       </div>
+      <div class="container-game-content">
+        <div class="container-game-control hidden">
+          <button id="btn-quit" class="btn-quit">QUIT</button>
+        </div>
 
-      <div class="container-question hidden">
-        <h2 class="question-header-category" id="header-question-category"></h2>
-        <p id="para-question" class="question-para"></p>
-        <p id="id-question" class="question-id"></p>
-      </div>
+        <div class="container-stats hidden">
+          <p class="para-stats">
+            <span class="stats-description">Gesamt:</span>
+            <span id="stat-total-current" class="stats-value"></span>/
+            <span id="stat-total-max" class="stats-value"></span>
+          </p>
+          <p class="para-stats">
+            <span class="stats-description">Gewusst:</span
+            ><span id="stat-correct" class="stats-value"></span>
+          </p>
+          <p class="para-stats">
+            <span class="stats-description">Nicht Gewusst:</span
+            ><span id="stat-wrong" class="stats-value"></span>
+          </p>
+        </div>
 
-      <div class="container-answer hidden"></div>
+        <div class="container-question hidden">
+          <h2
+            class="question-header-category"
+            id="header-question-category"
+          ></h2>
+          <p id="para-question" class="question-para"></p>
+          <p id="id-question" class="question-id"></p>
+        </div>
 
-      <div class="container-show-answer hidden">
-        <button id="btn-show-answer" class="btn-show-answer">
-          Zeige Antwort
-        </button>
-      </div>
+        <div class="container-answer hidden"></div>
 
-      <div class="container-check hidden">
-        <button id="btn-correct" class="btn-correct">Gewusst</button>
-        <button id="btn-wrong" class="btn-wrong">Nicht gewusst</button>
+        <div class="container-show-answer hidden">
+          <button id="btn-show-answer" class="btn-show-answer">
+            Zeige Antwort
+          </button>
+        </div>
+
+        <div class="container-check hidden">
+          <button id="btn-correct" class="btn-correct">Gewusst</button>
+          <button id="btn-wrong" class="btn-wrong">Nicht gewusst</button>
+        </div>
       </div>
     </main>
     <footer>

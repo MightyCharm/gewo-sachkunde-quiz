@@ -9,6 +9,9 @@ const btnShowAnswer = document.getElementById("btn-show-answer");
 const btnCorrect = document.getElementById("btn-correct");
 const btnWrong = document.getElementById("btn-wrong");
 
+const containerStartScreen = document.getElementById("container-start");
+const containerEndScreen = document.getElementById("container-end");
+
 const containerGameControl = document.querySelector(".container-game-control");
 const containerStats = document.querySelector(".container-stats");
 
@@ -53,7 +56,7 @@ function initialize() {
 }
 
 function createQuizData() {
-  quizData = [...data]; // change this line for small/big dataset
+  quizData = [...testData]; // change this line for small/big dataset
   totalQuestions = quizData.length;
 
   for (let i = quizData.length - 1; i >= 0; i--) {
@@ -89,10 +92,10 @@ function resetGame() {
 }
 
 function setButtonState(state) {
-  //console.log("setButtonState(state):", state);
+  console.log("setButtonState(state):", state);
   switch (state) {
     case GAME_MAIN_MENU:
-      btnQuit.disabled = true;
+      btnStart.disabled = false;
       break;
     case GAME_START:
       btnStart.disabled = true;
@@ -100,6 +103,9 @@ function setButtonState(state) {
       break;
     case GAME_QUIT:
       btnStart.disabled = false;
+      btnQuit.disabled = true;
+      break;
+    case GAME_OVER: // called from setStatsLogic
       btnQuit.disabled = true;
       break;
     default:
@@ -120,6 +126,7 @@ function setStatsLogic(value) {
   countQuestions = countCorrect + countWrong;
   //console.log(`${countQuestions}: ${countCorrect} ${countWrong}`);
   if (countQuestions >= totalQuestions) {
+    setButtonState(GAME_OVER);
     toggleVisibilityGame(GAME_OVER);
     return;
   }
@@ -153,10 +160,12 @@ function setIndexCurrentQuestion() {
 }
 
 function toggleVisibilityGame(state) {
-  //console.log("toggleVisibilityGame(state):", state);
+  console.log("toggleVisibilityGame(state):", state);
   switch (state) {
     case GAME_MAIN_MENU:
     case GAME_QUIT:
+      containerStartScreen.classList.remove("hidden");
+      containerEndScreen.classList.add("hidden");
       containerStats.classList.add("hidden");
       containerQuestion.classList.add("hidden");
       containerAnswer.classList.add("hidden");
@@ -164,6 +173,8 @@ function toggleVisibilityGame(state) {
       containerCheck.classList.add("hidden");
       break;
     case GAME_START:
+      containerStartScreen.classList.add("hidden");
+      containerGameControl.classList.remove("hidden");
       containerStats.classList.remove("hidden");
       containerQuestion.classList.remove("hidden");
       containerShowAnswer.classList.remove("hidden");
@@ -179,7 +190,11 @@ function toggleVisibilityGame(state) {
       containerShowAnswer.classList.remove("hidden");
       containerCheck.classList.add("hidden");
       break;
-    case GAME_OVER:
+    case GAME_OVER: // called from setStatsLogic
+      containerEndScreen.classList.remove("hidden");
+      containerGameControl.classList.add("hidden");
+      containerStats.classList.add("hidden");
+
       containerQuestion.classList.add("hidden");
       containerAnswer.classList.add("hidden");
       containerShowAnswer.classList.add("hidden");
@@ -195,7 +210,7 @@ function mainEventHandler(event) {
   if (!button) return;
   //console.log(button);
   const btnId = button.id;
-  //console.log(btnId);
+  console.log(btnId);
   switch (btnId) {
     case "btn-start":
       resetGame();
@@ -232,6 +247,10 @@ function mainEventHandler(event) {
       displayQuestion();
       displayStats();
       clearContainerAnswer();
+      break;
+    case "btn-main-menu":
+      toggleVisibilityGame(GAME_MAIN_MENU);
+      setButtonState(GAME_MAIN_MENU);
       break;
     default:
       console.log("no btn was clicked");
@@ -398,3 +417,5 @@ const data = [
       "Aufgeteilt in 5 Bücher: 1) Allgemeiner Teil (enthält Grundregeln für das gesamte BGB), 2) Recht der Schuldverhältnisse, 3) Sachenrecht, 4) Familienrecht, 5) Erbrecht.",
   },
 ];
+
+// feat(ui): add start and end screen overlays with visibility logic
