@@ -8,6 +8,7 @@
 :root {
   --col-header: white;
   --bg-header: hsl(207, 44%, 40%);
+  --bg-game-container: rgb(230, 229, 229); /* <------------------------------*/
   --col-container: black;
   --bg-container: rgb(230, 229, 229);
 
@@ -21,7 +22,6 @@ html {
   display: flex;
   justify-content: center;
   height: 100%;
-  /* border: 5px solid red; */
 }
 
 body {
@@ -36,8 +36,6 @@ body {
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 100;
-
-  /* border: 5px solid rgb(143, 143, 143); */
 }
 
 header {
@@ -70,7 +68,6 @@ header {
 
 main {
   position: relative;
-  /* border: 5px solid rgb(63, 12, 184); */
 }
 .container-start-screen,
 .container-end-screen,
@@ -80,7 +77,6 @@ main {
 .container-answer,
 .container-show-answer,
 .container-check {
-  border-radius: 4px;
   color: var(--col-container);
   background-color: var(--bg-container);
 }
@@ -136,11 +132,14 @@ main {
   grid-template-rows:
     auto auto minmax(120px, auto) minmax(120px, auto)
     auto auto;
+  gap: 1rem;
 
   height: 100%;
   width: 100%;
   z-index: 0;
-  border: 5px solid pink;
+
+  padding: 0rem 1rem;
+  background-color: var(--bg-game-container);
 }
 
 .container-game-control {
@@ -150,23 +149,30 @@ main {
   gap: 1rem;
   width: 100%;
   height: 100%;
-  padding: 1rem;
+  padding: 1rem 0rem;
 }
 
 .container-stats {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   width: 100%;
   height: 100%;
-  padding: 1rem;
+  color: white;
+  background-color: hsl(207, 44%, 40%);
 }
 
 .para-stats {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 0.2rem;
-  font-size: 1.1rem;
+
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
 }
 
 .stats-description {
@@ -185,12 +191,14 @@ main {
   height: 100%;
   padding: 1rem;
   font-weight: 700;
+  color: white;
+  background-color: hsl(207, 44%, 40%);
+  border: 1px solid hsl(207, 44%, 40%);
 }
 
 .question-header-category {
   justify-self: start;
   font-size: 0.8rem;
-  color: hsla(0, 0%, 0%, 0.8);
 }
 
 .question-para {
@@ -202,7 +210,6 @@ main {
   font-size: 0.8rem;
   font-weight: 400;
   margin-right: 0.5rem;
-  color: hsla(0, 0%, 0%, 0.8);
 }
 
 .container-answer {
@@ -212,6 +219,9 @@ main {
   width: 100%;
   height: 100%;
   padding: 1rem;
+  color: white;
+  background-color: hsl(207, 44%, 40%);
+  border: 1px solid hsl(207, 44%, 40%);
 }
 
 .container-show-answer {
@@ -255,7 +265,6 @@ main {
   border: none;
   font-weight: bold;
   outline: 1px solid transparent;
-  /* color: rgb(13, 125, 13); */
   background-color: white;
   transition: outline var(--btn-transition-time) ease;
 }
@@ -302,7 +311,4 @@ footer {
 
 .removed {
   display: none;
-}
-
-.rem @media screen and (min-width: 500px) {
 }
