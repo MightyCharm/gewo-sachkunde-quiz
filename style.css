@@ -8,9 +8,7 @@
 :root {
   --col-header: white;
   --bg-header: hsl(207, 44%, 40%);
-  --bg-game-container: rgb(230, 229, 229); /* <------------------------------*/
-  --col-container: black;
-  --bg-container: rgb(230, 229, 229);
+  --bg-game-container: rgb(230, 229, 229);
 
   --col-footer: white;
   --bg-footer: hsl(207, 44%, 40%);
@@ -27,7 +25,6 @@ html {
 body {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  /* min-height: 100%; */
   max-width: 600px;
   width: 100%;
 
@@ -69,17 +66,6 @@ header {
 main {
   position: relative;
 }
-.container-start-screen,
-.container-end-screen,
-.container-game-control,
-.container-stats,
-.container-question,
-.container-answer,
-.container-show-answer,
-.container-check {
-  color: var(--col-container);
-  background-color: var(--bg-container);
-}
 
 .btn-start,
 .btn-quit,
@@ -107,10 +93,48 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 5rem;
   height: 100%;
   width: 100%;
 
+  font-size: 1.1rem;
+
   z-index: 10;
+  padding: 0rem 1rem;
+}
+
+.container-start-screen-introduction {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  color: white;
+  background-color: hsl(207, 44%, 40%);
+}
+
+.container-start-screen-introduction span {
+  font-weight: 700;
+}
+
+.container-start-screen-gameplay {
+  padding: 1rem;
+  color: white;
+  background-color: hsl(207, 44%, 40%);
+}
+
+.list-game-play {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style-type: none;
+}
+
+.container-start-screen-gameplay span {
+  font-weight: bold;
+}
+
+.container-start-screen-control {
+  padding: 1rem;
 }
 
 .container-end-screen {
@@ -284,20 +308,20 @@ main {
   outline: 1px solid rgb(124, 124, 124);
 }
 
-ul {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.56rem;
-  list-style-type: none;
-}
-
 footer {
   padding: 2rem;
   width: 100%;
   height: 100%;
   color: var(--col-footer);
   background-color: var(--bg-footer);
+}
+
+.footer-ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  list-style-type: none;
 }
 
 .footer-span-icon {

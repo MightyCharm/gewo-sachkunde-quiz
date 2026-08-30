@@ -25,7 +25,39 @@
     </header>
     <main id="main">
       <div id="container-start" class="container-start-screen">
-        <button id="btn-start" class="btn-start">START</button>
+        <div class="container-start-screen-introduction">
+          <p>
+            Dieses Programm hilft dir, dich besser auf die Sachkundeprüfung
+            vorzubereiten.
+          </p>
+          <p>
+            In jeder neuen Runde wird ein Set aus zufällig ausgewählten Fragen
+            für dich erstellt.
+          </p>
+          <p>
+            Momentan sind <span>15</span> Fragen aus <span>2</span> Kategorien
+            enthalten.
+          </p>
+        </div>
+
+        <div class="container-start-screen-gameplay">
+          <ul class="list-game-play">
+            <li>
+              Es wird dir eine Frage gestellt, die du versuchen solltest zu
+              beantworten.
+            </li>
+            <li>
+              Klicke auf <span>"Zeige Antwort"</span>, um die Lösung zu sehen.
+            </li>
+            <li>
+              Bewerte dich, indem du <span>"Gewusst"</span> oder
+              <span>"Nicht Gewusst"</span> klickst.
+            </li>
+          </ul>
+        </div>
+        <div class="container-start-screen-control">
+          <button id="btn-start" class="btn-start">START</button>
+        </div>
       </div>
       <div id="container-end" class="container-end-screen hidden">
         <button id="btn-main-menu" class="btn-main">Menu</button>
@@ -76,7 +108,7 @@
       </div>
     </main>
     <footer>
-      <ul>
+      <ul class="footer-ul">
         <li>
           <span class="footer-span-icon"><i class="fa-solid fa-book"></i></span
           ><span
