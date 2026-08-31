@@ -12,6 +12,14 @@ const btnResult = document.getElementById("btn-result");
 
 const containerStartScreen = document.getElementById("container-start");
 const containerEndScreen = document.getElementById("container-end");
+const spanEndScreenTotalCurrent = document.getElementById(
+  "end-screen-stat-total-current",
+);
+const spanEndScreenTotalMax = document.getElementById(
+  "end-screen-stat-total-max",
+);
+const spanEndScreenCorrect = document.getElementById("end-screen-stat-correct");
+const spanEndScreenWrong = document.getElementById("end-screen-stat-wrong");
 
 const containerGameControl = document.querySelector(".container-game-control");
 const containerStats = document.querySelector(".container-stats");
@@ -58,7 +66,7 @@ function initialize() {
 }
 
 function createQuizData() {
-  console.log("createQuizData()");
+  //console.log("createQuizData()");
   quizData = [...testData]; // change this line for small/big dataset
   totalQuestions = quizData.length;
 
@@ -142,6 +150,13 @@ function displayStats() {
 
   spanCorrect.textContent = countCorrect;
   spanWrong.textContent = countWrong;
+}
+
+function displayStatsEndScreen() {
+  spanEndScreenTotalCurrent.textContent = countQuestions;
+  spanEndScreenTotalMax.textContent = totalQuestions;
+  spanEndScreenCorrect.textContent = countCorrect;
+  spanEndScreenWrong.textContent = countWrong;
 }
 
 function displayQuestion() {
@@ -268,8 +283,10 @@ function mainEventHandler(event) {
       break;
 
     case "btn-result":
+      console.log("here");
       setButtonState(GAME_OVER);
       toggleVisibilityGame(GAME_RESULT);
+      displayStatsEndScreen();
       break;
     case "btn-main-menu":
       toggleVisibilityGame(GAME_MAIN_MENU);
