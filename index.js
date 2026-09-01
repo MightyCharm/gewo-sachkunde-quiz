@@ -9,6 +9,7 @@ const btnShowAnswer = document.getElementById("btn-show-answer");
 const btnCorrect = document.getElementById("btn-correct");
 const btnWrong = document.getElementById("btn-wrong");
 const btnResult = document.getElementById("btn-result");
+const btnMenu = document.getElementById("btn-main-menu");
 
 const containerStartScreen = document.getElementById("container-start");
 const containerEndScreen = document.getElementById("container-end");
@@ -104,24 +105,43 @@ function resetGame() {
 }
 
 function setButtonState(state) {
-  //console.log("setButtonState(state):", state);
+  console.log("setButtonState(state):", state, "<----------------------");
+  btnStart.disabled = true;
+  btnQuit.disabled = true;
+  btnShowAnswer.disabled = true;
+  btnCorrect.disabled = true;
+  btnWrong.disabled = true;
+  btnResult.disabled = true;
+  btnMenu.disabled = true;
   switch (state) {
     case GAME_MAIN_MENU:
       btnStart.disabled = false;
       break;
     case GAME_START:
-      btnStart.disabled = true;
       btnQuit.disabled = false;
+      btnShowAnswer.disabled = false;
       break;
     case GAME_QUIT:
       btnStart.disabled = false;
-      btnQuit.disabled = true;
+      break;
+    case GAME_SHOW_ANSWER:
+      btnQuit.disabled = false;
+      btnCorrect.disabled = false;
+      btnWrong.disabled = false;
+      break;
+    case GAME_ANSWER_CORRECT:
+    case GAME_ANSWER_WRONG:
+      btnQuit.disabled = false;
+      btnShowAnswer.disabled = false;
       break;
     case GAME_OVER:
-      btnQuit.disabled = true;
+      btnResult.disabled = false;
+      break;
+    case GAME_RESULT:
+      btnMenu.disabled = false;
       break;
     default:
-      console.log("should not see me 2.");
+      console.log("Something went wrong. setButtonState()");
   }
 }
 
@@ -140,6 +160,7 @@ function setStatsLogic(value) {
   // game over condition
   if (countQuestions >= totalQuestions) {
     toggleVisibilityGame(GAME_OVER);
+    setButtonState(GAME_OVER);
     return;
   }
 }
@@ -181,7 +202,7 @@ function setIndexCurrentQuestion() {
 }
 
 function toggleVisibilityGame(state) {
-  console.log("toggleVisibilityGame(state):", state);
+  //console.log("toggleVisibilityGame(state):", state);
   switch (state) {
     case GAME_MAIN_MENU:
     case GAME_QUIT:
@@ -239,9 +260,9 @@ function mainEventHandler(event) {
   console.log("mainEventHandler()");
   const button = event.target.closest("button");
   if (!button) return;
-  //console.log(button);
+  console.log(button);
   const btnId = button.id;
-  console.log(btnId);
+  //console.log(btnId);
   switch (btnId) {
     case "btn-start":
       resetGame();
@@ -262,6 +283,7 @@ function mainEventHandler(event) {
       displayAnswer();
       setIndexCurrentQuestion();
       toggleVisibilityGame(GAME_SHOW_ANSWER);
+      setButtonState(GAME_SHOW_ANSWER);
       break;
 
     case "btn-correct":
@@ -271,7 +293,7 @@ function mainEventHandler(event) {
       clearContainerAnswer();
       if (countQuestions >= totalQuestions) break;
       displayQuestion();
-
+      setButtonState(GAME_ANSWER_CORRECT);
       break;
 
     case "btn-wrong":
@@ -281,13 +303,14 @@ function mainEventHandler(event) {
       clearContainerAnswer();
       if (countQuestions >= totalQuestions) break;
       displayQuestion();
+      setButtonState(GAME_ANSWER_WRONG);
       break;
 
     case "btn-result":
-      console.log("here");
-      setButtonState(GAME_OVER);
+      //setButtonState(GAME_OVER);
       toggleVisibilityGame(GAME_RESULT);
       displayStatsEndScreen();
+      setButtonState(GAME_RESULT);
       break;
     case "btn-main-menu":
       toggleVisibilityGame(GAME_MAIN_MENU);
