@@ -104,7 +104,7 @@ function resetGame() {
 }
 
 function setButtonState(state) {
-  console.log("setButtonState(state):", state);
+  //console.log("setButtonState(state):", state);
   switch (state) {
     case GAME_MAIN_MENU:
       btnStart.disabled = false;
@@ -137,6 +137,7 @@ function setStatsLogic(value) {
   }
   countQuestions = countCorrect + countWrong;
 
+  // game over condition
   if (countQuestions >= totalQuestions) {
     toggleVisibilityGame(GAME_OVER);
     return;
@@ -180,11 +181,12 @@ function setIndexCurrentQuestion() {
 }
 
 function toggleVisibilityGame(state) {
-  //console.log("toggleVisibilityGame(state):", state);
+  console.log("toggleVisibilityGame(state):", state);
   switch (state) {
     case GAME_MAIN_MENU:
     case GAME_QUIT:
       containerStartScreen.classList.remove("hidden");
+      containerGameControl.classList.add("hidden");
       containerEndScreen.classList.add("hidden");
       containerStats.classList.add("hidden");
       containerQuestion.classList.add("hidden");
@@ -215,7 +217,6 @@ function toggleVisibilityGame(state) {
       containerQuestion.classList.add("hidden");
       containerAnswer.classList.add("hidden");
       containerShowAnswer.classList.add("hidden");
-      // show container and remove gewusst/nicht gewusst buttons , show Ergebnis button instead
       containerCheck.classList.remove("hidden"); // show container again
       btnCorrect.classList.add("removed");
       btnWrong.classList.add("removed");
@@ -235,7 +236,7 @@ function toggleVisibilityGame(state) {
 }
 
 function mainEventHandler(event) {
-  //console.log("mainEventHandler()");
+  console.log("mainEventHandler()");
   const button = event.target.closest("button");
   if (!button) return;
   //console.log(button);
