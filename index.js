@@ -191,7 +191,7 @@ function displayQuestion() {
 
 function displayAnswer() {
   //console.log(quizData[indexCurrentQuestion]);
-  containerAnswer.textContent = quizData[indexCurrentQuestion].answer;
+  containerAnswer.innerHTML = quizData[indexCurrentQuestion].answer;
 }
 
 function setIndexCurrentQuestion() {
