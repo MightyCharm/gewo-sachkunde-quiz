@@ -68,7 +68,7 @@ function initialize() {
 
 function createQuizData() {
   //console.log("createQuizData()");
-  quizData = [...testData]; // change this line for small/big dataset
+  quizData = [...data]; // change this line for small/big dataset
   totalQuestions = quizData.length;
 
   for (let i = quizData.length - 1; i >= 0; i--) {
@@ -328,7 +328,7 @@ main.addEventListener("click", (event) => {
 initialize();
 // 1. Recht der öffentlichen Sicherheit und Ordnung (Grundrechte, Polizeirecht, Staatsaufbau)
 // 2. Gewerberecht (GewO, Bewachungsverodrnung)
-// 3. BVürgerliches Gesetzbuch (BGB)
+// 3. Bürgerliches Gesetzbuch (BGB)
 // 4. Strafrecht und Strafverfahrensrecht (StGB, StPO, Festnahmerechte)
 // 5. Datenschutzrecht (DSGVO, BDSG)
 // 6. Unfallverhütungsvorschriften (DGUV Vorschrift 23)
@@ -479,5 +479,137 @@ const data = [
     question: "Gliederung des BGB?",
     answer:
       "Aufgeteilt in 5 Bücher: 1) Allgemeiner Teil (enthält Grundregeln für das gesamte BGB), 2) Recht der Schuldverhältnisse, 3) Sachenrecht, 4) Familienrecht, 5) Erbrecht.",
+  },
+  {
+    id: 17,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was ist die Aufgabe des Strafrechts?",
+    answer:
+      "Als Teil des öffentlichen Rechts hat es die Aufgabe, schutzbedürftige Rechtsgüter des Einzelnen sowie der Allgemeinheit vor Bedrohung und Verletzung zu schützen.",
+  },
+  {
+    id: 18,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was sind die fünf Funktionen des Strafrechts?",
+    answer:
+      "1) Vergeltungstheorie: Ausgleich für das Unrecht der Tat 2) Generalprävention: Abschreckung der Allgemeinheit 3) Spezialprävention: Abschreckung des Täters 4) Resozialisierung: Wiedereingliederung des Täters 5) Rechtsfrieden: Aufrechterhaltung der Rechtsordnung",
+  },
+  {
+    id: 19,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Wie heißen die Hauptgesetzwerke des Strafrechts?",
+    answer: "Strafgesetzbuch (StGB), Strafprozessordnung (StPO)",
+  },
+  {
+    id: 20,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was beinhaltet das Nebenstrafrecht?",
+    answer:
+      "Hier sind weitere strafbare Handlungen und die jeweiligen Rechtsfolgen geregelt. 1) Gewerbeordnung (GewO) 2) Bundesdatenschutzgesetz (BDSG) 3) Betäubungsmittelgesetz (BtMG) 4) Waffengesetz (WaffG)",
+  },
+  {
+    id: 21,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was ist das materielle Strafrecht?",
+    answer:
+      "1) Es umfasst das Strafgesetzbuch (StGB) und alle nebenstrafrechtlichen Vorschriften 2) Es regelt die Tatbestände einer strafbaren Handlung und die Rechtsfolgen für diese Tat, Freiheitsstrafe oder Geldstrafe",
+  },
+  {
+    id: 22,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was ist das formelle Strafrecht?",
+    answer:
+      "1) Strafprozessordnung (StPO) 2) Alles an Rechtsvorschriften, welche den Ablauf des Strafverfahrens insgesamt regeln, von der Ermittlung bis zur Vollstreckung der Strafe",
+  },
+  {
+    id: 23,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Wie ist das Strafgesetzbuch (StGB) gegliedert?",
+    answer:
+      "1) Allgemeiner Teil §§ 1 - 79b StGB: enthält grundsätzliches zum Strafgesetzbuch, Geltungsbereich, Begriffsdefinitionen, Rechtfertigungsgründe 2) Besonderer Teil §§ 80 - 358 StGB: enthält Katalog der einzelnen Straftaten",
+  },
+  {
+    id: 24,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "§ 1 StGB?",
+    answer:
+      "Eine Tat kann nur bestraft werden, wenn die Strafbarkeit gesetzlich bestimmt war, bevor die Tat begangen wurde.",
+  },
+  {
+    id: 25,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was beinhaltet der dreistufige Deliktsaufbau?",
+    answer:
+      "1) Tatbestand: Tat entspricht den Tatbestandsmerkmalen des Gesetzes 2) Rechtswidrigkeit: Kein Rechtfertigungsgrund 3) Schuld: Schuldfähig, vorsätzlich/fahrlässig, Unrechtseinsicht, kein Entschuldigungsgrund",
+  },
+  {
+    id: 26,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "§12 StGB Verbrechen und Vergehen?",
+    answer:
+      "Alle Straftaten im Strafgesetzbuch sind eingeteilt in Verbrechen und Vergehen. 1) Verbrechen: mindestens 1 Jahr Freiheitsstrafe 2) Vergehen: unter 1 Jahr Freiheitsstrafe oder Geldstrafe.",
+  },
+  {
+    id: 27,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Wie wird ein Antragsdelikt definiert?",
+    answer:
+      "1) Absolute Antragsdelikte: Straftaten, die nur auf Antrag eines Antragsberechtigten (Opfer) verfolgt werden können 2) Relative Antragsdelikte: Straftaten, die grundsätzlich nur auf Antrag des Geschädigten verfolgt werden, aber falls ein öffentliches Interesse vorliegt, auch von der Staatsanwaltschaft",
+  },
+  {
+    id: 28,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Wie wird ein Offizialdelikt definiert?",
+    answer:
+      "Eine Straftat, die von Amts wegen verfolgt wird. Alle Straftaten im Strafgesetzbuch, außer jene, in denen im Strafgesetzbuch explizit erwähnt wird, dass die Tat nur auf Antrag verfolgt wird, sind Offizialdelikte.",
+  },
+  {
+    id: 29,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Wie wird ein Privatklagedelikt definiert?",
+    answer:
+      "Eine Straftat, die bei fehlendem öffentlichen Interesse vom Geschädigten selbst als Privatperson anstelle der Staatsanwaltschaft verfolgt werden kann.",
+  },
+  {
+    id: 30,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was beschreibt § 13 Begehen durch Unterlassen?",
+    answer:
+      "Regelt die unechten Unterlassungsdelikte. Grundvoraussetzung: ich kann den Tatbestand verhindern, bin in einer Garantenstellung, und wenn nicht verhindert, kann mir das vorgeworfen werden als ob ich selbst die Tat begangen hätte.",
+  },
+  {
+    id: 31,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was bedeutet die sogenannte Garantenpflicht?",
+    answer:
+      "Die rechtliche Verpflichtung einer Person (Garant), aufgrund einer besonderen Stellung dafür einzustehen, dass ein bestimmter tatbestandlicher Erfolg nicht eintritt. 1) Gesetz 2) Lebensgemeinschaft 3) Gefahrengemeinschaft 4) Pflichtenübernahme 5) Herbeiführen von Gefahren",
+  },
+  {
+    id: 32,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Definiere Vorsätzliches Handeln.",
+    answer:
+      "Vorsatz: Der Täter handelt mit Wissen und Wollen, der Täter weiß, dass er einen Tatbestand oder eine Straftat eines Gesetzes erfüllt und will den Tatbestandserfolg",
+  },
+  {
+    id: 33,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Definiere fahrlässiges Handeln.",
+    answer:
+      "Der Täter handelt nicht mit Wissen und Wollen, sondern verletzt die im Verkehr erforderliche Sorgfalt, obwohl die Pflichtverletzung für ihn vorhersehbar und der Erfolg vermeidbar war.",
+  },
+  {
+    id: 34,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "§ 19 Strafgesetzbuch (StGB)?",
+    answer:
+      "§ 19 Schuldunfähigkeit des Kindes. Schuldunfähig ist, wer bei der Begehung der Tat noch nicht vierzehn Jahre alt ist.",
+  },
+  {
+    id: 35,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "§ 20 Strafgesetzbuch (StGB)?",
+    answer:
+      "§ 20 Schuldunfähigkeit wegen seelischer Störungen. Krankhafte seelische Störung, tiefgreifende Bewusstseinsstörung, Intelligenzminderung, oder eine andere seelische Störung, die den Täter unfähig macht, das Unrecht der Tat einzusehen oder nach dieser Einsicht zu handeln.",
   },
 ];
