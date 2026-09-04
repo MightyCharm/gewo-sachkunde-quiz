@@ -33,6 +33,7 @@ const paraQuestion = document.getElementById("para-question");
 const paraQuestionID = document.getElementById("id-question");
 
 const containerAnswer = document.querySelector(".container-answer");
+const paraAnswer = document.getElementById("answer-para");
 const containerShowAnswer = document.querySelector(".container-show-answer");
 const containerCheck = document.querySelector(".container-check");
 
@@ -91,11 +92,6 @@ function resetData() {
   //console.log("resetData()");
   quizData = [];
   indexCurrentQuestion = 0;
-}
-
-function clearContainerAnswer() {
-  //console.log("clearContainerAnswer()");
-  containerAnswer.textContent = "";
 }
 
 function resetGame() {
@@ -191,7 +187,7 @@ function displayQuestion() {
 
 function displayAnswer() {
   //console.log(quizData[indexCurrentQuestion]);
-  containerAnswer.innerHTML = quizData[indexCurrentQuestion].answer;
+  paraAnswer.innerHTML = quizData[indexCurrentQuestion].answer;
 }
 
 function setIndexCurrentQuestion() {
@@ -290,7 +286,7 @@ function mainEventHandler(event) {
       toggleVisibilityGame(GAME_ANSWER_CORRECT);
       setStatsLogic(GAME_ANSWER_CORRECT);
       displayStats();
-      clearContainerAnswer();
+
       if (countQuestions >= totalQuestions) break;
       displayQuestion();
       setButtonState(GAME_ANSWER_CORRECT);
@@ -300,7 +296,6 @@ function mainEventHandler(event) {
       toggleVisibilityGame(GAME_ANSWER_WRONG);
       setStatsLogic(GAME_ANSWER_WRONG);
       displayStats();
-      clearContainerAnswer();
       if (countQuestions >= totalQuestions) break;
       displayQuestion();
       setButtonState(GAME_ANSWER_WRONG);
@@ -380,105 +375,105 @@ const data = [
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: "Was ist das Grundgesetz?",
     answer:
-      "Die Verfassung. Steht über allen anderen Gesetzen und regelt die Grundrechte der Bürger sowie die Staatsorganisation",
+      "<strong>Die Verfassung</strong>. Sie steht über allen anderen Gesetzen und regelt die Grundrechte der Bürger sowie die Staatsorganisation.",
   },
   {
     id: 3,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: 'Erkäre den Begriff "öffentliches Recht".',
     answer:
-      "Regelt die Rechtsbeziehung zwischen Staat u. Bürger im Verhältnis der Über- und Unterordnung. Beispiele: GewO, Strafrecht.",
+      "Regelt die Rechtsbeziehung zwischen Staat u. Bürger im Verhältnis der Über- und Unterordnung.<br>Beispiele: <strong>Gewerbeordnung (GewO)</strong>, <strong>Strafrecht</strong>.",
   },
   {
     id: 4,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: 'Erkläre den Begriff "Privatrecht".',
     answer:
-      "Regelt die Rechtsbeziehung zwischen Bürger u. Bürger im Verhältnis der Gleichordnung. Beispiel: BGB.",
+      "Regelt die Rechtsbeziehung zwischen Bürger u. Bürger im Verhältnis der Gleichordnung.<br>Beispiel: <strong>Bürgerliches Gesetzbuch (BGB)</strong>.",
   },
   {
     id: 5,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: "Was sind die sogenannten Grundrechte?",
     answer:
-      "Primär Abwehrrechte des Bürgers gegen den Staat, entfalten Drittwirkung auch für Bürger untereinander. Artikel 1-19 GG.",
+      "Primär Abwehrrechte des Bürgers gegen den Staat, entfalten Drittwirkung auch für Bürger untereinander. <strong>Art. 1-19 Grundgesetz (GG)</strong>.",
   },
   {
     id: 6,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: "Was sind die sogenannten Rechtsgüter?",
     answer:
-      "Konkrete Werte und Güter, die die Rechtsordnung schützt. Leben , Gesundheit, Freiheit, Ehre, Eigentum...",
+      "Konkrete Werte und Güter, die die Rechtsordnung schützt. <strong>Leben</strong>, <strong>Gesundheit</strong>, <strong>Freiheit</strong>, <strong>Ehre</strong>, <strong>Eigentum</strong>...",
   },
   {
     id: 7,
     category: "Bürgerliches Gesetzbuch",
-    question: "§227 BGB ?",
+    question: "§227 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "Notwehr. Notwehr ist diejenige Verteidigung, welche erforderlich ist, um einen gegenwärtigen rechtswidrigen Angriff von sich oder einem anderen abzuwenden.",
+      "<strong>Notwehr</strong>. Notwehr ist diejenige Verteidigung, welche <strong>erforderlich</strong> ist, um einen <strong>gegenwärtigen</strong> <strong>rechtswidrigen Angriff</strong> von sich oder einem anderen abzuwenden.",
   },
   {
     id: 8,
     category: "Bürgerliches Gesetzbuch",
-    question: "§228 BGB ?",
+    question: "§228 Bürgerliches Gesetzbuch  (BGB)?",
     answer:
-      "Verteidigungsnotstand(Defensivnotstand). Erlaubt die Beschädigung/Zerstörung einer fremden Sache, um eine von ihr ausgehenden Gefahr abzuwenden.",
+      "<strong>Verteidigungsnotstand (Defensivnotstand)</strong>. Erlaubt die Beschädigung/Zerstörung einer fremden Sache, um eine von ihr ausgehende Gefahr abzuwenden.",
   },
   {
     id: 9,
     category: "Bürgerliches Gesetzbuch",
-    question: "§904 BGB ?",
+    question: "§904 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "Angriffsnotstand. Erlaubt die Beschädigung einer Sache von der keine Gefahr ausgeht, um eine gegenwärtige Gefahr abzuwenden. Der drohende Schaden muss unverhältnismäßig größer sein als der verursachte Schaden.",
+      "<strong>Angriffsnotstand</strong>. Erlaubt die Beschädigung einer Sache von der keine Gefahr ausgeht, um eine gegenwärtige Gefahr abzuwenden. Der drohende Schaden muss unverhältnismäßig größer sein als der verursachte Schaden.",
   },
   {
     id: 10,
     category: "Bürgerliches Gesetzbuch",
-    question: "§229 BGB ?",
+    question: "§229 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "Allgemeine Selbsthilfe. Erlaubt das Festnehmen eines fluchtverdächtigen zur Sicherung zivilrechtlicher Ansprüche wenn obrigkeitliche Hilfe nicht rechtzeitig verfügbar ist und sofortiges Eingreifen notwendig ist.",
+      "<strong>Allgemeine Selbsthilfe</strong>. Erlaubt das Festnehmen eines Fluchtverdächtigen zur Sicherung zivilrechtlicher Ansprüche, wenn obrigkeitliche Hilfe nicht rechtzeitig verfügbar ist und sofortiges Eingreifen notwendig ist.",
   },
   {
     id: 11,
     category: "Bürgerliches Gesetzbuch",
-    question: "§859 BGB ?",
+    question: "§859 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "Selbsthilfe des Besitzers. Umfasst Besitzwehr (sich gegen eine verbotene Eigenmacht mit Gewalt wehren) und Besitzkehr (eine weggenommene Sache sofort mit Gewalt zurückzuholen).",
+      "<strong>Selbsthilfe des Besitzers</strong>. Umfasst <strong>Besitzwehr</strong>: sich gegen eine verbotene Eigenmacht mit Gewalt wehren<br><strong>Besitzkehr</strong>: eine weggenommene Sache sofort mit Gewalt zurückholen.",
   },
   {
     id: 12,
     category: "Bürgerliches Gesetzbuch",
-    question: "§823 BGB ?",
+    question: "§823 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "Schadensersatzpflicht. Wer vorsätzlich oder fahrlässig das Rechtsgut eines anderen widerrechtlich verletzt ist zum Ersatz des entstanden Schadens verpflichtet.",
+      "<strong>Schadensersatzpflicht</strong>. Wer vorsätzlich oder fahrlässig das Rechtsgut eines anderen widerrechtlich verletzt, ist zum Ersatz des entstandenen Schadens verpflichtet.",
   },
   {
     id: 13,
     category: "Bürgerliches Gesetzbuch",
-    question: "§253 BGB ?",
+    question: "§253 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "Immaterieller Schaden (Schmerzensgeld). Geldentschädigung nur wenn Gesetz es bestimmt, wie bei Verletzungen von Körper, Freiheit oder sexueller Selbstbestimmung.",
+      "<strong>Immaterieller Schaden (Schmerzensgeld)</strong>. Geldentschädigung nur, wenn das Gesetz es bestimmt, wie bei Verletzungen von Körper, Freiheit oder sexueller Selbstbestimmung.",
   },
   {
     id: 14,
     category: "Bürgerliches Gesetzbuch",
-    question: "§985 BGB ?",
+    question: "§985 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "Herausgabeanspruch. Der Eigentümer kann von dem Besitzer die Herausgabe der Sache verlangen.",
+      "<strong>Herausgabeanspruch</strong>. Der Eigentümer kann von dem Besitzer die Herausgabe der Sache verlangen.",
   },
   {
     id: 15,
     category: "Bürgerliches Gesetzbuch",
-    question: "§833 BGB",
+    question: "§833 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "Tierhalterhaftung. Tierhalter muss grundsätzlich für Schäden die sein Tier anrichtet haften (Gefährdungshaftung), auch dann wenn er nicht schuldhaft gehandelt hat (Ausnahme: Nutztiere).",
+      "<strong>Haftung des Tierhalters</strong>. Tierhalter muss grundsätzlich für Schäden, die sein Tier anrichtet, haften (Gefährdungshaftung), auch dann, wenn er nicht schuldhaft gehandelt hat (Ausnahme: Nutztiere).",
   },
   {
     id: 16,
     category: "Bürgerliches Gesetzbuch",
-    question: "Gliederung des BGB?",
+    question: "Wie ist das Bürgerliche Gesetzbuch (BGB) gegliedert?",
     answer:
-      "Aufgeteilt in 5 Bücher: 1) Allgemeiner Teil (enthält Grundregeln für das gesamte BGB), 2) Recht der Schuldverhältnisse, 3) Sachenrecht, 4) Familienrecht, 5) Erbrecht.",
+      "Aufgeteilt in 5 Bücher:<br>1) <strong>Allgemeiner Teil</strong> (enthält Grundregeln für das gesamte BGB)<br>2) <strong>Recht der Schuldverhältnisse</strong><br>3) <strong>Sachenrecht</strong><br>4) <strong>Familienrecht</strong><br>5) <strong>Erbrecht</strong>",
   },
   {
     id: 17,
@@ -492,46 +487,47 @@ const data = [
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was sind die fünf Funktionen des Strafrechts?",
     answer:
-      "1) Vergeltungstheorie: Ausgleich für das Unrecht der Tat 2) Generalprävention: Abschreckung der Allgemeinheit 3) Spezialprävention: Abschreckung des Täters 4) Resozialisierung: Wiedereingliederung des Täters 5) Rechtsfrieden: Aufrechterhaltung der Rechtsordnung",
+      "1) <strong>Vergeltungstheorie</strong>: Ausgleich für das Unrecht der Tat<br>2) <strong>Generalprävention</strong>: Abschreckung der Allgemeinheit<br>3) <strong>Spezialprävention</strong>: Abschreckung des Täters<br>4) <strong>Resozialisierung</strong>: Wiedereingliederung des Täters<br>5) <strong>Rechtsfrieden</strong>: Aufrechterhaltung der Rechtsordnung",
   },
   {
     id: 19,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Wie heißen die Hauptgesetzwerke des Strafrechts?",
-    answer: "Strafgesetzbuch (StGB), Strafprozessordnung (StPO)",
+    answer:
+      "1)<strong>Strafgesetzbuch</strong> (StGB)<br>2) <strong>Strafprozessordnung</strong> (StPO)",
   },
   {
     id: 20,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was beinhaltet das Nebenstrafrecht?",
     answer:
-      "Hier sind weitere strafbare Handlungen und die jeweiligen Rechtsfolgen geregelt. 1) Gewerbeordnung (GewO) 2) Bundesdatenschutzgesetz (BDSG) 3) Betäubungsmittelgesetz (BtMG) 4) Waffengesetz (WaffG)",
+      "Hier sind weitere strafbare Handlungen und die jeweiligen Rechtsfolgen geregelt.<br>1) <strong>Gewerbeordnung</strong> (GewO)<br>2) <strong>Bundesdatenschutzgesetz</strong> (BDSG)<br>3) <strong>Betäubungsmittelgesetz</strong> (BtMG)<br>4) <strong>Waffengesetz</strong> (WaffG)",
   },
   {
     id: 21,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was ist das materielle Strafrecht?",
     answer:
-      "1) Es umfasst das Strafgesetzbuch (StGB) und alle nebenstrafrechtlichen Vorschriften 2) Es regelt die Tatbestände einer strafbaren Handlung und die Rechtsfolgen für diese Tat, Freiheitsstrafe oder Geldstrafe",
+      "1) Es umfasst das <strong>Strafgesetzbuch</strong> (StGB) und alle <strong>nebenstrafrechtlichen Vorschriften</strong><br>2) Es regelt die Tatbestände einer strafbaren Handlung und die Rechtsfolgen für diese Tat, Freiheitsstrafe oder Geldstrafe",
   },
   {
     id: 22,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was ist das formelle Strafrecht?",
     answer:
-      "1) Strafprozessordnung (StPO) 2) Alles an Rechtsvorschriften, welche den Ablauf des Strafverfahrens insgesamt regeln, von der Ermittlung bis zur Vollstreckung der Strafe",
+      "1) <strong>Strafprozessordnung</strong> (StPO)<br>2) Alles an Rechtsvorschriften, welche den Ablauf des Strafverfahrens insgesamt regeln, von der Ermittlung bis zur Vollstreckung der Strafe",
   },
   {
     id: 23,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Wie ist das Strafgesetzbuch (StGB) gegliedert?",
     answer:
-      "1) Allgemeiner Teil §§ 1 - 79b StGB: enthält grundsätzliches zum Strafgesetzbuch, Geltungsbereich, Begriffsdefinitionen, Rechtfertigungsgründe 2) Besonderer Teil §§ 80 - 358 StGB: enthält Katalog der einzelnen Straftaten",
+      "1) <strong>Allgemeiner Teil</strong> §§ 1 - 79b StGB: enthält grundsätzliches zum Strafgesetzbuch, Geltungsbereich, Begriffsdefinitionen, Rechtfertigungsgründe<br>2) <strong>Besonderer Teil</strong> §§ 80 - 358 StGB: enthält Katalog der einzelnen Straftaten",
   },
   {
     id: 24,
     category: "Strafrecht und Strafverfahrensrecht",
-    question: "§ 1 StGB?",
+    question: "§ 1 Strafgesetzbuch (StGB)?",
     answer:
       "Eine Tat kann nur bestraft werden, wenn die Strafbarkeit gesetzlich bestimmt war, bevor die Tat begangen wurde.",
   },
@@ -540,21 +536,21 @@ const data = [
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was beinhaltet der dreistufige Deliktsaufbau?",
     answer:
-      "1) Tatbestand: Tat entspricht den Tatbestandsmerkmalen des Gesetzes 2) Rechtswidrigkeit: Kein Rechtfertigungsgrund 3) Schuld: Schuldfähig, vorsätzlich/fahrlässig, Unrechtseinsicht, kein Entschuldigungsgrund",
+      "1) <strong>Tatbestand</strong>: Tat entspricht den Tatbestandsmerkmalen des Gesetzes<br>2) <strong>Rechtswidrigkeit</strong>: Kein Rechtfertigungsgrund<br>3) <strong>Schuld</strong>: Schuldfähig, vorsätzlich/fahrlässig, Unrechtseinsicht, kein Entschuldigungsgrund",
   },
   {
     id: 26,
     category: "Strafrecht und Strafverfahrensrecht",
-    question: "§12 StGB Verbrechen und Vergehen?",
+    question: "§12 Strafgesetzbuch (StGB) Verbrechen und Vergehen?",
     answer:
-      "Alle Straftaten im Strafgesetzbuch sind eingeteilt in Verbrechen und Vergehen. 1) Verbrechen: mindestens 1 Jahr Freiheitsstrafe 2) Vergehen: unter 1 Jahr Freiheitsstrafe oder Geldstrafe.",
+      "Alle Straftaten im Strafgesetzbuch sind eingeteilt in Verbrechen und Vergehen.<br>1) <strong>Verbrechen</strong>: mindestens 1 Jahr Freiheitsstrafe<br>2) <strong>Vergehen</strong>: unter 1 Jahr Freiheitsstrafe oder Geldstrafe.",
   },
   {
     id: 27,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Wie wird ein Antragsdelikt definiert?",
     answer:
-      "1) Absolute Antragsdelikte: Straftaten, die nur auf Antrag eines Antragsberechtigten (Opfer) verfolgt werden können 2) Relative Antragsdelikte: Straftaten, die grundsätzlich nur auf Antrag des Geschädigten verfolgt werden, aber falls ein öffentliches Interesse vorliegt, auch von der Staatsanwaltschaft",
+      "1) <strong>Absolute Antragsdelikte</strong>: Straftaten, die nur auf Antrag eines Antragsberechtigten (Opfer) verfolgt werden können<br>2) <strong>Relative Antragsdelikte</strong>: Straftaten, die grundsätzlich nur auf Antrag des Geschädigten verfolgt werden, aber falls ein öffentliches Interesse vorliegt, auch von der Staatsanwaltschaft",
   },
   {
     id: 28,
@@ -573,23 +569,24 @@ const data = [
   {
     id: 30,
     category: "Strafrecht und Strafverfahrensrecht",
-    question: "Was beschreibt § 13 Begehen durch Unterlassen?",
+    question:
+      "Was beschreibt § 13 Strafgesetzbuch (StGB) Begehen durch Unterlassen?",
     answer:
-      "Regelt die unechten Unterlassungsdelikte. Grundvoraussetzung: ich kann den Tatbestand verhindern, bin in einer Garantenstellung, und wenn nicht verhindert, kann mir das vorgeworfen werden als ob ich selbst die Tat begangen hätte.",
+      "Regelt die unechten Unterlassungsdelikte.<br>Grundvoraussetzung: ich kann den Tatbestand verhindern, bin in einer Garantenstellung, und wenn nicht verhindert, kann mir das vorgeworfen werden als ob ich selbst die Tat begangen hätte.",
   },
   {
     id: 31,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was bedeutet die sogenannte Garantenpflicht?",
     answer:
-      "Die rechtliche Verpflichtung einer Person (Garant), aufgrund einer besonderen Stellung dafür einzustehen, dass ein bestimmter tatbestandlicher Erfolg nicht eintritt. 1) Gesetz 2) Lebensgemeinschaft 3) Gefahrengemeinschaft 4) Pflichtenübernahme 5) Herbeiführen von Gefahren",
+      "Die rechtliche Verpflichtung einer Person (Garant), aufgrund einer besonderen Stellung dafür einzustehen, dass ein bestimmter tatbestandlicher Erfolg nicht eintritt.<br>1) <strong>Gesetz</strong><br>2) <strong>Lebensgemeinschaft</strong><br>3) <strong>Gefahrengemeinschaft</strong><br>4) <strong>Pflichtenübernahme</strong><br>5) <strong>Herbeiführen von Gefahren</strong>",
   },
   {
     id: 32,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Definiere Vorsätzliches Handeln.",
     answer:
-      "Vorsatz: Der Täter handelt mit Wissen und Wollen, der Täter weiß, dass er einen Tatbestand oder eine Straftat eines Gesetzes erfüllt und will den Tatbestandserfolg",
+      "Der Täter handelt mit Wissen und Wollen, der Täter weiß, dass er einen Tatbestand oder eine Straftat eines Gesetzes erfüllt und will den Tatbestandserfolg",
   },
   {
     id: 33,
@@ -603,13 +600,13 @@ const data = [
     category: "Strafrecht und Strafverfahrensrecht",
     question: "§ 19 Strafgesetzbuch (StGB)?",
     answer:
-      "§ 19 Schuldunfähigkeit des Kindes. Schuldunfähig ist, wer bei der Begehung der Tat noch nicht vierzehn Jahre alt ist.",
+      "<strong>Schuldunfähigkeit des Kindes</strong>. Schuldunfähig ist, wer bei der Begehung der Tat noch nicht vierzehn Jahre alt ist.",
   },
   {
     id: 35,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "§ 20 Strafgesetzbuch (StGB)?",
     answer:
-      "§ 20 Schuldunfähigkeit wegen seelischer Störungen. Krankhafte seelische Störung, tiefgreifende Bewusstseinsstörung, Intelligenzminderung, oder eine andere seelische Störung, die den Täter unfähig macht, das Unrecht der Tat einzusehen oder nach dieser Einsicht zu handeln.",
+      "<strong>Schuldunfähigkeit wegen seelischer Störungen</strong>. Krankhafte seelische Störung, tiefgreifende Bewusstseinsstörung, Intelligenzminderung, oder eine andere seelische Störung, die den Täter unfähig macht, das Unrecht der Tat einzusehen oder nach dieser Einsicht zu handeln.",
   },
 ];
