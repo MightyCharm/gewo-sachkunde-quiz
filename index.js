@@ -22,7 +22,7 @@ const spanEndScreenTotalMax = document.getElementById(
 const spanEndScreenCorrect = document.getElementById("end-screen-stat-correct");
 const spanEndScreenWrong = document.getElementById("end-screen-stat-wrong");
 
-const containerGameControl = document.querySelector(".container-game-control");
+const containerMenuControl = document.querySelector(".container-menu-control");
 const containerStats = document.querySelector(".container-stats");
 
 const containerQuestion = document.querySelector(".container-question");
@@ -34,8 +34,7 @@ const paraQuestionID = document.getElementById("id-question");
 
 const containerAnswer = document.querySelector(".container-answer");
 const paraAnswer = document.getElementById("answer-para");
-const containerShowAnswer = document.querySelector(".container-show-answer");
-const containerCheck = document.querySelector(".container-check");
+const containerGameControl = document.querySelector(".container-game-control");
 
 const spanTotalCurrent = document.getElementById("stat-total-current");
 const spanTotalMax = document.getElementById("stat-total-max");
@@ -69,7 +68,8 @@ function initialize() {
 
 function createQuizData() {
   //console.log("createQuizData()");
-  quizData = [...data]; // change this line for small/big dataset
+  //quizData = [...data]; // change this line for small/big dataset
+  quizData = [...testData]; // change this line for small/big dataset
   totalQuestions = quizData.length;
 
   for (let i = quizData.length - 1; i >= 0; i--) {
@@ -98,47 +98,6 @@ function resetGame() {
   //console.log("resetGame()");
   resetGameStats();
   resetData();
-}
-
-function setButtonState(state) {
-  console.log("setButtonState(state):", state, "<----------------------");
-  btnStart.disabled = true;
-  btnQuit.disabled = true;
-  btnShowAnswer.disabled = true;
-  btnCorrect.disabled = true;
-  btnWrong.disabled = true;
-  btnResult.disabled = true;
-  btnMenu.disabled = true;
-  switch (state) {
-    case GAME_MAIN_MENU:
-      btnStart.disabled = false;
-      break;
-    case GAME_START:
-      btnQuit.disabled = false;
-      btnShowAnswer.disabled = false;
-      break;
-    case GAME_QUIT:
-      btnStart.disabled = false;
-      break;
-    case GAME_SHOW_ANSWER:
-      btnQuit.disabled = false;
-      btnCorrect.disabled = false;
-      btnWrong.disabled = false;
-      break;
-    case GAME_ANSWER_CORRECT:
-    case GAME_ANSWER_WRONG:
-      btnQuit.disabled = false;
-      btnShowAnswer.disabled = false;
-      break;
-    case GAME_OVER:
-      btnResult.disabled = false;
-      break;
-    case GAME_RESULT:
-      btnMenu.disabled = false;
-      break;
-    default:
-      console.log("Something went wrong. setButtonState()");
-  }
 }
 
 function setStatsLogic(value) {
@@ -198,57 +157,101 @@ function setIndexCurrentQuestion() {
 }
 
 function toggleVisibilityGame(state) {
-  //console.log("toggleVisibilityGame(state):", state);
+  console.log("toggleVisibilityGame(state):", state);
   switch (state) {
     case GAME_MAIN_MENU:
     case GAME_QUIT:
       containerStartScreen.classList.remove("hidden");
-      containerGameControl.classList.add("hidden");
+      containerMenuControl.classList.add("hidden");
       containerEndScreen.classList.add("hidden");
       containerStats.classList.add("hidden");
       containerQuestion.classList.add("hidden");
       containerAnswer.classList.add("hidden");
-      containerShowAnswer.classList.add("hidden");
-      containerCheck.classList.add("hidden");
+      containerGameControl.classList.add("hidden");
       break;
     case GAME_START:
       containerStartScreen.classList.add("hidden");
-      containerGameControl.classList.remove("hidden");
+      containerMenuControl.classList.remove("hidden");
       containerStats.classList.remove("hidden");
       containerQuestion.classList.remove("hidden");
-      containerShowAnswer.classList.remove("hidden");
+      containerAnswer.classList.add("hidden");
+      containerGameControl.classList.remove("hidden");
+      btnShowAnswer.classList.remove("removed");
+      btnCorrect.classList.add("removed");
+      btnWrong.classList.add("removed");
       break;
     case GAME_SHOW_ANSWER:
       containerAnswer.classList.remove("hidden");
-      containerShowAnswer.classList.add("hidden");
-      containerCheck.classList.remove("hidden");
+      btnShowAnswer.classList.add("removed");
+      btnCorrect.classList.remove("removed");
+      btnWrong.classList.remove("removed");
       break;
     case GAME_ANSWER_CORRECT:
     case GAME_ANSWER_WRONG:
       containerAnswer.classList.add("hidden"); //
-      containerShowAnswer.classList.remove("hidden");
-      containerCheck.classList.add("hidden");
+      btnShowAnswer.classList.remove("removed");
+      btnCorrect.classList.add("removed");
+      btnWrong.classList.add("removed");
       break;
     case GAME_OVER:
-      containerGameControl.classList.add("hidden");
+      containerMenuControl.classList.add("hidden");
       containerQuestion.classList.add("hidden");
       containerAnswer.classList.add("hidden");
-      containerShowAnswer.classList.add("hidden");
-      containerCheck.classList.remove("hidden"); // show container again
+      containerGameControl.classList.remove("hidden"); // show container again
+      btnShowAnswer.classList.add("removed");
       btnCorrect.classList.add("removed");
       btnWrong.classList.add("removed");
       btnResult.classList.remove("removed");
       break;
     case GAME_RESULT:
       containerStats.classList.add("hidden");
-      containerCheck.classList.add("hidden");
-      btnCorrect.classList.remove("removed");
-      btnWrong.classList.remove("removed");
+      containerGameControl.classList.add("hidden");
       btnResult.classList.add("removed");
       containerEndScreen.classList.remove("hidden");
       break;
     default:
       console.log("should not see me 1.");
+  }
+}
+
+function setButtonState(state) {
+  console.log("setButtonState(state):", state, "<----------------------");
+  btnStart.disabled = true;
+  btnQuit.disabled = true;
+  btnShowAnswer.disabled = true;
+  btnCorrect.disabled = true;
+  btnWrong.disabled = true;
+  btnResult.disabled = true;
+  btnMenu.disabled = true;
+  switch (state) {
+    case GAME_MAIN_MENU:
+      btnStart.disabled = false;
+      break;
+    case GAME_START:
+      btnQuit.disabled = false;
+      btnShowAnswer.disabled = false;
+      break;
+    case GAME_QUIT:
+      btnStart.disabled = false;
+      break;
+    case GAME_SHOW_ANSWER:
+      btnQuit.disabled = false;
+      btnCorrect.disabled = false;
+      btnWrong.disabled = false;
+      break;
+    case GAME_ANSWER_CORRECT:
+    case GAME_ANSWER_WRONG:
+      btnQuit.disabled = false;
+      btnShowAnswer.disabled = false;
+      break;
+    case GAME_OVER:
+      btnResult.disabled = false;
+      break;
+    case GAME_RESULT:
+      btnMenu.disabled = false;
+      break;
+    default:
+      console.log("Something went wrong. setButtonState()");
   }
 }
 
