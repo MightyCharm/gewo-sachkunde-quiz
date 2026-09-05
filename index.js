@@ -22,7 +22,10 @@ const spanEndScreenTotalMax = document.getElementById(
 const spanEndScreenCorrect = document.getElementById("end-screen-stat-correct");
 const spanEndScreenWrong = document.getElementById("end-screen-stat-wrong");
 
+const containerGame = document.getElementById("container-game");
+
 const containerMenuControl = document.querySelector(".container-menu-control");
+
 const containerStats = document.querySelector(".container-stats");
 
 const containerQuestion = document.querySelector(".container-question");
@@ -34,6 +37,7 @@ const paraQuestionID = document.getElementById("id-question");
 
 const containerAnswer = document.querySelector(".container-answer");
 const paraAnswer = document.getElementById("answer-para");
+
 const containerGameControl = document.querySelector(".container-game-control");
 
 const spanTotalCurrent = document.getElementById("stat-total-current");
@@ -158,55 +162,57 @@ function setIndexCurrentQuestion() {
 
 function toggleVisibilityGame(state) {
   console.log("toggleVisibilityGame(state):", state);
+  containerStartScreen.classList.add("hidden");
+  containerEndScreen.classList.add("hidden");
+  containerGame.classList.add("hidden");
+  containerMenuControl.classList.add("hidden");
+  containerStats.classList.add("hidden");
+  containerQuestion.classList.add("hidden");
+  containerAnswer.classList.add("hidden");
+  containerGameControl.classList.add("hidden");
+  btnShowAnswer.classList.add("removed");
+  btnCorrect.classList.add("removed");
+  btnWrong.classList.add("removed");
+  btnResult.classList.add("removed");
   switch (state) {
     case GAME_MAIN_MENU:
     case GAME_QUIT:
       containerStartScreen.classList.remove("hidden");
-      containerMenuControl.classList.add("hidden");
-      containerEndScreen.classList.add("hidden");
-      containerStats.classList.add("hidden");
-      containerQuestion.classList.add("hidden");
-      containerAnswer.classList.add("hidden");
-      containerGameControl.classList.add("hidden");
       break;
     case GAME_START:
-      containerStartScreen.classList.add("hidden");
+      containerGame.classList.remove("hidden");
       containerMenuControl.classList.remove("hidden");
       containerStats.classList.remove("hidden");
       containerQuestion.classList.remove("hidden");
-      containerAnswer.classList.add("hidden");
       containerGameControl.classList.remove("hidden");
       btnShowAnswer.classList.remove("removed");
-      btnCorrect.classList.add("removed");
-      btnWrong.classList.add("removed");
       break;
     case GAME_SHOW_ANSWER:
+      containerGame.classList.remove("hidden");
+      containerMenuControl.classList.remove("hidden");
+      containerStats.classList.remove("hidden");
+      containerQuestion.classList.remove("hidden");
       containerAnswer.classList.remove("hidden");
-      btnShowAnswer.classList.add("removed");
+      containerGameControl.classList.remove("hidden");
       btnCorrect.classList.remove("removed");
       btnWrong.classList.remove("removed");
       break;
     case GAME_ANSWER_CORRECT:
     case GAME_ANSWER_WRONG:
-      containerAnswer.classList.add("hidden"); //
+      containerGame.classList.remove("hidden");
+      containerMenuControl.classList.remove("hidden");
+      containerStats.classList.remove("hidden");
+      containerQuestion.classList.remove("hidden");
+      containerGameControl.classList.remove("hidden");
       btnShowAnswer.classList.remove("removed");
-      btnCorrect.classList.add("removed");
-      btnWrong.classList.add("removed");
       break;
     case GAME_OVER:
-      containerMenuControl.classList.add("hidden");
-      containerQuestion.classList.add("hidden");
-      containerAnswer.classList.add("hidden");
-      containerGameControl.classList.remove("hidden"); // show container again
-      btnShowAnswer.classList.add("removed");
-      btnCorrect.classList.add("removed");
-      btnWrong.classList.add("removed");
+      containerGame.classList.remove("hidden");
+      containerStats.classList.remove("hidden");
+      containerGameControl.classList.remove("hidden");
       btnResult.classList.remove("removed");
       break;
     case GAME_RESULT:
-      containerStats.classList.add("hidden");
-      containerGameControl.classList.add("hidden");
-      btnResult.classList.add("removed");
       containerEndScreen.classList.remove("hidden");
       break;
     default:
@@ -215,7 +221,7 @@ function toggleVisibilityGame(state) {
 }
 
 function setButtonState(state) {
-  console.log("setButtonState(state):", state, "<----------------------");
+  console.log("setButtonState(state):", state);
   btnStart.disabled = true;
   btnQuit.disabled = true;
   btnShowAnswer.disabled = true;
@@ -259,7 +265,7 @@ function mainEventHandler(event) {
   console.log("mainEventHandler()");
   const button = event.target.closest("button");
   if (!button) return;
-  console.log(button);
+  //console.log(button);
   const btnId = button.id;
   //console.log(btnId);
   switch (btnId) {

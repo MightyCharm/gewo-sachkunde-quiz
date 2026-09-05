@@ -8,7 +8,9 @@
 :root {
   --col-header: white;
   --bg-header: hsl(207, 44%, 40%);
-  --bg-game-container: rgb(230, 229, 229);
+  --bg-start-screen: hsl(0, 2%, 90%);
+  --bg-end-screen: hsl(0, 2%, 90%);
+  --bg-game-container: hsl(0, 2%, 90%);
 
   --col-footer: white;
   --bg-footer: hsl(207, 44%, 40%);
@@ -105,6 +107,7 @@ main {
   font-size: 1.1rem;
 
   z-index: 10;
+  background-color: var(--bg-start-screen);
 }
 
 .container-start-screen-introduction {
@@ -154,6 +157,7 @@ main {
   height: 100%;
   width: 100%;
   z-index: 10;
+  background-color: var(--bg-end-screen);
 }
 
 .container-end-screen-stats {
