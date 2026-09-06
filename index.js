@@ -72,8 +72,8 @@ function initialize() {
 
 function createQuizData() {
   //console.log("createQuizData()");
-  //quizData = [...data]; // change this line for small/big dataset
-  quizData = [...testData]; // change this line for small/big dataset
+  quizData = [...data]; // change this line for small/big dataset
+  //quizData = [...testData]; // change this line for small/big dataset
   totalQuestions = quizData.length;
 
   for (let i = quizData.length - 1; i >= 0; i--) {
