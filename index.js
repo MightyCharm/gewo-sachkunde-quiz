@@ -552,7 +552,7 @@ const data = [
     category: "Strafrecht und Strafverfahrensrecht",
     question: "§12 Strafgesetzbuch (StGB) Verbrechen und Vergehen?",
     answer:
-      "Alle Straftaten im Strafgesetzbuch sind eingeteilt in Verbrechen und Vergehen.<br>1) <strong>Verbrechen</strong>: mindestens 1 Jahr Freiheitsstrafe<br>2) <strong>Vergehen</strong>: unter 1 Jahr Freiheitsstrafe oder Geldstrafe.",
+      "Alle Straftaten im Strafgesetzbuch sind eingeteilt in Verbrechen und Vergehen.<br>1) <strong>Verbrechen</strong>: mindestens 1 Jahr Freiheitsstrafe<br>2) <strong>Vergehen</strong>: unter 1 Jahr Freiheitsstrafe oder Geldstrafe",
   },
   {
     id: 27,
@@ -595,7 +595,7 @@ const data = [
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Definiere Vorsätzliches Handeln.",
     answer:
-      "Der Täter handelt mit Wissen und Wollen, der Täter weiß, dass er einen Tatbestand oder eine Straftat eines Gesetzes erfüllt und will den Tatbestandserfolg",
+      "Der Täter handelt mit Wissen und Wollen, der Täter weiß, dass er einen Tatbestand oder eine Straftat eines Gesetzes erfüllt und will den Tatbestandserfolg.",
   },
   {
     id: 33,
@@ -619,3 +619,6 @@ const data = [
       "<strong>Schuldunfähigkeit wegen seelischer Störungen</strong>. Krankhafte seelische Störung, tiefgreifende Bewusstseinsstörung, Intelligenzminderung, oder eine andere seelische Störung, die den Täter unfähig macht, das Unrecht der Tat einzusehen oder nach dieser Einsicht zu handeln.",
   },
 ];
+
+// improve start screen layout and prevent overflow
+// improve question container to minimize jumping
