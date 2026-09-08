@@ -83,6 +83,9 @@ function createQuizData() {
     quizData[randomIndex] = currentValue;
     quizData[i] = randomValue;
   }
+  for (const obj of quizData) {
+    console.log(obj.id);
+  }
 }
 
 function resetGameStats() {
@@ -424,159 +427,91 @@ const data = [
   {
     id: 8,
     category: "Bürgerliches Gesetzbuch",
-    question: "§228 Bürgerliches Gesetzbuch  (BGB)?",
+    question: "§228 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "<strong>Verteidigungsnotstand (Defensivnotstand)</strong>. Erlaubt die Beschädigung/Zerstörung einer fremden Sache, um eine von ihr ausgehende Gefahr abzuwenden.",
+      "<strong>Defensivnotstand</strong>. Erlaubt die Beschädigung/Zerstörung einer fremden Sache, um eine von ihr ausgehende Gefahr abzuwenden.",
   },
+
   {
     id: 9,
-    category: "Bürgerliches Gesetzbuch",
-    question: "§904 Bürgerliches Gesetzbuch (BGB)?",
-    answer:
-      "<strong>Angriffsnotstand</strong>. Erlaubt die Beschädigung einer Sache von der keine Gefahr ausgeht, um eine gegenwärtige Gefahr abzuwenden. Der drohende Schaden muss unverhältnismäßig größer sein als der verursachte Schaden.",
-  },
-  {
-    id: 10,
     category: "Bürgerliches Gesetzbuch",
     question: "§229 Bürgerliches Gesetzbuch (BGB)?",
     answer:
       "<strong>Allgemeine Selbsthilfe</strong>. Erlaubt das Festnehmen eines Fluchtverdächtigen zur Sicherung zivilrechtlicher Ansprüche, wenn obrigkeitliche Hilfe nicht rechtzeitig verfügbar ist und sofortiges Eingreifen notwendig ist.",
   },
   {
-    id: 11,
-    category: "Bürgerliches Gesetzbuch",
-    question: "§859 Bürgerliches Gesetzbuch (BGB)?",
-    answer:
-      "<strong>Selbsthilfe des Besitzers</strong>. Umfasst <strong>Besitzwehr</strong>: sich gegen eine verbotene Eigenmacht mit Gewalt wehren<br><strong>Besitzkehr</strong>: eine weggenommene Sache sofort mit Gewalt zurückholen.",
-  },
-  {
-    id: 12,
-    category: "Bürgerliches Gesetzbuch",
-    question: "§823 Bürgerliches Gesetzbuch (BGB)?",
-    answer:
-      "<strong>Schadensersatzpflicht</strong>. Wer vorsätzlich oder fahrlässig das Rechtsgut eines anderen widerrechtlich verletzt, ist zum Ersatz des entstandenen Schadens verpflichtet.",
-  },
-  {
-    id: 13,
+    id: 10,
     category: "Bürgerliches Gesetzbuch",
     question: "§253 Bürgerliches Gesetzbuch (BGB)?",
     answer:
       "<strong>Immaterieller Schaden (Schmerzensgeld)</strong>. Geldentschädigung nur, wenn das Gesetz es bestimmt, wie bei Verletzungen von Körper, Freiheit oder sexueller Selbstbestimmung.",
   },
   {
-    id: 14,
+    id: 11,
     category: "Bürgerliches Gesetzbuch",
-    question: "§985 Bürgerliches Gesetzbuch (BGB)?",
+    question: "§823 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "<strong>Herausgabeanspruch</strong>. Der Eigentümer kann von dem Besitzer die Herausgabe der Sache verlangen.",
+      "<strong>Schadensersatzpflicht</strong>. Wer vorsätzlich oder fahrlässig das Rechtsgut eines anderen widerrechtlich verletzt, ist zum Ersatz des entstandenen Schadens verpflichtet.",
   },
   {
-    id: 15,
+    id: 12,
     category: "Bürgerliches Gesetzbuch",
     question: "§833 Bürgerliches Gesetzbuch (BGB)?",
     answer:
       "<strong>Haftung des Tierhalters</strong>. Tierhalter muss grundsätzlich für Schäden, die sein Tier anrichtet, haften (Gefährdungshaftung), auch dann, wenn er nicht schuldhaft gehandelt hat (Ausnahme: Nutztiere).",
   },
   {
+    id: 13,
+    category: "Bürgerliches Gesetzbuch",
+    question: "§859 Bürgerliches Gesetzbuch (BGB)?",
+    answer:
+      "<strong>Selbsthilfe des Besitzers</strong>. Umfasst <strong>Besitzwehr</strong>: sich gegen eine verbotene Eigenmacht mit Gewalt wehren<br><strong>Besitzkehr</strong>: eine weggenommene Sache sofort mit Gewalt zurückholen.",
+  },
+  {
+    id: 14,
+    category: "Bürgerliches Gesetzbuch",
+    question: "§860 Bürgerliches Gesetzbuch (BGB)?",
+    answer:
+      "<strong>Selbsthilfe des Besitzdieners</strong>. Derjenige, welcher die tatsächliche Gewalt für den Besitzer ausübt, hat dieselben Rechte wie der Besitzer nach §859 BGB. Umfasst <strong>Besitzwehr</strong>: sich gegen eine verbotene Eigenmacht mit Gewalt wehren<br><strong>Besitzkehr</strong>: eine weggenommene Sache sofort mit Gewalt zurückholen.",
+  },
+  {
+    id: 15,
+    category: "Bürgerliches Gesetzbuch",
+    question: "§904 Bürgerliches Gesetzbuch (BGB)?",
+    answer:
+      "<strong>Angriffsnotstand</strong>. Erlaubt die Beschädigung einer Sache, von der keine Gefahr ausgeht, um eine gegenwärtige Gefahr abzuwenden. Der drohende Schaden muss unverhältnismäßig größer sein als der verursachte Schaden.",
+  },
+
+  {
     id: 16,
+    category: "Bürgerliches Gesetzbuch",
+    question: "§985 Bürgerliches Gesetzbuch (BGB)?",
+    answer:
+      "<strong>Herausgabeanspruch</strong>. Der Eigentümer kann von dem Besitzer die Herausgabe der Sache verlangen.",
+  },
+  {
+    id: 17,
     category: "Bürgerliches Gesetzbuch",
     question: "Wie ist das Bürgerliche Gesetzbuch (BGB) gegliedert?",
     answer:
       "Aufgeteilt in 5 Bücher:<br>1) <strong>Allgemeiner Teil</strong> (enthält Grundregeln für das gesamte BGB)<br>2) <strong>Recht der Schuldverhältnisse</strong><br>3) <strong>Sachenrecht</strong><br>4) <strong>Familienrecht</strong><br>5) <strong>Erbrecht</strong>",
   },
   {
-    id: 17,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Was ist die Aufgabe des Strafrechts?",
-    answer:
-      "Als Teil des öffentlichen Rechts hat es die Aufgabe, schutzbedürftige Rechtsgüter des Einzelnen sowie der Allgemeinheit vor Bedrohung und Verletzung zu schützen.",
-  },
-  {
     id: 18,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Was sind die fünf Funktionen des Strafrechts?",
-    answer:
-      "1) <strong>Vergeltungstheorie</strong>: Ausgleich für das Unrecht der Tat<br>2) <strong>Generalprävention</strong>: Abschreckung der Allgemeinheit<br>3) <strong>Spezialprävention</strong>: Abschreckung des Täters<br>4) <strong>Resozialisierung</strong>: Wiedereingliederung des Täters<br>5) <strong>Rechtsfrieden</strong>: Aufrechterhaltung der Rechtsordnung",
-  },
-  {
-    id: 19,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Wie heißen die Hauptgesetzwerke des Strafrechts?",
-    answer:
-      "1)<strong>Strafgesetzbuch</strong> (StGB)<br>2) <strong>Strafprozessordnung</strong> (StPO)",
-  },
-  {
-    id: 20,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Was beinhaltet das Nebenstrafrecht?",
-    answer:
-      "Hier sind weitere strafbare Handlungen und die jeweiligen Rechtsfolgen geregelt.<br>1) <strong>Gewerbeordnung</strong> (GewO)<br>2) <strong>Bundesdatenschutzgesetz</strong> (BDSG)<br>3) <strong>Betäubungsmittelgesetz</strong> (BtMG)<br>4) <strong>Waffengesetz</strong> (WaffG)",
-  },
-  {
-    id: 21,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Was ist das materielle Strafrecht?",
-    answer:
-      "1) Es umfasst das <strong>Strafgesetzbuch</strong> (StGB) und alle <strong>nebenstrafrechtlichen Vorschriften</strong><br>2) Es regelt die Tatbestände einer strafbaren Handlung und die Rechtsfolgen für diese Tat, Freiheitsstrafe oder Geldstrafe",
-  },
-  {
-    id: 22,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Was ist das formelle Strafrecht?",
-    answer:
-      "1) <strong>Strafprozessordnung</strong> (StPO)<br>2) Alles an Rechtsvorschriften, welche den Ablauf des Strafverfahrens insgesamt regeln, von der Ermittlung bis zur Vollstreckung der Strafe",
-  },
-  {
-    id: 23,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Wie ist das Strafgesetzbuch (StGB) gegliedert?",
-    answer:
-      "1) <strong>Allgemeiner Teil</strong> §§ 1 - 79b StGB: enthält grundsätzliches zum Strafgesetzbuch, Geltungsbereich, Begriffsdefinitionen, Rechtfertigungsgründe<br>2) <strong>Besonderer Teil</strong> §§ 80 - 358 StGB: enthält Katalog der einzelnen Straftaten",
-  },
-  {
-    id: 24,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "§ 1 Strafgesetzbuch (StGB)?",
     answer:
       "Eine Tat kann nur bestraft werden, wenn die Strafbarkeit gesetzlich bestimmt war, bevor die Tat begangen wurde.",
   },
   {
-    id: 25,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Was beinhaltet der dreistufige Deliktsaufbau?",
-    answer:
-      "1) <strong>Tatbestand</strong>: Tat entspricht den Tatbestandsmerkmalen des Gesetzes<br>2) <strong>Rechtswidrigkeit</strong>: Kein Rechtfertigungsgrund<br>3) <strong>Schuld</strong>: Schuldfähig, vorsätzlich/fahrlässig, Unrechtseinsicht, kein Entschuldigungsgrund",
-  },
-  {
-    id: 26,
+    id: 19,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "§12 Strafgesetzbuch (StGB) Verbrechen und Vergehen?",
     answer:
       "Alle Straftaten im Strafgesetzbuch sind eingeteilt in Verbrechen und Vergehen.<br>1) <strong>Verbrechen</strong>: mindestens 1 Jahr Freiheitsstrafe<br>2) <strong>Vergehen</strong>: unter 1 Jahr Freiheitsstrafe oder Geldstrafe",
   },
   {
-    id: 27,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Wie wird ein Antragsdelikt definiert?",
-    answer:
-      "1) <strong>Absolute Antragsdelikte</strong>: Straftaten, die nur auf Antrag eines Antragsberechtigten (Opfer) verfolgt werden können<br>2) <strong>Relative Antragsdelikte</strong>: Straftaten, die grundsätzlich nur auf Antrag des Geschädigten verfolgt werden, aber falls ein öffentliches Interesse vorliegt, auch von der Staatsanwaltschaft",
-  },
-  {
-    id: 28,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Wie wird ein Offizialdelikt definiert?",
-    answer:
-      "Eine Straftat, die von Amts wegen verfolgt wird. Alle Straftaten im Strafgesetzbuch, außer jene, in denen im Strafgesetzbuch explizit erwähnt wird, dass die Tat nur auf Antrag verfolgt wird, sind Offizialdelikte.",
-  },
-  {
-    id: 29,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Wie wird ein Privatklagedelikt definiert?",
-    answer:
-      "Eine Straftat, die bei fehlendem öffentlichen Interesse vom Geschädigten selbst als Privatperson anstelle der Staatsanwaltschaft verfolgt werden kann.",
-  },
-  {
-    id: 30,
+    id: 20,
     category: "Strafrecht und Strafverfahrensrecht",
     question:
       "Was beschreibt § 13 Strafgesetzbuch (StGB) Begehen durch Unterlassen?",
@@ -584,41 +519,136 @@ const data = [
       "Regelt die unechten Unterlassungsdelikte.<br>Grundvoraussetzung: ich kann den Tatbestand verhindern, bin in einer Garantenstellung, und wenn nicht verhindert, kann mir das vorgeworfen werden als ob ich selbst die Tat begangen hätte.",
   },
   {
-    id: 31,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Was bedeutet die sogenannte Garantenpflicht?",
-    answer:
-      "Die rechtliche Verpflichtung einer Person (Garant), aufgrund einer besonderen Stellung dafür einzustehen, dass ein bestimmter tatbestandlicher Erfolg nicht eintritt.<br>1) <strong>Gesetz</strong><br>2) <strong>Lebensgemeinschaft</strong><br>3) <strong>Gefahrengemeinschaft</strong><br>4) <strong>Pflichtenübernahme</strong><br>5) <strong>Herbeiführen von Gefahren</strong>",
-  },
-  {
-    id: 32,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Definiere Vorsätzliches Handeln.",
-    answer:
-      "Der Täter handelt mit Wissen und Wollen, der Täter weiß, dass er einen Tatbestand oder eine Straftat eines Gesetzes erfüllt und will den Tatbestandserfolg.",
-  },
-  {
-    id: 33,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Definiere fahrlässiges Handeln.",
-    answer:
-      "Der Täter handelt nicht mit Wissen und Wollen, sondern verletzt die im Verkehr erforderliche Sorgfalt, obwohl die Pflichtverletzung für ihn vorhersehbar und der Erfolg vermeidbar war.",
-  },
-  {
-    id: 34,
+    id: 21,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "§ 19 Strafgesetzbuch (StGB)?",
     answer:
       "<strong>Schuldunfähigkeit des Kindes</strong>. Schuldunfähig ist, wer bei der Begehung der Tat noch nicht vierzehn Jahre alt ist.",
   },
   {
-    id: 35,
+    id: 22,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "§ 20 Strafgesetzbuch (StGB)?",
     answer:
       "<strong>Schuldunfähigkeit wegen seelischer Störungen</strong>. Krankhafte seelische Störung, tiefgreifende Bewusstseinsstörung, Intelligenzminderung, oder eine andere seelische Störung, die den Täter unfähig macht, das Unrecht der Tat einzusehen oder nach dieser Einsicht zu handeln.",
   },
+  {
+    id: 23,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "§ 32 Strafgesetzbuch (StGB)?",
+    answer:
+      "<strong>Notwehr</strong>. Notwehr ist die Verteidigung, die erforderlich ist, um einen gegenwärtigen rechtswidrigen Angriff von sich oder einem anderen (Nothilfe) abzuwenden.",
+  },
+  {
+    id: 24,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "§ 34 Strafgesetzbuch (StGB)?",
+    answer:
+      "<strong>Rechtfertigender Notstand</strong>. Bei gegenwärtiger Gefahr für ein Rechtsgut, die nicht anders abwendbar ist, nach Rechtsgüterabwägung und Angemessenheit.",
+  },
+  {
+    id: 25,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "§ 127 (1) Strafprozessordnung (StPO)?",
+    answer:
+      "<strong>Vorläufige Festnahme</strong>. Wird jemand auf frischer Tat betroffen oder verfolgt, so ist, wenn er der Flucht verdächtigt ist oder seine Identität nicht sofort festgestellt werden kann, jedermann befugt, ihn auch ohne richterliche Anordnung vorläufig festzunehmen.",
+  },
+  {
+    id: 26,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was ist die Aufgabe des Strafrechts?",
+    answer:
+      "Als Teil des öffentlichen Rechts hat es die Aufgabe, schutzbedürftige Rechtsgüter des Einzelnen sowie der Allgemeinheit vor Bedrohung und Verletzung zu schützen.",
+  },
+  {
+    id: 27,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was sind die fünf Funktionen des Strafrechts?",
+    answer:
+      "1) <strong>Vergeltungstheorie</strong>: Ausgleich für das Unrecht der Tat<br>2) <strong>Generalprävention</strong>: Abschreckung der Allgemeinheit<br>3) <strong>Spezialprävention</strong>: Abschreckung des Täters<br>4) <strong>Resozialisierung</strong>: Wiedereingliederung des Täters<br>5) <strong>Rechtsfrieden</strong>: Aufrechterhaltung der Rechtsordnung",
+  },
+  {
+    id: 28,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Wie heißen die Hauptgesetzwerke des Strafrechts?",
+    answer:
+      "1)<strong>Strafgesetzbuch</strong> (StGB)<br>2) <strong>Strafprozessordnung</strong> (StPO)",
+  },
+  {
+    id: 29,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was beinhaltet das Nebenstrafrecht?",
+    answer:
+      "Hier sind weitere strafbare Handlungen und die jeweiligen Rechtsfolgen geregelt.<br>1) <strong>Gewerbeordnung</strong> (GewO)<br>2) <strong>Bundesdatenschutzgesetz</strong> (BDSG)<br>3) <strong>Betäubungsmittelgesetz</strong> (BtMG)<br>4) <strong>Waffengesetz</strong> (WaffG)",
+  },
+  {
+    id: 30,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was ist das materielle Strafrecht?",
+    answer:
+      "1) Es umfasst das <strong>Strafgesetzbuch</strong> (StGB) und alle <strong>nebenstrafrechtlichen Vorschriften</strong><br>2) Es regelt die Tatbestände einer strafbaren Handlung und die Rechtsfolgen für diese Tat, Freiheitsstrafe oder Geldstrafe",
+  },
+  {
+    id: 31,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was ist das formelle Strafrecht?",
+    answer:
+      "1) <strong>Strafprozessordnung</strong> (StPO)<br>2) Alles an Rechtsvorschriften, welche den Ablauf des Strafverfahrens insgesamt regeln, von der Ermittlung bis zur Vollstreckung der Strafe",
+  },
+  {
+    id: 32,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Wie ist das Strafgesetzbuch (StGB) gegliedert?",
+    answer:
+      "1) <strong>Allgemeiner Teil</strong> §§ 1 - 79b StGB: enthält grundsätzliches zum Strafgesetzbuch, Geltungsbereich, Begriffsdefinitionen, Rechtfertigungsgründe<br>2) <strong>Besonderer Teil</strong> §§ 80 - 358 StGB: enthält Katalog der einzelnen Straftaten",
+  },
+  {
+    id: 33,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was beinhaltet der dreistufige Deliktsaufbau?",
+    answer:
+      "1) <strong>Tatbestand</strong>: Tat entspricht den Tatbestandsmerkmalen des Gesetzes<br>2) <strong>Rechtswidrigkeit</strong>: Kein Rechtfertigungsgrund<br>3) <strong>Schuld</strong>: Schuldfähig, vorsätzlich/fahrlässig, Unrechtseinsicht, kein Entschuldigungsgrund",
+  },
+  {
+    id: 34,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Wie wird ein Antragsdelikt definiert?",
+    answer:
+      "1) <strong>Absolute Antragsdelikte</strong>: Straftaten, die nur auf Antrag eines Antragsberechtigten (Opfer) verfolgt werden können<br>2) <strong>Relative Antragsdelikte</strong>: Straftaten, die grundsätzlich nur auf Antrag des Geschädigten verfolgt werden, aber falls ein öffentliches Interesse vorliegt, auch von der Staatsanwaltschaft",
+  },
+  {
+    id: 35,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Wie wird ein Offizialdelikt definiert?",
+    answer:
+      "Eine Straftat, die von Amts wegen verfolgt wird. Alle Straftaten im Strafgesetzbuch, außer jene, in denen im Strafgesetzbuch explizit erwähnt wird, dass die Tat nur auf Antrag verfolgt wird, sind Offizialdelikte.",
+  },
+  {
+    id: 36,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Wie wird ein Privatklagedelikt definiert?",
+    answer:
+      "Eine Straftat, die bei fehlendem öffentlichen Interesse vom Geschädigten selbst als Privatperson anstelle der Staatsanwaltschaft verfolgt werden kann.",
+  },
+  {
+    id: 37,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was bedeutet die sogenannte Garantenpflicht?",
+    answer:
+      "Die rechtliche Verpflichtung einer Person (Garant), aufgrund einer besonderen Stellung dafür einzustehen, dass ein bestimmter tatbestandlicher Erfolg nicht eintritt.<br>1) <strong>Gesetz</strong><br>2) <strong>Lebensgemeinschaft</strong><br>3) <strong>Gefahrengemeinschaft</strong><br>4) <strong>Pflichtenübernahme</strong><br>5) <strong>Herbeiführen von Gefahren</strong>",
+  },
+  {
+    id: 38,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Definiere Vorsätzliches Handeln.",
+    answer:
+      "Der Täter handelt mit Wissen und Wollen, der Täter weiß, dass er einen Tatbestand oder eine Straftat eines Gesetzes erfüllt und will den Tatbestandserfolg.",
+  },
+  {
+    id: 39,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Definiere fahrlässiges Handeln.",
+    answer:
+      "Der Täter handelt nicht mit Wissen und Wollen, sondern verletzt die im Verkehr erforderliche Sorgfalt, obwohl die Pflichtverletzung für ihn vorhersehbar und der Erfolg vermeidbar war.",
+  },
 ];
-
-// improve start screen layout and prevent overflow
-// improve question container to minimize jumping
