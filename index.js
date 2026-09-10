@@ -345,32 +345,11 @@ initialize();
 
 const testData = [
   {
-    id: 1,
-    category: "Recht der öffentlichen Sicherheit und Ordnung",
-    question: "Was bedeutet Föderalismus?",
+    id: 40,
+    category: "Umgang mit Menschen",
+    question: "Erläutere den Begriff Psychologie.",
     answer:
-      "Ein staatliches Organisationsprinzip, bei dem die Staatsgewalt zwischen Bund und Bundesländern aufgeteilt ist.",
-  },
-  {
-    id: 2,
-    category: "Recht der öffentlichen Sicherheit und Ordnung",
-    question: "Was ist das Grundgesetz?",
-    answer:
-      "Die Verfassung. Steht über allen anderen Gesetzen und regelt die Grundrechte der Bürger sowie die Staatsorganisation",
-  },
-  {
-    id: 3,
-    category: "Recht der öffentlichen Sicherheit und Ordnung",
-    question: 'Erkäre den Begriff "öffentliches Recht".',
-    answer:
-      "Regelt die Rechtsbeziehung zwischen Staat u. Bürger im Verhältnis der Über- und Unterordnung. Beispiele: GewO, Strafrecht.",
-  },
-  {
-    id: 4,
-    category: "Recht der öffentlichen Sicherheit und Ordnung",
-    question: 'Erkläre den Begriff "Privatrecht".',
-    answer:
-      "Regelt die Rechtsbeziehung zwischen Bürger u. Bürger im Verhältnis der Gleichordnung. Beispiel: BGB.",
+      "Die Wissenschaft vom menschlichen Erleben und Verhalten. Überprüfbar, begründet und objektiv. Erleben ist das, was in unserem Gehirn und zentralen Nervensystem stattfindet und von außen nicht unmittelbar beobachtet werden kann. Das Verhalten setzt sich zusammen aus körperlichen Reaktionen und Aktivitäten, die beobachtet und gemessen werden können. Verstand ist verhaltensverzlgernd. Gefühl ist verhaltensbeschleunigend. Wir handeln aus diesen Schichten heraus um unsere Bedürfnisse zu erfüllen.",
   },
 ];
 
@@ -651,4 +630,140 @@ const data = [
     answer:
       "Der Täter handelt nicht mit Wissen und Wollen, sondern verletzt die im Verkehr erforderliche Sorgfalt, obwohl die Pflichtverletzung für ihn vorhersehbar und der Erfolg vermeidbar war.",
   },
+  {
+    id: 40,
+    category: "Umgang mit Menschen",
+    question: "Erläutere den Begriff Psychologie.",
+    answer:
+      "Die Wissenschaft vom menschlichen Erleben und Verhalten. Überprüfbar, begründet und objektiv. Erleben ist das, was in unserem Gehirn und zentralen Nervensystem stattfindet und von außen nicht unmittelbar beobachtet werden kann. Das Verhalten setzt sich zusammen aus körperlichen Reaktionen und Aktivitäten, die beobachtet und gemessen werden können. Verstand ist verhaltensverzlgernd. Gefühl ist verhaltensbeschleunigend. Wir handeln aus diesen Schichten heraus um unsere Bedürfnisse zu erfüllen.",
+  },
+  {
+    id: 41,
+    category: "Umgang mit Menschen",
+    question: "Erläutere den Begriff Menschenkenntnis.",
+    answer:
+      "Die Fähigkeit eines Menschen, andere Menschen richtig einzuschätzen und mit ihnen geschickt umzugehen. Subjektiv, beruht auf Erfahrung, Intuition, Intelligenz und Weisheit.",
+  },
+  {
+    id: 42,
+    category: "Umgang mit Menschen",
+    question:
+      "Was für Charaktereigenschaften sind besonders wichtig für Sicherheitskräfte?",
+    answer:
+      "Zuverlässigkeit, Integrität (Rechtschaffenheit), Menschenkenntnis, positives Selbstwertgefühl, Empathie, soziale Intelligenz, Kommunikationsfähigkeit.",
+  },
+  {
+    id: 43,
+    category: "Umgang mit Menschen",
+    question: "Was sind Motive und woraus entstehen sie?",
+    answer:
+      "Es handelt sich um Beweggründe menschlichen Handelns. Sie entspringen den menschlichen Bedürfnissen.<br>1) Primäre Motive (angeboren): Hunger, Durst, Schlaf<br>2) Sekundäre Motive (erlernt): Leistung, Machtstreben, Rauchen",
+  },
+  {
+    id: 44,
+    category: "Umgang mit Menschen",
+    question:
+      "Erkläre das Schichtmodell des Menschen nach Platon und Aristoteles.",
+    answer:
+      "Der Mensch wird in drei Schichten, Trieb, Gefühl und Vernunft, aufgeteilt.<br><strong>Triebschicht</strong>: Selbsterhaltung, Arterhaltung<br><strong>Gefühlsschicht</strong>: Wut, Hass, Liebe, Zuneigung<br><strong>Vernunftschicht</strong>: rationales Denken.<br>Der Mensch reagiert grundsätzlich aus allen drei Schichten, außer in Extremsituationen, dann nur aus einer Schicht heraus.",
+  },
+  {
+    id: 45,
+    category: "Umgang mit Menschen",
+    question: "Erkläre die sogenannte Bedürfnispyramide nach Maslow.",
+    answer:
+      "Hierarchische Einteilung menschlicher Bedürfnisse. Erst wenn die unteren Stufen erfüllt sind, drängen sich die oberen auf.<br>1) <strong>Grundbedürfnisse</strong>: Hunger, Durst, Atmen...<br>2) <strong>Sicherheitsbedürfnis</strong>: materielle und eigene Sicherheit<br>3) <strong>Soziale Bedürfnisse</strong>: Familie, Freundschaft, Liebe<br>4) <strong>Ich-Bedürfnisse</strong>: Anerkennung<br>5) <strong>Selbstverwirklichung</strong>: frei leben und seiner Berufung folgen<br><strong>Defizitbedürfnisse</strong>: Stufen 1-4, stillbar<br><strong>Wachstumsbedürfnisse</strong>: Stufe 5, kann nicht gestillt werden.",
+  },
+  {
+    id: 46,
+    category: "Umgang mit Menschen",
+    question: "Definiere den Begriff Selbstwertgefühl.",
+    answer:
+      "Selbstwertgefühl ist das Ergebnis einer Selbstbewertung. Ein positives ist wichtig, denn nur so kann eine angemessene Kommunikations- und Konfliktfähigkeit hervorgehen. Ein angegriffenes Selbstwertgefühl ist Hauptgrund für Konflikte.",
+  },
+  {
+    id: 47,
+    category: "Umgang mit Menschen",
+    question: "Definiere die Transaktionsanalyse nach Eric Berne.",
+    answer:
+      'Einteilung der Kommunikation in vier Grundhaltungen.<br>1) Ich bin ok - Du bist okay = <strong>Menschlichkeit</strong>, einzige Position für eine gute Kommunikation<br>2) Ich bin ok - Du bist nicht ok = <strong>Überheblichkeit</strong><br>3) Ich bin nicht ok - Du bist ok = <strong>Minderwertigkeit</strong><br>4) Ich bin nicht ok - Du bist nicht ok = <strong>Hoffnungslosigkeit</strong><br> "ok" bezieht sich immer auf die Person, nie das Verhalten. Man kann das Verhalten einer Person kritisieren ohne sie als Person abzuwerten.',
+  },
+  {
+    id: 48,
+    category: "Umgang mit Menschen",
+    question: "Was versteht man unter einem Minderwertigkeitsgefühl?",
+    answer:
+      "Es ist das Ergebnis einer <strong>negativen Selbstbewertung</strong>. Mögliche Ursachen können zum Beispiel eine <strong>negative frühkindliche Prägung</strong> (bis zum dritten Lebensjahr), <strong>Misserfolgserlebnisse</strong>, <strong>Enttäuschungen</strong> und <strong>Frustrationen</strong>, <strong>körperliche Einschränkungen</strong>, <strong>Langzeitarbeitslosigkeit</strong> sein.",
+  },
+  {
+    id: 49,
+    category: "Umgang mit Menschen",
+    question: "Was versteht man unter einem Überwertigkeitsgefühl?",
+    answer:
+      "Es entsteht aus einem vorliegenden Minderwertigkeitsgefühl. Man versucht durch eine überstarke Anstrengung in einem bestimmten Bereich seines Lebens, allen anderen überlegen zu sein, um dieses Minderwertigkeitsgefühl zu kompensieren.",
+  },
+  {
+    id: 50,
+    category: "Umgang mit Menschen",
+    question: "Welche 5 Aussagen lassen sich zum Selbstwertgefühl machen?",
+    answer:
+      "1) Man vergleicht sich mit anderen Menschen<br>2) Beurteilung durch andere Menschen<br>3) Durch Kommunikation mit anderen entsteht diese Beurteilung<br>4) Ein Angriff auf das Selbstwertgefühl beeinflusst die Kommunikation immer negativ<br>5) Es ist ein wichtiges Bedürfnis",
+  },
+  {
+    id: 51,
+    category: "Umgang mit Menschen",
+    question: "Was versteht man unter Wahrnehmung?",
+    answer:
+      "Informationen, die durch unsere Sinnesorgane wahrgenommen werden (sehen, riechen, hören, schmecken, tasten).",
+  },
+  {
+    id: 52,
+    category: "Umgang mit Menschen",
+    question: "Was versteht man unter selektiver Wahrnehmung?",
+    answer:
+      "Nur ein Bruchteil der Informationen, die wir wahrnehmen, kommt bei uns im Bewusstsein an. Was unser Gehirn herausfiltert, ist individuell und selektiv. Das Unterbewusstsein nimmt 5-mal so viele Informationen wahr.",
+  },
+  {
+    id: 53,
+    category: "Umgang mit Menschen",
+    question: 'Erkläre den Begriff "Erster Eindruck"',
+    answer:
+      "Zählt zu den Wahrnehmungs- und Beurteilungsfehlern.<br>Wahrnehmung und Beurteilung findet in den ersten Sekunden statt.<br> Mehr unterbewusst als bewusst, durch Beobachtung, meistens Registrierung der Körpersprache.<br>Danach findet ein unterbewusster Vergleich mit Erfahrungen, Vorurteilen und Stereotypen statt.",
+  },
+  {
+    id: 54,
+    category: "Umgang mit Menschen",
+    question: 'Was ist der sogenannte \"Halo Effekt\"?',
+    answer:
+      "Auch <strong>Überstrahlungseffekt</strong>, zählt zu den Wahrnehmungs- und Beurteilungsfehlern.<br>Ein einzelnes Merkmal einer Person (z.B. Aussehen, Auftreten) überstrahlt alles andere, sodass die Gesamtbewertung verzerrt wird.",
+  },
+  {
+    id: 55,
+    category: "Umgang mit Menschen",
+    question: 'Was ist der sogenannte "Hierarchieeffekt"?',
+    answer:
+      "Man traut Menschen, die in der Hierarchie weiter oben stehen, mehr Kompetenzen zu als Menschen, die sich weiter unten befinden.",
+  },
+  {
+    id: 56,
+    category: "Umgang mit Menschen",
+    question: "Was sind Vorurteile?",
+    answer:
+      "Übernahme von Einstellungen ohne ausreichende Erfahrung oder eine falsche Verallgemeinerung. Negative Einstellungen gegenüber Menschen oder Gruppen, die meistens durch Feindseligkeit oder Stereotypen verankert sind. Beeinflussen Wahrnehmung erheblich.",
+  },
+  {
+    id: 57,
+    category: "Umgang mit Menschen",
+    question: "Was sind Stereotypen?",
+    answer: "Falsche Verallgemeinerungen, die nicht immer negativ sein müssen.",
+  },
+  {
+    id: 58,
+    category: "Umgang mit Menschen",
+    question: "Beschreibe das JOHARI-Fenster.",
+    answer:
+      "Ein Modell, das besagt, umso deckungsgleicher Selbstbild und Fremdbild, umso besser ist die Kommunikation. Es beschreibt 4 Felder.<br><strong>Öffentliche Person</strong>: mir bekannt / anderen bekannt<br><strong>Mein Geheimnis</strong>: mir bekannt / anderen nicht bekannt<br><strong>Blinder Fleck</strong>: mir unbekannt / anderen bekannt<br><strong>Unbekannt</strong>: mir unbekannt / anderen unbekannt. Umso kleiner der Blinde Fleck, umso besser ist die Kommunikation. Hier sind wir jedoch auf das Feedback von anderen angewiesen.",
+  },
 ];
+
+// commit: added new questoins Umgang mit Menschen
