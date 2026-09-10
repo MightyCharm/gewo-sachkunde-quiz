@@ -333,25 +333,8 @@ main.addEventListener("click", (event) => {
 });
 
 initialize();
-// 1. Recht der öffentlichen Sicherheit und Ordnung (Grundrechte, Polizeirecht, Staatsaufbau)
-// 2. Gewerberecht (GewO, Bewachungsverodrnung)
-// 3. Bürgerliches Gesetzbuch (BGB)
-// 4. Strafrecht und Strafverfahrensrecht (StGB, StPO, Festnahmerechte)
-// 5. Datenschutzrecht (DSGVO, BDSG)
-// 6. Unfallverhütungsvorschriften (DGUV Vorschrift 23)
-// 7. Umgang mit Waffen (WaffG, Schusswaffengebrauch)
-// 8. Umgang mit Menschen (Deeskalatation, Kommunikation, Verhalten)
-// 9. Grundzüge der Sicherheitstechnik (Zutrittskontrolle, Videoüberwachung)
 
-const testData = [
-  {
-    id: 40,
-    category: "Umgang mit Menschen",
-    question: "Erläutere den Begriff Psychologie.",
-    answer:
-      "Die Wissenschaft vom menschlichen Erleben und Verhalten. Überprüfbar, begründet und objektiv. Erleben ist das, was in unserem Gehirn und zentralen Nervensystem stattfindet und von außen nicht unmittelbar beobachtet werden kann. Das Verhalten setzt sich zusammen aus körperlichen Reaktionen und Aktivitäten, die beobachtet und gemessen werden können. Verstand ist verhaltensverzlgernd. Gefühl ist verhaltensbeschleunigend. Wir handeln aus diesen Schichten heraus um unsere Bedürfnisse zu erfüllen.",
-  },
-];
+const testData = [];
 
 const data = [
   {
@@ -359,19 +342,19 @@ const data = [
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: "Was bedeutet Föderalismus?",
     answer:
-      "Ein staatliches Organisationsprinzip, bei dem die Staatsgewalt zwischen Bund und Bundesländern aufgeteilt ist.",
+      "Ein <strong>staatliches Organisationsprinzip</strong>, bei dem die Staatsgewalt zwischen Bund und Bundesländern aufgeteilt ist.",
   },
   {
     id: 2,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: "Was ist das Grundgesetz?",
     answer:
-      "<strong>Die Verfassung</strong>. Sie steht über allen anderen Gesetzen und regelt die Grundrechte der Bürger sowie die Staatsorganisation.",
+      "<strong>Die Verfassung</strong>.<br>Sie steht über allen anderen Gesetzen und regelt die Grundrechte der Bürger sowie die Staatsorganisation.",
   },
   {
     id: 3,
     category: "Recht der öffentlichen Sicherheit und Ordnung",
-    question: 'Erkäre den Begriff "öffentliches Recht".',
+    question: 'Erkläre den Begriff "öffentliches Recht".',
     answer:
       "Regelt die Rechtsbeziehung zwischen Staat u. Bürger im Verhältnis der Über- und Unterordnung.<br>Beispiele: <strong>Gewerbeordnung (GewO)</strong>, <strong>Strafrecht</strong>.",
   },
@@ -380,7 +363,7 @@ const data = [
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: 'Erkläre den Begriff "Privatrecht".',
     answer:
-      "Regelt die Rechtsbeziehung zwischen Bürger u. Bürger im Verhältnis der Gleichordnung.<br>Beispiel: <strong>Bürgerliches Gesetzbuch (BGB)</strong>.",
+      "Regelt die Rechtsbeziehung zwischen Bürger und Bürger im Verhältnis der Gleichordnung.<br>Beispiel: <strong>Bürgerliches Gesetzbuch (BGB)</strong>.",
   },
   {
     id: 5,
@@ -394,77 +377,75 @@ const data = [
     category: "Recht der öffentlichen Sicherheit und Ordnung",
     question: "Was sind die sogenannten Rechtsgüter?",
     answer:
-      "Konkrete Werte und Güter, die die Rechtsordnung schützt. <strong>Leben</strong>, <strong>Gesundheit</strong>, <strong>Freiheit</strong>, <strong>Ehre</strong>, <strong>Eigentum</strong>...",
+      "Konkrete Werte und Güter, die die Rechtsordnung schützt.<br><strong>Leben</strong>, <strong>Gesundheit</strong>, <strong>Freiheit</strong>, <strong>Ehre</strong>, <strong>Eigentum</strong>, <strong>Vermögen</strong>, <strong>sexuelle Selbstbestimmung</strong>.",
   },
   {
     id: 7,
     category: "Bürgerliches Gesetzbuch",
-    question: "§227 Bürgerliches Gesetzbuch (BGB)?",
+    question: "Was besagt § 227 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "<strong>Notwehr</strong>. Notwehr ist diejenige Verteidigung, welche <strong>erforderlich</strong> ist, um einen <strong>gegenwärtigen</strong> <strong>rechtswidrigen Angriff</strong> von sich oder einem anderen abzuwenden.",
+      "<strong>Notwehr</strong>. Notwehr ist diejenige <strong>Verteidigung</strong>, welche <strong>erforderlich</strong> ist, um einen <strong>gegenwärtigen</strong> <strong>rechtswidrigen Angriff</strong> von sich oder einem anderen abzuwenden.",
   },
   {
     id: 8,
     category: "Bürgerliches Gesetzbuch",
-    question: "§228 Bürgerliches Gesetzbuch (BGB)?",
+    question: "Was beschreibt § 228 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "<strong>Defensivnotstand</strong>. Erlaubt die Beschädigung/Zerstörung einer fremden Sache, um eine von ihr ausgehende Gefahr abzuwenden.",
+      "<strong>Defensivnotstand</strong>. Erlaubt die Beschädigung oder Zerstörung einer fremden Sache, um eine von ihr ausgehende Gefahr abzuwenden, wenn die Beschädigung oder Zerstörung zur Abwendung der Gefahr erforderlich ist und der Schaden nicht außer Verhältnis zur Gefahr steht.",
   },
-
   {
     id: 9,
     category: "Bürgerliches Gesetzbuch",
-    question: "§229 Bürgerliches Gesetzbuch (BGB)?",
+    question: "Was definiert § 229 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "<strong>Allgemeine Selbsthilfe</strong>. Erlaubt das Festnehmen eines Fluchtverdächtigen zur Sicherung zivilrechtlicher Ansprüche, wenn obrigkeitliche Hilfe nicht rechtzeitig verfügbar ist und sofortiges Eingreifen notwendig ist.",
+      "<strong>Allgemeine Selbsthilfe</strong>.<br>Erlaubt das Festnehmen eines Fluchtverdächtigen zur Sicherung zivilrechtlicher Ansprüche, wenn obrigkeitliche Hilfe nicht rechtzeitig verfügbar ist und sofortiges Eingreifen notwendig ist.",
   },
   {
     id: 10,
     category: "Bürgerliches Gesetzbuch",
-    question: "§253 Bürgerliches Gesetzbuch (BGB)?",
+    question: "Was beschreibt § 253 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "<strong>Immaterieller Schaden (Schmerzensgeld)</strong>. Geldentschädigung nur, wenn das Gesetz es bestimmt, wie bei Verletzungen von Körper, Freiheit oder sexueller Selbstbestimmung.",
+      "<strong>Immaterieller Schaden (Schmerzensgeld)</strong>.<br>Geldentschädigung nur, wenn das Gesetz es bestimmt, wie bei Verletzungen von Körper, Freiheit oder sexueller Selbstbestimmung.",
   },
   {
     id: 11,
     category: "Bürgerliches Gesetzbuch",
-    question: "§823 Bürgerliches Gesetzbuch (BGB)?",
+    question: "Was besagt § 823 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "<strong>Schadensersatzpflicht</strong>. Wer vorsätzlich oder fahrlässig das Rechtsgut eines anderen widerrechtlich verletzt, ist zum Ersatz des entstandenen Schadens verpflichtet.",
+      "<strong>Schadensersatzpflicht</strong>.<br>Wer vorsätzlich oder fahrlässig das Rechtsgut eines anderen widerrechtlich verletzt, ist zum Ersatz des entstandenen Schadens verpflichtet.",
   },
   {
     id: 12,
     category: "Bürgerliches Gesetzbuch",
-    question: "§833 Bürgerliches Gesetzbuch (BGB)?",
+    question: "Was besagt § 833 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "<strong>Haftung des Tierhalters</strong>. Tierhalter muss grundsätzlich für Schäden, die sein Tier anrichtet, haften (Gefährdungshaftung), auch dann, wenn er nicht schuldhaft gehandelt hat (Ausnahme: Nutztiere).",
+      "<strong>Haftung des Tierhalters</strong>.<br>Tierhalter muss grundsätzlich für Schäden, die sein Tier anrichtet, haften (Gefährdungshaftung), auch dann, wenn er nicht schuldhaft gehandelt hat (Ausnahme: Nutztiere).",
   },
   {
     id: 13,
     category: "Bürgerliches Gesetzbuch",
-    question: "§859 Bürgerliches Gesetzbuch (BGB)?",
+    question: "Was beschreibt § 859 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "<strong>Selbsthilfe des Besitzers</strong>. Umfasst <strong>Besitzwehr</strong>: sich gegen eine verbotene Eigenmacht mit Gewalt wehren<br><strong>Besitzkehr</strong>: eine weggenommene Sache sofort mit Gewalt zurückholen.",
+      "<strong>Selbsthilfe des Besitzers</strong>.<br>Umfasst Besitzwehr und Besitzkehr.<br><strong>Besitzwehr</strong>: sich gegen eine verbotene Eigenmacht mit Gewalt wehren<br><strong>Besitzkehr</strong>: eine weggenommene Sache sofort mit Gewalt zurückholen.",
   },
   {
     id: 14,
     category: "Bürgerliches Gesetzbuch",
-    question: "§860 Bürgerliches Gesetzbuch (BGB)?",
+    question: "Was besagt § 860 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "<strong>Selbsthilfe des Besitzdieners</strong>. Derjenige, welcher die tatsächliche Gewalt für den Besitzer ausübt, hat dieselben Rechte wie der Besitzer nach §859 BGB. Umfasst <strong>Besitzwehr</strong>: sich gegen eine verbotene Eigenmacht mit Gewalt wehren<br><strong>Besitzkehr</strong>: eine weggenommene Sache sofort mit Gewalt zurückholen.",
+      "<strong>Selbsthilfe des Besitzdieners</strong>.<br>Derjenige, welcher die tatsächliche Gewalt für den Besitzer ausübt, hat dieselben Rechte wie der Besitzer nach § 859 BGB. Umfasst <strong>Besitzwehr</strong>: sich gegen eine verbotene Eigenmacht mit Gewalt wehren<br><strong>Besitzkehr</strong>: eine weggenommene Sache sofort mit Gewalt zurückholen.",
   },
   {
     id: 15,
     category: "Bürgerliches Gesetzbuch",
-    question: "§904 Bürgerliches Gesetzbuch (BGB)?",
+    question: "Was definiert § 904 Bürgerliches Gesetzbuch (BGB)?",
     answer:
-      "<strong>Angriffsnotstand</strong>. Erlaubt die Beschädigung einer Sache, von der keine Gefahr ausgeht, um eine gegenwärtige Gefahr abzuwenden. Der drohende Schaden muss unverhältnismäßig größer sein als der verursachte Schaden.",
+      "<strong>Angriffsnotstand</strong>.<br>Erlaubt die Einwirkung auf eine Sache, von der keine Gefahr ausgeht, um eine gegenwärtige Gefahr abzuwenden. Der drohende Schaden muss unverhältnismäßig größer sein als der verursachte Schaden.",
   },
-
   {
     id: 16,
     category: "Bürgerliches Gesetzbuch",
-    question: "§985 Bürgerliches Gesetzbuch (BGB)?",
+    question: "Was besagt § 985 Bürgerliches Gesetzbuch (BGB)?",
     answer:
       "<strong>Herausgabeanspruch</strong>. Der Eigentümer kann von dem Besitzer die Herausgabe der Sache verlangen.",
   },
@@ -478,66 +459,65 @@ const data = [
   {
     id: 18,
     category: "Strafrecht und Strafverfahrensrecht",
-    question: "§ 1 Strafgesetzbuch (StGB)?",
+    question: "Was besagt § 1 Strafgesetzbuch (StGB)?",
     answer:
       "Eine Tat kann nur bestraft werden, wenn die Strafbarkeit gesetzlich bestimmt war, bevor die Tat begangen wurde.",
   },
   {
     id: 19,
     category: "Strafrecht und Strafverfahrensrecht",
-    question: "§12 Strafgesetzbuch (StGB) Verbrechen und Vergehen?",
+    question: "Was definiert § 12 Strafgesetzbuch (StGB)?",
     answer:
-      "Alle Straftaten im Strafgesetzbuch sind eingeteilt in Verbrechen und Vergehen.<br>1) <strong>Verbrechen</strong>: mindestens 1 Jahr Freiheitsstrafe<br>2) <strong>Vergehen</strong>: unter 1 Jahr Freiheitsstrafe oder Geldstrafe",
+      "<strong>Verbrechen und Vergehen</strong>.<br>Alle Straftaten im Strafgesetzbuch sind eingeteilt in Verbrechen und Vergehen.<br><strong>Verbrechen</strong>: mindestens 1 Jahr Freiheitsstrafe<br><strong>Vergehen</strong>: unter 1 Jahr Freiheitsstrafe oder Geldstrafe",
   },
   {
     id: 20,
     category: "Strafrecht und Strafverfahrensrecht",
-    question:
-      "Was beschreibt § 13 Strafgesetzbuch (StGB) Begehen durch Unterlassen?",
+    question: "Was beschreibt § 13 Strafgesetzbuch (StGB)?",
     answer:
-      "Regelt die unechten Unterlassungsdelikte.<br>Grundvoraussetzung: ich kann den Tatbestand verhindern, bin in einer Garantenstellung, und wenn nicht verhindert, kann mir das vorgeworfen werden als ob ich selbst die Tat begangen hätte.",
+      "<strong>Begehen durch Unterlassen</strong>.<br>Regelt die <strong>unechten Unterlassungsdelikte</strong>.<br>Grundvoraussetzung: ich kann den Tatbestand verhindern, bin in einer Garantenstellung, und wenn nicht verhindert, kann mir das vorgeworfen werden, als ob ich die Tat selbst begangen hätte.",
   },
   {
     id: 21,
     category: "Strafrecht und Strafverfahrensrecht",
-    question: "§ 19 Strafgesetzbuch (StGB)?",
+    question: "Was besagt § 19 Strafgesetzbuch (StGB)?",
     answer:
-      "<strong>Schuldunfähigkeit des Kindes</strong>. Schuldunfähig ist, wer bei der Begehung der Tat noch nicht vierzehn Jahre alt ist.",
+      "<strong>Schuldunfähigkeit des Kindes</strong>.<br>Schuldunfähig ist, wer bei der Begehung der Tat noch nicht vierzehn Jahre alt ist.",
   },
   {
     id: 22,
     category: "Strafrecht und Strafverfahrensrecht",
-    question: "§ 20 Strafgesetzbuch (StGB)?",
+    question: "Was definiert § 20 Strafgesetzbuch (StGB)?",
     answer:
-      "<strong>Schuldunfähigkeit wegen seelischer Störungen</strong>. Krankhafte seelische Störung, tiefgreifende Bewusstseinsstörung, Intelligenzminderung, oder eine andere seelische Störung, die den Täter unfähig macht, das Unrecht der Tat einzusehen oder nach dieser Einsicht zu handeln.",
+      "<strong>Schuldunfähigkeit wegen seelischer Störungen</strong>.<br> Krankhafte seelische Störung, tiefgreifende Bewusstseinsstörung, Intelligenzminderung, oder eine andere seelische Störung, die den Täter unfähig macht, das Unrecht der Tat einzusehen oder nach dieser Einsicht zu handeln.",
   },
   {
     id: 23,
     category: "Strafrecht und Strafverfahrensrecht",
-    question: "§ 32 Strafgesetzbuch (StGB)?",
+    question: "Was regelt § 32 Strafgesetzbuch (StGB)?",
     answer:
       "<strong>Notwehr</strong>. Notwehr ist die Verteidigung, die erforderlich ist, um einen gegenwärtigen rechtswidrigen Angriff von sich oder einem anderen (Nothilfe) abzuwenden.",
   },
   {
     id: 24,
     category: "Strafrecht und Strafverfahrensrecht",
-    question: "§ 34 Strafgesetzbuch (StGB)?",
+    question: "Was beschreibt § 34 Strafgesetzbuch (StGB)?",
     answer:
-      "<strong>Rechtfertigender Notstand</strong>. Bei gegenwärtiger Gefahr für ein Rechtsgut, die nicht anders abwendbar ist, nach Rechtsgüterabwägung und Angemessenheit.",
+      "<strong>Rechtfertigender Notstand</strong>.<br>Bei gegenwärtiger Gefahr für ein Rechtsgut, die nicht anders abwendbar ist, nach Rechtsgüterabwägung und Angemessenheit.",
   },
   {
     id: 25,
     category: "Strafrecht und Strafverfahrensrecht",
-    question: "§ 127 (1) Strafprozessordnung (StPO)?",
+    question: "Was regelt § 127 (1) Strafprozessordnung (StPO)?",
     answer:
-      "<strong>Vorläufige Festnahme</strong>. Wird jemand auf frischer Tat betroffen oder verfolgt, so ist, wenn er der Flucht verdächtigt ist oder seine Identität nicht sofort festgestellt werden kann, jedermann befugt, ihn auch ohne richterliche Anordnung vorläufig festzunehmen.",
+      "<strong>Vorläufige Festnahme</strong>.<br>Wird jemand auf frischer Tat betroffen oder verfolgt, so ist, wenn er der Flucht verdächtigt ist oder seine Identität nicht sofort festgestellt werden kann, jedermann befugt, ihn auch ohne richterliche Anordnung vorläufig festzunehmen.",
   },
   {
     id: 26,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was ist die Aufgabe des Strafrechts?",
     answer:
-      "Als Teil des öffentlichen Rechts hat es die Aufgabe, schutzbedürftige Rechtsgüter des Einzelnen sowie der Allgemeinheit vor Bedrohung und Verletzung zu schützen.",
+      "Als <strong>Teil des öffentlichen Rechts</strong> hat es die Aufgabe, schutzbedürftige <strong>Rechtsgüter</strong> des Einzelnen sowie der Allgemeinheit vor Bedrohung und Verletzung zu <strong>schützen</strong>.",
   },
   {
     id: 27,
@@ -551,21 +531,21 @@ const data = [
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Wie heißen die Hauptgesetzwerke des Strafrechts?",
     answer:
-      "1)<strong>Strafgesetzbuch</strong> (StGB)<br>2) <strong>Strafprozessordnung</strong> (StPO)",
+      "<strong>Strafgesetzbuch</strong> (StGB)<br><strong>Strafprozessordnung</strong> (StPO)",
   },
   {
     id: 29,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was beinhaltet das Nebenstrafrecht?",
     answer:
-      "Hier sind weitere strafbare Handlungen und die jeweiligen Rechtsfolgen geregelt.<br>1) <strong>Gewerbeordnung</strong> (GewO)<br>2) <strong>Bundesdatenschutzgesetz</strong> (BDSG)<br>3) <strong>Betäubungsmittelgesetz</strong> (BtMG)<br>4) <strong>Waffengesetz</strong> (WaffG)",
+      "Hier sind weitere strafbare Handlungen und die jeweiligen Rechtsfolgen geregelt.<br><strong>Gewerbeordnung</strong> (GewO)<br><strong>Bundesdatenschutzgesetz</strong> (BDSG)<br><strong>Betäubungsmittelgesetz</strong> (BtMG)<br><strong>Waffengesetz</strong> (WaffG)",
   },
   {
     id: 30,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was ist das materielle Strafrecht?",
     answer:
-      "1) Es umfasst das <strong>Strafgesetzbuch</strong> (StGB) und alle <strong>nebenstrafrechtlichen Vorschriften</strong><br>2) Es regelt die Tatbestände einer strafbaren Handlung und die Rechtsfolgen für diese Tat, Freiheitsstrafe oder Geldstrafe",
+      "Es umfasst das <strong>Strafgesetzbuch</strong> (StGB) und alle <strong>nebenstrafrechtlichen Vorschriften</strong>.<br>Es regelt die Tatbestände einer strafbaren Handlung und die Rechtsfolgen für diese Tat, Freiheitsstrafe oder Geldstrafe.",
   },
   {
     id: 31,
@@ -579,7 +559,7 @@ const data = [
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Wie ist das Strafgesetzbuch (StGB) gegliedert?",
     answer:
-      "1) <strong>Allgemeiner Teil</strong> §§ 1 - 79b StGB: enthält grundsätzliches zum Strafgesetzbuch, Geltungsbereich, Begriffsdefinitionen, Rechtfertigungsgründe<br>2) <strong>Besonderer Teil</strong> §§ 80 - 358 StGB: enthält Katalog der einzelnen Straftaten",
+      "<strong>Allgemeiner Teil</strong> §§ 1 - 79b StGB: enthält grundsätzliches zum Strafgesetzbuch, Geltungsbereich, Begriffsdefinitionen, Rechtfertigungsgründe<br><strong>Besonderer Teil</strong> §§ 80 - 358 StGB: enthält Katalog der einzelnen Straftaten",
   },
   {
     id: 33,
@@ -593,7 +573,7 @@ const data = [
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Wie wird ein Antragsdelikt definiert?",
     answer:
-      "1) <strong>Absolute Antragsdelikte</strong>: Straftaten, die nur auf Antrag eines Antragsberechtigten (Opfer) verfolgt werden können<br>2) <strong>Relative Antragsdelikte</strong>: Straftaten, die grundsätzlich nur auf Antrag des Geschädigten verfolgt werden, aber falls ein öffentliches Interesse vorliegt, auch von der Staatsanwaltschaft",
+      "<strong>Absolute Antragsdelikte</strong>: Straftaten, die nur auf Antrag eines Antragsberechtigten (Opfer) verfolgt werden können<br><strong>Relative Antragsdelikte</strong>: Straftaten, die grundsätzlich nur auf Antrag des Geschädigten verfolgt werden, aber falls ein öffentliches Interesse vorliegt, auch von der Staatsanwaltschaft",
   },
   {
     id: 35,
@@ -635,14 +615,14 @@ const data = [
     category: "Umgang mit Menschen",
     question: "Erläutere den Begriff Psychologie.",
     answer:
-      "Die Wissenschaft vom menschlichen Erleben und Verhalten. Überprüfbar, begründet und objektiv. Erleben ist das, was in unserem Gehirn und zentralen Nervensystem stattfindet und von außen nicht unmittelbar beobachtet werden kann. Das Verhalten setzt sich zusammen aus körperlichen Reaktionen und Aktivitäten, die beobachtet und gemessen werden können. Verstand ist verhaltensverzlgernd. Gefühl ist verhaltensbeschleunigend. Wir handeln aus diesen Schichten heraus um unsere Bedürfnisse zu erfüllen.",
+      "Die Wissenschaft vom menschlichen Erleben und Verhalten. Überprüfbar, begründet und objektiv.<br><strong>Erleben</strong> ist das, was in unserem Gehirn und zentralen Nervensystem stattfindet und von außen nicht unmittelbar beobachtet werden kann.<br><strong>Verhalten</strong> setzt sich zusammen aus körperlichen Reaktionen und Aktivitäten, die beobachtet und gemessen werden können.",
   },
   {
     id: 41,
     category: "Umgang mit Menschen",
     question: "Erläutere den Begriff Menschenkenntnis.",
     answer:
-      "Die Fähigkeit eines Menschen, andere Menschen richtig einzuschätzen und mit ihnen geschickt umzugehen. Subjektiv, beruht auf Erfahrung, Intuition, Intelligenz und Weisheit.",
+      "Die <strong>Fähigkeit</strong> eines Menschen, andere Menschen richtig einzuschätzen und mit ihnen geschickt umzugehen. <strong>Subjektiv</strong>, beruht auf <strong>Erfahrung</strong>, <strong>Intuition</strong>, <strong>Intelligenz</strong> und <strong>Weisheit</strong>.",
   },
   {
     id: 42,
@@ -657,7 +637,7 @@ const data = [
     category: "Umgang mit Menschen",
     question: "Was sind Motive und woraus entstehen sie?",
     answer:
-      "Es handelt sich um Beweggründe menschlichen Handelns. Sie entspringen den menschlichen Bedürfnissen.<br>1) Primäre Motive (angeboren): Hunger, Durst, Schlaf<br>2) Sekundäre Motive (erlernt): Leistung, Machtstreben, Rauchen",
+      "Es handelt sich um Beweggründe menschlichen Handelns. Sie entspringen den menschlichen Bedürfnissen.<br><strong>Primäre Motive</strong> (angeboren): Hunger, Durst, Schlaf<br><strong>Sekundäre Motive</strong> (erlernt): Leistung, Machtstreben, Rauchen",
   },
   {
     id: 44,
@@ -665,7 +645,7 @@ const data = [
     question:
       "Erkläre das Schichtmodell des Menschen nach Platon und Aristoteles.",
     answer:
-      "Der Mensch wird in drei Schichten, Trieb, Gefühl und Vernunft, aufgeteilt.<br><strong>Triebschicht</strong>: Selbsterhaltung, Arterhaltung<br><strong>Gefühlsschicht</strong>: Wut, Hass, Liebe, Zuneigung<br><strong>Vernunftschicht</strong>: rationales Denken.<br>Der Mensch reagiert grundsätzlich aus allen drei Schichten, außer in Extremsituationen, dann nur aus einer Schicht heraus.",
+      "Der Mensch wird in drei Schichten, <strong>Trieb</strong>, <strong>Gefühl</strong> und <strong>Vernunft</strong>, aufgeteilt.<br><strong>Triebschicht</strong>: Selbsterhaltung, Arterhaltung<br><strong>Gefühlsschicht</strong>: Wut, Hass, Liebe, Zuneigung<br><strong>Vernunftschicht</strong>: rationales Denken.<br>Der Mensch reagiert grundsätzlich aus allen drei Schichten, außer in Extremsituationen, dann nur aus einer Schicht heraus.",
   },
   {
     id: 45,
@@ -686,7 +666,7 @@ const data = [
     category: "Umgang mit Menschen",
     question: "Definiere die Transaktionsanalyse nach Eric Berne.",
     answer:
-      'Einteilung der Kommunikation in vier Grundhaltungen.<br>1) Ich bin ok - Du bist okay = <strong>Menschlichkeit</strong>, einzige Position für eine gute Kommunikation<br>2) Ich bin ok - Du bist nicht ok = <strong>Überheblichkeit</strong><br>3) Ich bin nicht ok - Du bist ok = <strong>Minderwertigkeit</strong><br>4) Ich bin nicht ok - Du bist nicht ok = <strong>Hoffnungslosigkeit</strong><br> "ok" bezieht sich immer auf die Person, nie das Verhalten. Man kann das Verhalten einer Person kritisieren ohne sie als Person abzuwerten.',
+      'Einteilung der Kommunikation in vier Grundhaltungen.<br>1) Ich bin ok - Du bist okay = <strong>Menschlichkeit</strong>, einzige Position für eine gute Kommunikation<br>2) Ich bin ok - Du bist nicht ok = <strong>Überheblichkeit</strong><br>3) Ich bin nicht ok - Du bist ok = <strong>Minderwertigkeit</strong><br>4) Ich bin nicht ok - Du bist nicht ok = <strong>Hoffnungslosigkeit</strong><br>"ok" bezieht sich immer auf die Person, nie das Verhalten. Man kann das Verhalten einer Person kritisieren, ohne sie als Person abzuwerten.',
   },
   {
     id: 48,
@@ -726,7 +706,7 @@ const data = [
   {
     id: 53,
     category: "Umgang mit Menschen",
-    question: 'Erkläre den Begriff "Erster Eindruck"',
+    question: 'Erkläre den Begriff "Erster Eindruck".',
     answer:
       "Zählt zu den Wahrnehmungs- und Beurteilungsfehlern.<br>Wahrnehmung und Beurteilung findet in den ersten Sekunden statt.<br> Mehr unterbewusst als bewusst, durch Beobachtung, meistens Registrierung der Körpersprache.<br>Danach findet ein unterbewusster Vergleich mit Erfahrungen, Vorurteilen und Stereotypen statt.",
   },
@@ -749,7 +729,7 @@ const data = [
     category: "Umgang mit Menschen",
     question: "Was sind Vorurteile?",
     answer:
-      "Übernahme von Einstellungen ohne ausreichende Erfahrung oder eine falsche Verallgemeinerung. Negative Einstellungen gegenüber Menschen oder Gruppen, die meistens durch Feindseligkeit oder Stereotypen verankert sind. Beeinflussen Wahrnehmung erheblich.",
+      "Übernahme von Einstellungen ohne ausreichende Erfahrung oder eine falsche Verallgemeinerung. Negative Einstellungen gegenüber Menschen oder Gruppen, die meistens durch Feindseligkeit oder Stereotypen verankert sind. Beeinflussen unsere Wahrnehmung erheblich.",
   },
   {
     id: 57,
@@ -762,8 +742,15 @@ const data = [
     category: "Umgang mit Menschen",
     question: "Beschreibe das JOHARI-Fenster.",
     answer:
-      "Ein Modell, das besagt, umso deckungsgleicher Selbstbild und Fremdbild, umso besser ist die Kommunikation. Es beschreibt 4 Felder.<br><strong>Öffentliche Person</strong>: mir bekannt / anderen bekannt<br><strong>Mein Geheimnis</strong>: mir bekannt / anderen nicht bekannt<br><strong>Blinder Fleck</strong>: mir unbekannt / anderen bekannt<br><strong>Unbekannt</strong>: mir unbekannt / anderen unbekannt. Umso kleiner der Blinde Fleck, umso besser ist die Kommunikation. Hier sind wir jedoch auf das Feedback von anderen angewiesen.",
+      "Ein Modell, das besagt, umso deckungsgleicher Selbstbild und Fremdbild, umso besser ist die Kommunikation. Es beschreibt 4 Felder.<br><strong>Öffentliche Person</strong>: mir bekannt / anderen bekannt<br><strong>Mein Geheimnis</strong>: mir bekannt / anderen nicht bekannt<br><strong>Blinder Fleck</strong>: mir unbekannt / anderen bekannt<br><strong>Unbekannt</strong>: mir unbekannt / anderen unbekannt<br>Umso kleiner der Blinde Fleck, umso besser ist die Kommunikation. Hier sind wir jedoch auf das Feedback von anderen angewiesen.",
   },
 ];
-
-// commit: added new questoins Umgang mit Menschen
+// 1. Recht der öffentlichen Sicherheit und Ordnung (Grundrechte, Polizeirecht, Staatsaufbau)
+// 2. Gewerberecht (GewO, Bewachungsverodrnung)
+// 3. Bürgerliches Gesetzbuch (BGB)
+// 4. Strafrecht und Strafverfahrensrecht (StGB, StPO, Festnahmerechte)
+// 5. Datenschutzrecht (DSGVO, BDSG)
+// 6. Unfallverhütungsvorschriften (DGUV Vorschrift 23)
+// 7. Umgang mit Waffen (WaffG, Schusswaffengebrauch)
+// 8. Umgang mit Menschen (Deeskalatation, Kommunikation, Verhalten)
+// 9. Grundzüge der Sicherheitstechnik (Zutrittskontrolle, Videoüberwachung)
