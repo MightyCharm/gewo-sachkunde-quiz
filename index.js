@@ -2,6 +2,7 @@
 // security in germany. For that they need to pass a test from the
 // IHK (Industrie- und Handelskammer). It contains a variety of topics
 // to make sure people have the right tools for this kind of job.
+const header = document.getElementById("header");
 const main = document.getElementById("main");
 const btnStart = document.getElementById("btn-start");
 const btnQuit = document.getElementById("btn-quit");
@@ -23,11 +24,8 @@ const spanEndScreenCorrect = document.getElementById("end-screen-stat-correct");
 const spanEndScreenWrong = document.getElementById("end-screen-stat-wrong");
 
 const containerGame = document.getElementById("container-game");
-
 const containerMenuControl = document.querySelector(".container-menu-control");
-
 const containerStats = document.querySelector(".container-stats");
-
 const containerQuestion = document.querySelector(".container-question");
 const headerQuestionCategory = document.getElementById(
   "header-question-category",
@@ -68,12 +66,13 @@ function initialize() {
   //console.log("inititalize()");
   toggleVisibilityGame(GAME_MAIN_MENU);
   setButtonState(GAME_MAIN_MENU);
+  displayTheme(getThemeStorage());
 }
 
 function createQuizData() {
-  //console.log("createQuizData()");
-  quizData = [...data]; // change this line for small/big dataset
-  //quizData = [...testData]; // change this line for small/big dataset
+  console.log("createQuizData()");
+  //quizData = [...data]; // change this line for small/big dataset
+  quizData = [...testData]; // change this line for small/big dataset
   totalQuestions = quizData.length;
 
   for (let i = quizData.length - 1; i >= 0; i--) {
@@ -82,9 +81,6 @@ function createQuizData() {
     const currentValue = quizData[i];
     quizData[randomIndex] = currentValue;
     quizData[i] = randomValue;
-  }
-  for (const obj of quizData) {
-    console.log(obj.id);
   }
 }
 
@@ -328,13 +324,77 @@ function mainEventHandler(event) {
   }
 }
 
+function getThemeStorage() {
+  const theme = localStorage.getItem("theme");
+  return theme;
+}
+
+function setThemeStorage(newTheme) {
+  localStorage.setItem("theme", newTheme);
+}
+
+function displayTheme(newTheme) {
+  //console.log("displayTheme()", newTheme);
+  if (newTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    return;
+  }
+  document.documentElement.classList.remove("dark");
+}
+
+function toggleTheme() {
+  let currentTheme = getThemeStorage();
+  if (!currentTheme) {
+    currentTheme = "light";
+  }
+  console.log("currentTheme: ", currentTheme);
+
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+
+  console.log("newTheme:", newTheme);
+  setThemeStorage(newTheme);
+  displayTheme(newTheme);
+}
+
+function headerEventHandler(event) {
+  console.log("headerEventHandler()");
+  const button = event.target.closest("button");
+  if (!button) return;
+  const btnId = button.id;
+
+  switch (btnId) {
+    case "btn-theme":
+      toggleTheme();
+      break;
+  }
+}
+
+header.addEventListener("click", (event) => {
+  headerEventHandler(event);
+});
+
 main.addEventListener("click", (event) => {
   mainEventHandler(event);
 });
 
 initialize();
 
-const testData = [];
+const testData = [
+  {
+    id: 16,
+    category: "Bürgerliches Gesetzbuch",
+    question: "Was besagt § 985 Bürgerliches Gesetzbuch (BGB)?",
+    answer:
+      "<strong>Herausgabeanspruch</strong>. Der Eigentümer kann von dem Besitzer die Herausgabe der Sache verlangen.",
+  },
+  {
+    id: 17,
+    category: "Bürgerliches Gesetzbuch",
+    question: "Wie ist das Bürgerliche Gesetzbuch (BGB) gegliedert?",
+    answer:
+      "Aufgeteilt in 5 Bücher:<br>1) <strong>Allgemeiner Teil</strong> (enthält Grundregeln für das gesamte BGB)<br>2) <strong>Recht der Schuldverhältnisse</strong><br>3) <strong>Sachenrecht</strong><br>4) <strong>Familienrecht</strong><br>5) <strong>Erbrecht</strong>",
+  },
+];
 
 const data = [
   {
