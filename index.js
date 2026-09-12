@@ -24,19 +24,19 @@ const spanEndScreenCorrect = document.getElementById("end-screen-stat-correct");
 const spanEndScreenWrong = document.getElementById("end-screen-stat-wrong");
 
 const containerGame = document.getElementById("container-game");
-const containerMenuControl = document.querySelector(".container-menu-control");
-const containerStats = document.querySelector(".container-stats");
-const containerQuestion = document.querySelector(".container-question");
+const containerMenuControl = document.querySelector(".card-menu-control");
+const containerStats = document.querySelector(".card-stats");
+const containerQuestion = document.querySelector(".card-question");
 const headerQuestionCategory = document.getElementById(
   "header-question-category",
 );
 const paraQuestion = document.getElementById("para-question");
 const paraQuestionID = document.getElementById("id-question");
 
-const containerAnswer = document.querySelector(".container-answer");
+const containerAnswer = document.querySelector(".card-answer");
 const paraAnswer = document.getElementById("answer-para");
 
-const containerGameControl = document.querySelector(".container-game-control");
+const containerGameControl = document.querySelector(".card-game-control");
 
 const spanTotalCurrent = document.getElementById("stat-total-current");
 const spanTotalMax = document.getElementById("stat-total-max");

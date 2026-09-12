@@ -6,36 +6,79 @@
 }
 
 :root {
-  --col-theme: white;
-  --bg-theme: hsl(207, 44%, 40%);
+  --text: white;
+  --bg: hsl(207, 44%, 40%);
   --bg-container: hsl(0, 0%, 80%);
-
-  --col-btn: black;
-  --bg-btn: white;
-  --col-outline-btn: transparent;
-  --col-btn-hover: hsl(180, 1%, 71%);
-  /*  */
-  --col-header-btn: hsl(207, 44%, 40%);
-  --bg-header-btn: white;
-  --col-outline-header-btn: transparent;
-  --col-header-btn-hover: black;
-  --btn-transition-time: 0.3s;
+  /* button header */
+  --btn-header-text: hsl(207, 44%, 40%);
+  --btn-header-bg: white;
+  --btn-header-hover: black;
+  /* buttons main */
+  --btn-text: black;
+  --btn-bg: white;
+  --btn-hover: hsl(207, 44%, 20%);
 }
 
 .dark {
-  --col-theme: white;
-  --bg-theme: black;
-  --bg-container: hsl(221, 90%, 12%);
+  --text: #e0e0e0;
+  --bg: #0f1923;
+  --bg-container: #1a2332;
+  /* button header */
+  --btn-header-text: black;
+  --btn-header-bg: hsl(0, 0%, 70%);
+  --btn-header-hover: white;
+  /*  buttons main */
+  --btn-text: white;
+  --btn-bg: hsl(218, 32%, 35%);
+  --btn-hover: white;
+}
 
-  --col-btn: white;
-  --bg-btn: black;
-  --col-outline-btn: white;
-  --col-btn-hover: hsl(0, 0%, 79%);
+/* button in header */
+.btn-theme {
+  align-self: end;
+  justify-self: end;
+  padding: 0.1rem 0.5rem;
+  border-radius: 2px;
+  border: 1px solid transparent;
 
-  --col-header-btn: hsl(0, 0%, 100%);
-  --bg-header-btn: black;
-  --col-outline-header-btn: white;
-  --col-header-btn-hover: hsl(0, 0%, 74%);
+  color: var(--btn-header-text);
+  background-color: var(--btn-header-bg);
+  transition:
+    color 0.3s ease,
+    border-color 0.5s ease;
+}
+
+.btn-theme:hover {
+  cursor: pointer;
+
+  color: var(--btn-header-hover);
+  border-color: var(--btn-header-hover);
+}
+
+.btn-icon {
+  font-size: 20px;
+  height: 100%;
+  width: 100%;
+}
+
+/* game control buttons */
+.btn {
+  min-width: 110px;
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid transparent;
+
+  color: var(--btn-text);
+  background-color: var(--btn-bg);
+  transition:
+    color 0.3s ease,
+    border-color 0.5s ease;
+}
+
+.btn:hover {
+  cursor: pointer;
+  color: var(--btn-hover);
+  border-color: var(--btn-hover);
 }
 
 html {
@@ -70,15 +113,12 @@ header {
   gap: 0rem;
   width: 100%;
   height: 100%;
-  color: var(--col-theme);
-  background-color: var(--bg-theme);
+  color: var(--text);
+  background-color: var(--bg);
 }
 
 .header-h1 {
   grid-row: 2 / 3;
-}
-
-.header-span-icon {
 }
 
 .fa-shield-dog {
@@ -94,50 +134,8 @@ header {
   font-size: 1.6rem;
 }
 
-.btn-theme {
-  align-self: end;
-  justify-self: end;
-  padding: 0.1rem 0.5rem;
-  border: none;
-  color: var(--col-header-btn);
-  background-color: var(--bg-header-btn);
-  outline: 1px solid var(--col-outline-header-btn);
-  transition: all 1s ease;
-}
-
-.btn-icon {
-  font-size: 20px;
-  height: 100%;
-  width: 100%;
-}
-
-.btn-theme:hover {
-  cursor: pointer;
-  outline-color: var(--col-header-btn-hover);
-}
-
 main {
   position: relative;
-}
-
-.btn-start,
-.btn-quit,
-.btn-main {
-  min-width: 100px;
-  padding: 0.5rem;
-  font-weight: bold;
-  border: none;
-  color: var(--col-btn);
-  background-color: var(--bg-btn);
-  outline: 1px solid var(--col-outline-btn);
-  transition: outline var(--btn-transition-time) ease;
-}
-
-.btn-start:hover,
-.btn-quit:hover,
-.btn-main:hover {
-  cursor: pointer;
-  outline: 1px solid var(--col-btn-hover);
 }
 
 .container-start-screen {
@@ -156,26 +154,26 @@ main {
 
   z-index: 10;
   overflow-y: auto;
+  color: var(--text);
   background-color: var(--bg-container);
 }
 
-.container-start-screen-introduction {
+.card-start-introduction {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  color: white;
-  background-color: var(--bg-theme);
+
+  background-color: var(--bg);
 }
 
-.container-start-screen-introduction span {
+.card-start-introduction span {
   font-weight: 700;
 }
 
-.container-start-screen-gameplay {
+.card-start-gameplay {
   padding: 1rem;
-  color: white;
-  background-color: var(--bg-theme);
+  background-color: var(--bg);
 }
 
 .list-game-play {
@@ -187,10 +185,6 @@ main {
 
 .container-start-screen-gameplay span {
   font-weight: bold;
-}
-
-.container-start-screen-control {
-  /* padding: 1rem; */
 }
 
 .container-end-screen {
@@ -206,10 +200,11 @@ main {
   height: 100%;
   width: 100%;
   z-index: 10;
+  color: var(--text);
   background-color: var(--bg-container);
 }
 
-.container-end-screen-stats {
+.card-end-stats {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
@@ -223,8 +218,7 @@ main {
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  color: var(--col-theme);
-  background-color: var(--bg-theme);
+  background-color: var(--bg);
 }
 
 .end-screen-para-stats {
@@ -234,8 +228,7 @@ main {
   width: 100%;
   height: 100%;
 
-  color: white;
-  background-color: var(--bg-theme);
+  background-color: var(--bg);
 }
 
 .end-screen-stats-description {
@@ -258,7 +251,7 @@ main {
   background-color: var(--bg-container);
 }
 
-.container-menu-control {
+.card-menu-control {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -267,7 +260,7 @@ main {
   height: 100%;
 }
 
-.container-stats {
+.card-stats {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -275,8 +268,8 @@ main {
   width: 100%;
   height: 100%;
   padding: 1rem;
-  color: var(--col-theme);
-  background-color: var(--bg-theme);
+  color: var(--text);
+  background-color: var(--bg);
 }
 
 .para-stats {
@@ -298,7 +291,7 @@ main {
   font-weight: 500;
 }
 
-.container-question {
+.card-question {
   display: grid;
   grid-template-rows: auto minmax(50px, 1fr) auto;
   gap: 1rem;
@@ -306,8 +299,8 @@ main {
   height: 100%;
   padding: 1rem;
   font-weight: 700;
-  color: var(--col-theme);
-  background-color: var(--bg-theme);
+  color: var(--text);
+  background-color: var(--bg);
 }
 
 .question-header-category {
@@ -327,7 +320,7 @@ main {
   margin-right: 0.5rem;
 }
 
-.container-answer {
+.card-answer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -335,15 +328,15 @@ main {
   height: 100%;
   padding: 1rem;
 
-  color: var(--col-theme);
-  background-color: var(--bg-theme);
+  color: var(--text);
+  background-color: var(--bg);
 }
 
 .para-answer {
   text-align: center;
 }
 
-.container-game-control {
+.card-game-control {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -352,34 +345,12 @@ main {
   height: 100%;
 }
 
-.btn-show-answer,
-.btn-correct,
-.btn-wrong,
-.btn-result {
-  padding: 0.5rem;
-  min-width: 110px;
-  border: none;
-  font-weight: bold;
-  outline: 1px solid var(--col-outline-btn);
-  color: var(--col-btn);
-  background-color: var(--bg-btn);
-  transition: outline var(--btn-transition-time) ease;
-}
-
-.btn-show-answer:hover,
-.btn-correct:hover,
-.btn-wrong:hover,
-.btn-result:hover {
-  cursor: pointer;
-  outline: 1px solid var(--col-btn-hover);
-}
-
 footer {
   padding: 2rem;
   width: 100%;
   height: 100%;
-  color: var(--col-theme);
-  background-color: var(--bg-theme);
+  color: var(--text);
+  background-color: var(--bg);
 }
 
 .footer-ul {

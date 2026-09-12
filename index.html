@@ -28,7 +28,7 @@
     </header>
     <main id="main">
       <div id="container-start" class="container-start-screen">
-        <div class="container-start-screen-introduction">
+        <div class="card-start-introduction">
           <p>
             Dieses Programm hilft dir, dich besser auf die Sachkundeprüfung
             vorzubereiten.
@@ -43,7 +43,7 @@
           </p>
         </div>
 
-        <div class="container-start-screen-gameplay">
+        <div class="card-start-gameplay">
           <ul class="list-game-play">
             <li>
               Es wird dir eine Frage gestellt, die du versuchen solltest zu
@@ -58,12 +58,12 @@
             </li>
           </ul>
         </div>
-        <div class="container-start-screen-control">
-          <button id="btn-start" class="btn-start">START</button>
+        <div>
+          <button id="btn-start" class="btn btn-start">START</button>
         </div>
       </div>
       <div id="container-end" class="container-end-screen hidden">
-        <div class="container-end-screen-stats">
+        <div class="card-end-stats">
           <p class="end-screen-text">Ergebnis</p>
           <p class="end-screen-para-stats">
             <span class="end-screen-stats-description">Gesamt:</span>
@@ -91,16 +91,16 @@
             ></span>
           </p>
         </div>
-        <div class="container-end-screen-controls">
-          <button id="btn-main-menu" class="btn-main">Menu</button>
+        <div>
+          <button id="btn-main-menu" class="btn btn-menu">Menu</button>
         </div>
       </div>
       <div id="container-game" class="container-game-content">
-        <div class="container-menu-control hidden">
-          <button id="btn-quit" class="btn-quit">QUIT</button>
+        <div class="card-menu-control hidden">
+          <button id="btn-quit" class="btn btn-quit">QUIT</button>
         </div>
 
-        <div class="container-stats hidden">
+        <div class="card-stats hidden">
           <p class="para-stats">
             <span class="stats-description">Gesamt:</span>
             <span id="stat-total-current" class="stats-value"></span>/
@@ -116,7 +116,7 @@
           </p>
         </div>
 
-        <div class="container-question hidden">
+        <div class="card-question hidden">
           <h2
             class="question-header-category"
             id="header-question-category"
@@ -125,19 +125,23 @@
           <p id="id-question" class="question-id"></p>
         </div>
 
-        <div class="container-answer hidden">
+        <div class="card-answer hidden">
           <p id="answer-para" class="para-answer"></p>
         </div>
 
-        <div class="container-game-control hidden">
-          <button id="btn-show-answer" class="btn-show-answer">
+        <div class="card-game-control hidden">
+          <button id="btn-show-answer" class="btn btn-show-answer">
             Zeige Antwort
           </button>
-          <button id="btn-correct" class="btn-correct removed">Gewusst</button>
-          <button id="btn-wrong" class="btn-wrong removed">
+          <button id="btn-correct" class="btn btn-correct removed">
+            Gewusst
+          </button>
+          <button id="btn-wrong" class="btn btn-wrong removed">
             Nicht gewusst
           </button>
-          <button id="btn-result" class="btn-result removed">Ergebnis</button>
+          <button id="btn-result" class="btn btn-result removed">
+            Ergebnis
+          </button>
         </div>
       </div>
     </main>
