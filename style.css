@@ -6,31 +6,33 @@
 }
 
 :root {
-  --text: white;
+  --text: hsl(0, 0%, 100%);
   --bg: hsl(207, 44%, 40%);
   --bg-container: hsl(0, 0%, 80%);
+  --bg-body: hsl(0, 0%, 60%);
   /* button header */
   --btn-header-text: hsl(207, 44%, 40%);
-  --btn-header-bg: white;
-  --btn-header-hover: black;
+  --btn-header-bg: hsl(0, 0%, 100%);
+  --btn-header-hover: hsl(0, 0%, 0%);
   /* buttons main */
-  --btn-text: black;
-  --btn-bg: white;
+  --btn-text: hsl(0, 0%, 0%);
+  --btn-bg: hsl(0, 0%, 100%);
   --btn-hover: hsl(207, 44%, 20%);
 }
 
 .dark {
-  --text: #e0e0e0;
-  --bg: #0f1923;
-  --bg-container: #1a2332;
+  --text: hsl(0, 0%, 88%);
+  --bg: hsl(210, 40%, 10%);
+  --bg-container: hsl(218, 32%, 15%);
+  --bg-body: hsl(0, 0%, 15%);
   /* button header */
-  --btn-header-text: black;
+  --btn-header-text: hsl(0, 0%, 0%);
   --btn-header-bg: hsl(0, 0%, 70%);
-  --btn-header-hover: white;
+  --btn-header-hover: hsl(0, 0%, 100%);
   /*  buttons main */
-  --btn-text: white;
+  --btn-text: hsl(0, 0%, 100%);
   --btn-bg: hsl(218, 32%, 35%);
-  --btn-hover: white;
+  --btn-hover: hsl(0, 0%, 100%);
 }
 
 /* button in header */
@@ -55,10 +57,23 @@
   border-color: var(--btn-header-hover);
 }
 
-.btn-icon {
+.fa-moon,
+.fa-sun {
   font-size: 20px;
   height: 100%;
   width: 100%;
+}
+
+.btn-theme .fa-sun {
+  display: none;
+}
+
+.dark .btn-theme .fa-sun {
+  display: inline-block;
+}
+
+.dark .btn-theme .fa-moon {
+  display: none;
 }
 
 /* game control buttons */
@@ -102,6 +117,7 @@ body {
   font-weight: 400;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+  background-color: var(--bg-body);
 }
 
 header {
