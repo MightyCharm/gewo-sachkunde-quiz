@@ -13,6 +13,9 @@ const btnResult = document.getElementById("btn-result");
 const btnMenu = document.getElementById("btn-main-menu");
 
 const containerStartScreen = document.getElementById("container-start");
+const spanQuestionCount = document.getElementById("question-count");
+const spanCategoryCount = document.getElementById("category-count");
+
 const containerEndScreen = document.getElementById("container-end");
 const spanEndScreenTotalCurrent = document.getElementById(
   "end-screen-stat-total-current",
@@ -67,6 +70,21 @@ function initialize() {
   toggleVisibilityGame(GAME_MAIN_MENU);
   setButtonState(GAME_MAIN_MENU);
   displayTheme(getThemeStorage());
+
+  updateStartScreenStats();
+}
+
+function updateStartScreenStats() {
+  const countQuestions = data.length;
+
+  const uniqueCategories = new Set();
+  for (const question of data) {
+    uniqueCategories.add(question.category);
+  }
+  const countCategories = uniqueCategories.size;
+
+  spanQuestionCount.textContent = countQuestions;
+  spanCategoryCount.textContent = countCategories;
 }
 
 function createQuizData() {
@@ -376,8 +394,6 @@ header.addEventListener("click", (event) => {
 main.addEventListener("click", (event) => {
   mainEventHandler(event);
 });
-
-initialize();
 
 const testData = [
   {
@@ -814,3 +830,4 @@ const data = [
 // 7. Umgang mit Waffen (WaffG, Schusswaffengebrauch)
 // 8. Umgang mit Menschen (Deeskalatation, Kommunikation, Verhalten)
 // 9. Grundzüge der Sicherheitstechnik (Zutrittskontrolle, Videoüberwachung)
+initialize();
