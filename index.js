@@ -2,49 +2,47 @@
 // security in germany. For that they need to pass a test from the
 // IHK (Industrie- und Handelskammer). It contains a variety of topics
 // to make sure people have the right tools for this kind of job.
+
 const header = document.getElementById("header");
 const main = document.getElementById("main");
-const btnStart = document.getElementById("btn-start");
-const btnQuit = document.getElementById("btn-quit");
-const btnShowAnswer = document.getElementById("btn-show-answer");
-const btnCorrect = document.getElementById("btn-correct");
-const btnWrong = document.getElementById("btn-wrong");
-const btnResult = document.getElementById("btn-result");
-const btnMenu = document.getElementById("btn-main-menu");
 
-const containerStartScreen = document.getElementById("container-start");
-const spanQuestionCount = document.getElementById("question-count");
-const spanCategoryCount = document.getElementById("category-count");
+const start = {
+  container: document.getElementById("container-start"),
+  spanQuestionCount: document.getElementById("question-count"),
+  spanCategoryCount: document.getElementById("category-count"),
+  btnStart: document.getElementById("btn-start"),
+};
 
-const containerEndScreen = document.getElementById("container-end");
-const spanEndScreenTotalCurrent = document.getElementById(
-  "end-screen-stat-total-current",
-);
-const spanEndScreenTotalMax = document.getElementById(
-  "end-screen-stat-total-max",
-);
-const spanEndScreenCorrect = document.getElementById("end-screen-stat-correct");
-const spanEndScreenWrong = document.getElementById("end-screen-stat-wrong");
+const end = {
+  container: document.getElementById("container-end"),
+  spanTotalCurrent: document.getElementById("end-screen-stat-total-current"),
+  spanTotalMax: document.getElementById("end-screen-stat-total-max"),
+  spanCorrect: document.getElementById("end-screen-stat-correct"),
+  spanWrong: document.getElementById("end-screen-stat-wrong"),
+  btnMenu: document.getElementById("btn-main-menu"),
+};
 
-const containerGame = document.getElementById("container-game");
-const containerMenuControl = document.querySelector(".card-menu-control");
-const containerStats = document.querySelector(".card-stats");
-const containerQuestion = document.querySelector(".card-question");
-const headerQuestionCategory = document.getElementById(
-  "header-question-category",
-);
-const paraQuestion = document.getElementById("para-question");
-const paraQuestionID = document.getElementById("id-question");
-
-const containerAnswer = document.querySelector(".card-answer");
-const paraAnswer = document.getElementById("answer-para");
-
-const containerGameControl = document.querySelector(".card-game-control");
-
-const spanTotalCurrent = document.getElementById("stat-total-current");
-const spanTotalMax = document.getElementById("stat-total-max");
-const spanCorrect = document.getElementById("stat-correct");
-const spanWrong = document.getElementById("stat-wrong");
+const game = {
+  container: document.getElementById("container-game"),
+  cardMenuControl: document.getElementById("card-menu-control"),
+  btnQuit: document.getElementById("btn-quit"),
+  cardStats: document.getElementById("card-stats"),
+  spanTotalCurrent: document.getElementById("stat-total-current"),
+  spanTotalMax: document.getElementById("stat-total-max"),
+  spanCorrect: document.getElementById("stat-correct"),
+  spanWrong: document.getElementById("stat-wrong"),
+  cardQuestion: document.getElementById("card-question"),
+  headerQuestion: document.getElementById("header-question-category"),
+  paraQuestion: document.getElementById("para-question"),
+  spanQuestionId: document.getElementById("id-question"),
+  cardAnswer: document.getElementById("card-answer"),
+  paraAnswer: document.getElementById("answer-para"),
+  cardGameControl: document.getElementById("card-game-control"),
+  btnShowAnswer: document.getElementById("btn-show-answer"),
+  btnCorrect: document.getElementById("btn-correct"),
+  btnWrong: document.getElementById("btn-wrong"),
+  btnResult: document.getElementById("btn-result"),
+};
 
 let countQuestions = 0;
 let totalQuestions = undefined;
@@ -83,8 +81,8 @@ function updateStartScreenStats() {
   }
   const countCategories = uniqueCategories.size;
 
-  spanQuestionCount.textContent = countQuestions;
-  spanCategoryCount.textContent = countCategories;
+  start.spanQuestionCount.textContent = countQuestions;
+  start.spanCategoryCount.textContent = countCategories;
 }
 
 function createQuizData() {
@@ -143,31 +141,30 @@ function setStatsLogic(value) {
 
 function displayStats() {
   //console.log("displayStats()");
-  spanTotalCurrent.textContent = countQuestions;
-  spanTotalMax.textContent = totalQuestions;
-
-  spanCorrect.textContent = countCorrect;
-  spanWrong.textContent = countWrong;
+  game.spanTotalCurrent.textContent = countQuestions;
+  game.spanTotalMax.textContent = totalQuestions;
+  game.spanCorrect.textContent = countCorrect;
+  game.spanWrong.textContent = countWrong;
 }
 
 function displayStatsEndScreen() {
-  spanEndScreenTotalCurrent.textContent = countQuestions;
-  spanEndScreenTotalMax.textContent = totalQuestions;
-  spanEndScreenCorrect.textContent = countCorrect;
-  spanEndScreenWrong.textContent = countWrong;
+  end.spanTotalCurrent.textContent = countQuestions;
+  end.spanTotalMax.textContent = totalQuestions;
+  end.spanCorrect.textContent = countCorrect;
+  end.spanWrong.textContent = countWrong;
 }
 
 function displayQuestion() {
   //console.log("displayQuestion()");
   const currentQuestion = quizData[indexCurrentQuestion];
-  headerQuestionCategory.textContent = currentQuestion.category;
-  paraQuestion.textContent = currentQuestion.question;
-  paraQuestionID.textContent = currentQuestion.id;
+  game.headerQuestion.textContent = currentQuestion.category;
+  game.paraQuestion.textContent = currentQuestion.question;
+  game.spanQuestionId.textContent = currentQuestion.id;
 }
 
 function displayAnswer() {
   //console.log(quizData[indexCurrentQuestion]);
-  paraAnswer.innerHTML = quizData[indexCurrentQuestion].answer;
+  game.paraAnswer.innerHTML = quizData[indexCurrentQuestion].answer;
 }
 
 function setIndexCurrentQuestion() {
@@ -179,58 +176,57 @@ function setIndexCurrentQuestion() {
 
 function toggleVisibilityGame(state) {
   console.log("toggleVisibilityGame(state):", state);
-  containerStartScreen.classList.add("hidden");
-  containerEndScreen.classList.add("hidden");
-  containerGame.classList.add("hidden");
-  containerMenuControl.classList.add("hidden");
-  containerStats.classList.add("hidden");
-  containerQuestion.classList.add("hidden");
-  containerAnswer.classList.add("hidden");
-  containerGameControl.classList.add("hidden");
-  btnShowAnswer.classList.add("removed");
-  btnCorrect.classList.add("removed");
-  btnWrong.classList.add("removed");
-  btnResult.classList.add("removed");
+  start.container.classList.add("hidden");
+  end.container.classList.add("hidden");
+  game.container.classList.add("hidden");
+  game.cardMenuControl.classList.add("hidden");
+  game.cardStats.classList.add("hidden");
+  game.cardQuestion.classList.add("hidden");
+  game.cardAnswer.classList.add("hidden");
+  game.cardGameControl.classList.add("hidden");
+  game.btnShowAnswer.classList.add("removed");
+  game.btnCorrect.classList.add("removed");
+  game.btnWrong.classList.add("removed");
+  game.btnResult.classList.add("removed");
   switch (state) {
     case GAME_MAIN_MENU:
     case GAME_QUIT:
-      containerStartScreen.classList.remove("hidden");
-      break;
+      start.container.classList.remove("hidden");
     case GAME_START:
-      containerGame.classList.remove("hidden");
-      containerMenuControl.classList.remove("hidden");
-      containerStats.classList.remove("hidden");
-      containerQuestion.classList.remove("hidden");
-      containerGameControl.classList.remove("hidden");
-      btnShowAnswer.classList.remove("removed");
+      game.container.classList.remove("hidden");
+      game.cardMenuControl.classList.remove("hidden");
+      game.cardStats.classList.remove("hidden");
+      game.cardQuestion.classList.remove("hidden");
+      game.cardGameControl.classList.remove("hidden");
+      game.btnShowAnswer.classList.remove("removed");
       break;
     case GAME_SHOW_ANSWER:
-      containerGame.classList.remove("hidden");
-      containerMenuControl.classList.remove("hidden");
-      containerStats.classList.remove("hidden");
-      containerQuestion.classList.remove("hidden");
-      containerAnswer.classList.remove("hidden");
-      containerGameControl.classList.remove("hidden");
-      btnCorrect.classList.remove("removed");
-      btnWrong.classList.remove("removed");
+      game.container.classList.remove("hidden");
+      game.cardMenuControl.classList.remove("hidden");
+      game.cardStats.classList.remove("hidden");
+      game.cardQuestion.classList.remove("hidden");
+      game.cardAnswer.classList.remove("hidden");
+      game.cardGameControl.classList.remove("hidden");
+      game.btnCorrect.classList.remove("removed");
+      game.btnWrong.classList.remove("removed");
       break;
     case GAME_ANSWER_CORRECT:
     case GAME_ANSWER_WRONG:
-      containerGame.classList.remove("hidden");
-      containerMenuControl.classList.remove("hidden");
-      containerStats.classList.remove("hidden");
-      containerQuestion.classList.remove("hidden");
-      containerGameControl.classList.remove("hidden");
-      btnShowAnswer.classList.remove("removed");
+      game.container.classList.remove("hidden");
+      game.cardMenuControl.classList.remove("hidden");
+      game.cardStats.classList.remove("hidden");
+      game.cardQuestion.classList.remove("hidden");
+      game.cardGameControl.classList.remove("hidden");
+      game.btnShowAnswer.classList.remove("removed");
       break;
     case GAME_OVER:
-      containerGame.classList.remove("hidden");
-      containerStats.classList.remove("hidden");
-      containerGameControl.classList.remove("hidden");
-      btnResult.classList.remove("removed");
+      game.container.classList.remove("hidden");
+      game.cardStats.classList.remove("hidden");
+      game.cardGameControl.classList.remove("hidden");
+      game.btnResult.classList.remove("removed");
       break;
     case GAME_RESULT:
-      containerEndScreen.classList.remove("hidden");
+      end.container.classList.remove("hidden");
       break;
     default:
       console.log("should not see me 1.");
@@ -239,39 +235,39 @@ function toggleVisibilityGame(state) {
 
 function setButtonState(state) {
   console.log("setButtonState(state):", state);
-  btnStart.disabled = true;
-  btnQuit.disabled = true;
-  btnShowAnswer.disabled = true;
-  btnCorrect.disabled = true;
-  btnWrong.disabled = true;
-  btnResult.disabled = true;
-  btnMenu.disabled = true;
+  start.btnStart.disabled = true;
+  game.btnQuit.disabled = true;
+  game.btnShowAnswer.disabled = true;
+  game.btnCorrect.disabled = true;
+  game.btnWrong.disabled = true;
+  game.btnResult.disabled = true;
+  end.btnMenu.disabled = true;
   switch (state) {
     case GAME_MAIN_MENU:
-      btnStart.disabled = false;
+      start.btnStart.disabled = false;
       break;
     case GAME_START:
-      btnQuit.disabled = false;
-      btnShowAnswer.disabled = false;
+      game.btnQuit.disabled = false;
+      game.btnShowAnswer.disabled = false;
       break;
     case GAME_QUIT:
-      btnStart.disabled = false;
+      start.btnStart.disabled = false;
       break;
     case GAME_SHOW_ANSWER:
-      btnQuit.disabled = false;
-      btnCorrect.disabled = false;
-      btnWrong.disabled = false;
+      game.btnQuit.disabled = false;
+      game.btnCorrect.disabled = false;
+      game.btnWrong.disabled = false;
       break;
     case GAME_ANSWER_CORRECT:
     case GAME_ANSWER_WRONG:
-      btnQuit.disabled = false;
-      btnShowAnswer.disabled = false;
+      game.btnQuit.disabled = false;
+      game.btnShowAnswer.disabled = false;
       break;
     case GAME_OVER:
-      btnResult.disabled = false;
+      game.btnResult.disabled = false;
       break;
     case GAME_RESULT:
-      btnMenu.disabled = false;
+      end.btnMenu.disabled = false;
       break;
     default:
       console.log("Something went wrong. setButtonState()");
@@ -831,3 +827,5 @@ const data = [
 // 8. Umgang mit Menschen (Deeskalatation, Kommunikation, Verhalten)
 // 9. Grundzüge der Sicherheitstechnik (Zutrittskontrolle, Videoüberwachung)
 initialize();
+
+// refactor(app): group DOM references into objects by screen
