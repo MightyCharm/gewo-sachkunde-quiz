@@ -68,7 +68,6 @@ function initialize() {
   toggleVisibilityGame(GAME_MAIN_MENU);
   setButtonState(GAME_MAIN_MENU);
   displayTheme(getThemeStorage());
-
   updateStartScreenStats();
 }
 
@@ -391,20 +390,14 @@ main.addEventListener("click", (event) => {
   mainEventHandler(event);
 });
 
+// Was beschreibt, Was besagt, Was definiert, Was regelt
 const testData = [
   {
-    id: 16,
-    category: "Bürgerliches Gesetzbuch",
-    question: "Was besagt § 985 Bürgerliches Gesetzbuch (BGB)?",
+    id: 4,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was besagt § 252 Strafgesetzbuch (StGB)?",
     answer:
-      "<strong>Herausgabeanspruch</strong>. Der Eigentümer kann von dem Besitzer die Herausgabe der Sache verlangen.",
-  },
-  {
-    id: 17,
-    category: "Bürgerliches Gesetzbuch",
-    question: "Wie ist das Bürgerliche Gesetzbuch (BGB) gegliedert?",
-    answer:
-      "Aufgeteilt in 5 Bücher:<br>1) <strong>Allgemeiner Teil</strong> (enthält Grundregeln für das gesamte BGB)<br>2) <strong>Recht der Schuldverhältnisse</strong><br>3) <strong>Sachenrecht</strong><br>4) <strong>Familienrecht</strong><br>5) <strong>Erbrecht</strong>",
+      "<strong>Räuberischer Diebstahl</strong>.<br> Erst klauen, dann hauen.<br><strong>§ 242 Diebstahl</strong> + auf frischer Tat betroffen und mit <strong>Gewalt</strong> oder <strong>Drohung</strong> mit gegenwärtiger Gefahr für Leib und Leben, sich im Besitz des gestohlenen Gutes zu erhalten.",
   },
 ];
 
@@ -573,131 +566,287 @@ const data = [
   {
     id: 24,
     category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was definiert § 33 Strafgesetzbuch (StGB)?",
+    answer:
+      "<strong>Überschreitung der Notwehr</strong>.<br>Überschreitet der Täter, die Grenzen der Notwehr, aus Verwirrung, Furcht oder Schrecken, so wird er nicht bestraft.",
+  },
+  {
+    id: 25,
+    category: "Strafrecht und Strafverfahrensrecht",
     question: "Was beschreibt § 34 Strafgesetzbuch (StGB)?",
     answer:
       "<strong>Rechtfertigender Notstand</strong>.<br>Bei gegenwärtiger Gefahr für ein Rechtsgut, die nicht anders abwendbar ist, nach Rechtsgüterabwägung und Angemessenheit.",
   },
   {
-    id: 25,
+    id: 26,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was beschreibt § 35 Strafgesetzbuch (StGB)?",
+    answer:
+      "<strong>Entschuldigender Notstand</strong>.<br>Berücksichtigt die besonderen Umstände. Nur drei <strong>Rechtsgüter</strong>, <strong>Leben</strong>, <strong>Leib</strong> und <strong>Freiheit</strong>, von <strong>mir</strong> oder einer <strong>nahestehenden Person</strong>, sind notstandsfähig. Es findet keine Rechtsgüterabwägung statt, sondern geprüft wird nur, ob anders handeln nicht zumutbar war. Es geht hier um <strong>Vorwerbarkeit</strong> und <strong>Schuld</strong>.",
+  },
+  {
+    id: 27,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was beschreibt § 123 Strafgesetzbuch (StGB)?",
+    answer:
+      "<strong>Hausfriedensbruch</strong>.<br>Der 1-2-3 Raus! Paragraph. Tatbestandsmerkmale:<br>1. Widerrechtliches Eindringen oder 2. Unbefugtes Verweilen in a) einer Wohnung, oder b) Geschäftsräumen, oder c) befriedetem Besitztum, oder d) abgeschlossenen Räumen, welche zum öffentlichen Dienst oder Verkehr bestimmt sind.",
+  },
+  {
+    id: 28,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was regelt § 127 (1) Strafprozessordnung (StPO)?",
     answer:
       "<strong>Vorläufige Festnahme</strong>.<br>Wird jemand auf frischer Tat betroffen oder verfolgt, so ist, wenn er der Flucht verdächtigt ist oder seine Identität nicht sofort festgestellt werden kann, jedermann befugt, ihn auch ohne richterliche Anordnung vorläufig festzunehmen.",
   },
   {
-    id: 26,
+    id: 29,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was beschreibt § 223 Strafgesetzbuch (StGB)?",
+    answer:
+      "<strong>Körperverletzung</strong>.<br>Eine körperliche Misshandlung oder Gesundheitsschädigung.<br><strong>Körperliche Misshandlung</strong>: Jede üble, unangemessene Behandlung, die das körperliche Wohlbefinden oder die körperliche Unversehrtheit nicht unerheblich beinträchtigt.<br><strong>Gesundheitsschädigung</strong>: das Hervorrufen oder Verschlimmern eines krankhaften Zustandes.",
+  },
+  {
+    id: 30,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was definiert § 224 Strafgesetzbuch (StGB)?",
+    answer:
+      "<strong>Gefährliche Körperverletzung</strong>.<br>§ 223 Körperverletzung + Begehungsformen sind entscheidend. Die <strong>fünf gefährlichen Tatmittel</strong>:<br>1. durch Beibringen von Gift oder anderen gesundheitsschädlichen Stoffen,<br>2. mittels einer Waffe oder eines anderen gefährlichen Werkzeugs,<br>3. mittels eines hinterlistigen Überfalls,<br>4. mit einem anderen Beteiligten gemeinschaftlich oder<br>5. mittels einer das Leben gefährdenden Behandlung.",
+  },
+  {
+    id: 31,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was definiert § 226 Strafgesetzbuch (StGB)?",
+    answer:
+      "<strong>Schwere Körperverletzung</strong>.<br>§ 223 Körperverletzung + bleibende körperliche oder geistige Schäden. Die <strong>neun schweren Folgen</strong>:<br>1. Verlust oder dauernde Gebrauchsunfähigkeit eines wichtigen Körpergliedes,<br>2. Verlust des Sehvermögens,<br>3. Verlust des Gehörs,<br>4. Verlust der Sprache,<br>5. Verlust der Zeugungsfähigkeit,<br>6. Erhebliche dauernde Entstellung,<br>7. Siechtum,<br>8. Lähmung,<br>9. Geisteskrankheit.",
+  },
+  {
+    id: 32,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was regelt § 239 Strafgesetzbuch (StGB)?",
+    answer:
+      "<strong>Freiheitsberaubung</strong>.<br>Einen Menschen 1. einsperren oder 2. auf andere Weise der Freiheit berauben.<br><strong>Einsperren</strong>: Jemanden durch äußere Vorrichtungen in einem Raum einsperren.<br><strong>Auf andere Weise der Freiheit berauben</strong>: Fortbewegungsfreiheit eines anderen einschränken.",
+  },
+  {
+    id: 33,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was beschreibt § 242 Strafgesetzbuch (StGB)?",
+    answer:
+      "<strong>Diebstahl</strong>.<br>Wegnahme einer fremden beweglichen Sache in rechtswidriger Zueignungsabsicht.<br><strong>Wegnahme</strong>: Fremder Gewahrsam wird gebrochen und neuer begründet.<br><strong>beweglich</strong>: beweglich ist alles, was beweglich gemacht werden kann.<br><strong>rechtswidrige Zueignungsabsicht</strong>: wenn der Dieb mit der Sache umgehen möchte, wie der eigentliche Besitzer.",
+  },
+  {
+    id: 34,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was regelt § 249 Strafgesetzbuch (StGB)?",
+    answer:
+      "<strong>Raub</strong>.<br> Erst hauen, dann klauen.<br><strong>§ 242 Diebstahl</strong> + <strong>Gewalt</strong> oder <strong>Drohung</strong> mit gegenwärtiger Gefahr für Leib und Leben.",
+  },
+  {
+    id: 35,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was ist die Aufgabe des Strafrechts?",
     answer:
       "Als <strong>Teil des öffentlichen Rechts</strong> hat es die Aufgabe, schutzbedürftige <strong>Rechtsgüter</strong> des Einzelnen sowie der Allgemeinheit vor Bedrohung und Verletzung zu <strong>schützen</strong>.",
   },
   {
-    id: 27,
+    id: 36,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was sind die fünf Funktionen des Strafrechts?",
     answer:
       "1) <strong>Vergeltungstheorie</strong>: Ausgleich für das Unrecht der Tat<br>2) <strong>Generalprävention</strong>: Abschreckung der Allgemeinheit<br>3) <strong>Spezialprävention</strong>: Abschreckung des Täters<br>4) <strong>Resozialisierung</strong>: Wiedereingliederung des Täters<br>5) <strong>Rechtsfrieden</strong>: Aufrechterhaltung der Rechtsordnung",
   },
   {
-    id: 28,
+    id: 37,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Wie heißen die Hauptgesetzwerke des Strafrechts?",
     answer:
       "<strong>Strafgesetzbuch</strong> (StGB)<br><strong>Strafprozessordnung</strong> (StPO)",
   },
   {
-    id: 29,
+    id: 38,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was beinhaltet das Nebenstrafrecht?",
     answer:
       "Hier sind weitere strafbare Handlungen und die jeweiligen Rechtsfolgen geregelt.<br><strong>Gewerbeordnung</strong> (GewO)<br><strong>Bundesdatenschutzgesetz</strong> (BDSG)<br><strong>Betäubungsmittelgesetz</strong> (BtMG)<br><strong>Waffengesetz</strong> (WaffG)",
   },
   {
-    id: 30,
+    id: 39,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was ist das materielle Strafrecht?",
     answer:
       "Es umfasst das <strong>Strafgesetzbuch</strong> (StGB) und alle <strong>nebenstrafrechtlichen Vorschriften</strong>.<br>Es regelt die Tatbestände einer strafbaren Handlung und die Rechtsfolgen für diese Tat, Freiheitsstrafe oder Geldstrafe.",
   },
   {
-    id: 31,
+    id: 40,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was ist das formelle Strafrecht?",
     answer:
       "1) <strong>Strafprozessordnung</strong> (StPO)<br>2) Alles an Rechtsvorschriften, welche den Ablauf des Strafverfahrens insgesamt regeln, von der Ermittlung bis zur Vollstreckung der Strafe",
   },
   {
-    id: 32,
+    id: 41,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Wie ist das Strafgesetzbuch (StGB) gegliedert?",
     answer:
       "<strong>Allgemeiner Teil</strong> §§ 1 - 79b StGB: enthält grundsätzliches zum Strafgesetzbuch, Geltungsbereich, Begriffsdefinitionen, Rechtfertigungsgründe<br><strong>Besonderer Teil</strong> §§ 80 - 358 StGB: enthält Katalog der einzelnen Straftaten",
   },
   {
-    id: 33,
+    id: 42,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was beinhaltet der dreistufige Deliktsaufbau?",
     answer:
       "1) <strong>Tatbestand</strong>: Tat entspricht den Tatbestandsmerkmalen des Gesetzes<br>2) <strong>Rechtswidrigkeit</strong>: Kein Rechtfertigungsgrund<br>3) <strong>Schuld</strong>: Schuldfähig, vorsätzlich/fahrlässig, Unrechtseinsicht, kein Entschuldigungsgrund",
   },
   {
-    id: 34,
+    id: 43,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Wie wird ein Antragsdelikt definiert?",
     answer:
       "<strong>Absolute Antragsdelikte</strong>: Straftaten, die nur auf Antrag eines Antragsberechtigten (Opfer) verfolgt werden können<br><strong>Relative Antragsdelikte</strong>: Straftaten, die grundsätzlich nur auf Antrag des Geschädigten verfolgt werden, aber falls ein öffentliches Interesse vorliegt, auch von der Staatsanwaltschaft",
   },
   {
-    id: 35,
+    id: 44,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Wie wird ein Offizialdelikt definiert?",
     answer:
       "Eine Straftat, die von Amts wegen verfolgt wird. Alle Straftaten im Strafgesetzbuch, außer jene, in denen im Strafgesetzbuch explizit erwähnt wird, dass die Tat nur auf Antrag verfolgt wird, sind Offizialdelikte.",
   },
   {
-    id: 36,
+    id: 45,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Wie wird ein Privatklagedelikt definiert?",
     answer:
       "Eine Straftat, die bei fehlendem öffentlichen Interesse vom Geschädigten selbst als Privatperson anstelle der Staatsanwaltschaft verfolgt werden kann.",
   },
   {
-    id: 37,
+    id: 46,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Was bedeutet die sogenannte Garantenpflicht?",
     answer:
       "Die rechtliche Verpflichtung einer Person (Garant), aufgrund einer besonderen Stellung dafür einzustehen, dass ein bestimmter tatbestandlicher Erfolg nicht eintritt.<br>1) <strong>Gesetz</strong><br>2) <strong>Lebensgemeinschaft</strong><br>3) <strong>Gefahrengemeinschaft</strong><br>4) <strong>Pflichtenübernahme</strong><br>5) <strong>Herbeiführen von Gefahren</strong>",
   },
   {
-    id: 38,
+    id: 47,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Definiere Vorsätzliches Handeln.",
     answer:
       "Der Täter handelt mit Wissen und Wollen, der Täter weiß, dass er einen Tatbestand oder eine Straftat eines Gesetzes erfüllt und will den Tatbestandserfolg.",
   },
   {
-    id: 39,
+    id: 48,
     category: "Strafrecht und Strafverfahrensrecht",
     question: "Definiere fahrlässiges Handeln.",
     answer:
       "Der Täter handelt nicht mit Wissen und Wollen, sondern verletzt die im Verkehr erforderliche Sorgfalt, obwohl die Pflichtverletzung für ihn vorhersehbar und der Erfolg vermeidbar war.",
   },
   {
-    id: 40,
+    id: 49,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question:
+      "Erläutere die Begriffe Rechtfertigungs- und Entschuldigungsgründe.",
+    answer:
+      "<strong>Rechtfertigungsgründe</strong> schließen das Element Rechtswidrigkeit aus. Wer einen Rechtfertigungsgrund hat, handelt nicht rechtswidrig.<br><strong>Entschuldigungsgründe</strong> schließen das Element Schuld aus. Wer einen Entschuldigungsgrund hat, handelt nicht schuldhaft.",
+  },
+  {
+    id: 50,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "In welchen Gesetzeswerken findet man den Notwehrparagraphen?",
+    answer:
+      "Notwehr gemäß<br>§32 Strafgesetzbuch (StGB)<br>§ 227 Bürgerliches Gesetzbuch (BGB)<br>§ 15 Gesetz über Ordnungswidrigkeiten (OWiG)",
+  },
+  {
+    id: 51,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: 'Was bedeutet "Angriff" im Kontext von Notwehr?',
+    answer:
+      "Der Angriff muss von einem anderen <strong>Menschen</strong> ausgehen, gerichtet auf die <strong>Verletzung</strong> oder <strong>Bedrohung</strong> eines individuellen <strong>Rechtsgutes</strong> von mir oder eines Dritten.",
+  },
+  {
+    id: 52,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: 'Was bedeutet "gegenwärtig" im Kontext von Notwehr?',
+    answer:
+      "Es handelt sich um einen Angriff, der unmittelbar <strong>bevorsteht</strong>, gerade <strong>stattfindet</strong> oder noch <strong>andauert</strong>.",
+  },
+  {
+    id: 53,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: 'Was bedeutet "rechtswidrig" im Kontext von Notwehr?',
+    answer:
+      "Der Angreifer hat <strong>keinen</strong> Rechtfertigungsgrund. Nur dann greift die Notwehr.",
+  },
+  {
+    id: 54,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: 'Was bedeutet "erforderlich" im Kontext von Notwehr?',
+    answer:
+      "Das <strong>mildeste</strong> zur Verfügung stehende <strong>Mittel</strong>, welches die sofortige Beendigung des Angriffs gewährleistet, muss <strong>ausgewählt</strong> werden.",
+  },
+  {
+    id: 55,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was ist eine Nothilfe?",
+    answer: "Notwehr für eine dritte Person.",
+  },
+  {
+    id: 56,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Gegen wen kann ich in Notwehr handeln?",
+    answer: "Nur gegen den Angreifer, der mein Rechtsgut bedroht.",
+  },
+  {
+    id: 57,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question:
+      'Erkläre den Begriff "Rechtsgüterabwägung" im Bezug auf den Rechtfertigenden Notstand.',
+    answer:
+      "Das zu <strong>schützende</strong> Rechtsgut muss <strong>höherwertig</strong> sein als das verletzte. Nur dann ist die Notstandshandlung gerechtfertigt.",
+  },
+  {
+    id: 58,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: 'Erläutere den Begriff "auf frischer Tat betroffen".',
+    answer:
+      "Der Täter wurde direkt bei der Tatbegehung oder unmittelbar danach, am Tatort oder in unmittelbarer Nähe, angetroffen.",
+  },
+  {
+    id: 59,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: 'Erläutere den Begriff "auf frischer Tat verfolgt".',
+    answer:
+      "Die Verfolgung des Täters beginnt unmittelbar nach der Tat, in Tatortnähe. Sie findet ununterbrochen statt, aufgrund der auf den Täter hinweisenden Spuren oder Zeugen.",
+  },
+  {
+    id: 60,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question:
+      'Erläutere den Begriff "Fluchtverdacht" in Bezug auf § 127 (1) Strafprozessordnung (StPO) Vorläufige Festnahme.',
+    answer:
+      "Damit ist nicht das reine weglaufen gemeint, es geht darum sich <strong>der Strafverfolgung komplett zu entziehen</strong>.<br>Beispiel: Mein Arbeitskollege, den ich sehr lange kenne und von dem ich weiß, dass er finanzielle Probleme hat und oft davon sprach, das Land verlassen zu wollen, beobachte ich nun nach einem Raub, wie er aus dem Geschäft rennt und in sein Auto einsteigt. Hier kann man eine vorläufige Festnahme wegen Fluchtgefahr begründen.",
+  },
+  {
+    id: 61,
+    category: "Strafrecht und Strafverfahrensrecht",
+    question: "Was besagt § 252 Strafgesetzbuch (StGB)?",
+    answer:
+      "<strong>Räuberischer Diebstahl</strong>.<br> Erst klauen, dann hauen.<br><strong>§ 242 Diebstahl</strong> + auf frischer Tat betroffen und mit <strong>Gewalt</strong> oder <strong>Drohung</strong> mit gegenwärtiger Gefahr für Leib und Leben, sich im Besitz des gestohlenen Gutes zu erhalten.",
+  },
+
+  {
+    id: 62,
     category: "Umgang mit Menschen",
     question: "Erläutere den Begriff Psychologie.",
     answer:
       "Die Wissenschaft vom menschlichen Erleben und Verhalten. Überprüfbar, begründet und objektiv.<br><strong>Erleben</strong> ist das, was in unserem Gehirn und zentralen Nervensystem stattfindet und von außen nicht unmittelbar beobachtet werden kann.<br><strong>Verhalten</strong> setzt sich zusammen aus körperlichen Reaktionen und Aktivitäten, die beobachtet und gemessen werden können.",
   },
   {
-    id: 41,
+    id: 63,
     category: "Umgang mit Menschen",
     question: "Erläutere den Begriff Menschenkenntnis.",
     answer:
       "Die <strong>Fähigkeit</strong> eines Menschen, andere Menschen richtig einzuschätzen und mit ihnen geschickt umzugehen. <strong>Subjektiv</strong>, beruht auf <strong>Erfahrung</strong>, <strong>Intuition</strong>, <strong>Intelligenz</strong> und <strong>Weisheit</strong>.",
   },
   {
-    id: 42,
+    id: 64,
     category: "Umgang mit Menschen",
     question:
       "Was für Charaktereigenschaften sind besonders wichtig für Sicherheitskräfte?",
@@ -705,14 +854,14 @@ const data = [
       "Zuverlässigkeit, Integrität (Rechtschaffenheit), Menschenkenntnis, positives Selbstwertgefühl, Empathie, soziale Intelligenz, Kommunikationsfähigkeit.",
   },
   {
-    id: 43,
+    id: 65,
     category: "Umgang mit Menschen",
     question: "Was sind Motive und woraus entstehen sie?",
     answer:
       "Es handelt sich um Beweggründe menschlichen Handelns. Sie entspringen den menschlichen Bedürfnissen.<br><strong>Primäre Motive</strong> (angeboren): Hunger, Durst, Schlaf<br><strong>Sekundäre Motive</strong> (erlernt): Leistung, Machtstreben, Rauchen",
   },
   {
-    id: 44,
+    id: 66,
     category: "Umgang mit Menschen",
     question:
       "Erkläre das Schichtmodell des Menschen nach Platon und Aristoteles.",
@@ -720,97 +869,97 @@ const data = [
       "Der Mensch wird in drei Schichten, <strong>Trieb</strong>, <strong>Gefühl</strong> und <strong>Vernunft</strong>, aufgeteilt.<br><strong>Triebschicht</strong>: Selbsterhaltung, Arterhaltung<br><strong>Gefühlsschicht</strong>: Wut, Hass, Liebe, Zuneigung<br><strong>Vernunftschicht</strong>: rationales Denken.<br>Der Mensch reagiert grundsätzlich aus allen drei Schichten, außer in Extremsituationen, dann nur aus einer Schicht heraus.",
   },
   {
-    id: 45,
+    id: 67,
     category: "Umgang mit Menschen",
     question: "Erkläre die sogenannte Bedürfnispyramide nach Maslow.",
     answer:
       "Hierarchische Einteilung menschlicher Bedürfnisse. Erst wenn die unteren Stufen erfüllt sind, drängen sich die oberen auf.<br>1) <strong>Grundbedürfnisse</strong>: Hunger, Durst, Atmen...<br>2) <strong>Sicherheitsbedürfnis</strong>: materielle und eigene Sicherheit<br>3) <strong>Soziale Bedürfnisse</strong>: Familie, Freundschaft, Liebe<br>4) <strong>Ich-Bedürfnisse</strong>: Anerkennung<br>5) <strong>Selbstverwirklichung</strong>: frei leben und seiner Berufung folgen<br><strong>Defizitbedürfnisse</strong>: Stufen 1-4, stillbar<br><strong>Wachstumsbedürfnisse</strong>: Stufe 5, kann nicht gestillt werden.",
   },
   {
-    id: 46,
+    id: 68,
     category: "Umgang mit Menschen",
     question: "Definiere den Begriff Selbstwertgefühl.",
     answer:
       "Selbstwertgefühl ist das Ergebnis einer Selbstbewertung. Ein positives ist wichtig, denn nur so kann eine angemessene Kommunikations- und Konfliktfähigkeit hervorgehen. Ein angegriffenes Selbstwertgefühl ist Hauptgrund für Konflikte.",
   },
   {
-    id: 47,
+    id: 69,
     category: "Umgang mit Menschen",
     question: "Definiere die Transaktionsanalyse nach Eric Berne.",
     answer:
       'Einteilung der Kommunikation in vier Grundhaltungen.<br>1) Ich bin ok - Du bist okay = <strong>Menschlichkeit</strong>, einzige Position für eine gute Kommunikation<br>2) Ich bin ok - Du bist nicht ok = <strong>Überheblichkeit</strong><br>3) Ich bin nicht ok - Du bist ok = <strong>Minderwertigkeit</strong><br>4) Ich bin nicht ok - Du bist nicht ok = <strong>Hoffnungslosigkeit</strong><br>"ok" bezieht sich immer auf die Person, nie das Verhalten. Man kann das Verhalten einer Person kritisieren, ohne sie als Person abzuwerten.',
   },
   {
-    id: 48,
+    id: 70,
     category: "Umgang mit Menschen",
     question: "Was versteht man unter einem Minderwertigkeitsgefühl?",
     answer:
       "Es ist das Ergebnis einer <strong>negativen Selbstbewertung</strong>. Mögliche Ursachen können zum Beispiel eine <strong>negative frühkindliche Prägung</strong> (bis zum dritten Lebensjahr), <strong>Misserfolgserlebnisse</strong>, <strong>Enttäuschungen</strong> und <strong>Frustrationen</strong>, <strong>körperliche Einschränkungen</strong>, <strong>Langzeitarbeitslosigkeit</strong> sein.",
   },
   {
-    id: 49,
+    id: 71,
     category: "Umgang mit Menschen",
     question: "Was versteht man unter einem Überwertigkeitsgefühl?",
     answer:
       "Es entsteht aus einem vorliegenden Minderwertigkeitsgefühl. Man versucht durch eine überstarke Anstrengung in einem bestimmten Bereich seines Lebens, allen anderen überlegen zu sein, um dieses Minderwertigkeitsgefühl zu kompensieren.",
   },
   {
-    id: 50,
+    id: 72,
     category: "Umgang mit Menschen",
     question: "Welche 5 Aussagen lassen sich zum Selbstwertgefühl machen?",
     answer:
       "1) Man vergleicht sich mit anderen Menschen<br>2) Beurteilung durch andere Menschen<br>3) Durch Kommunikation mit anderen entsteht diese Beurteilung<br>4) Ein Angriff auf das Selbstwertgefühl beeinflusst die Kommunikation immer negativ<br>5) Es ist ein wichtiges Bedürfnis",
   },
   {
-    id: 51,
+    id: 73,
     category: "Umgang mit Menschen",
     question: "Was versteht man unter Wahrnehmung?",
     answer:
       "Informationen, die durch unsere Sinnesorgane wahrgenommen werden (sehen, riechen, hören, schmecken, tasten).",
   },
   {
-    id: 52,
+    id: 74,
     category: "Umgang mit Menschen",
     question: "Was versteht man unter selektiver Wahrnehmung?",
     answer:
       "Nur ein Bruchteil der Informationen, die wir wahrnehmen, kommt bei uns im Bewusstsein an. Was unser Gehirn herausfiltert, ist individuell und selektiv. Das Unterbewusstsein nimmt 5-mal so viele Informationen wahr.",
   },
   {
-    id: 53,
+    id: 75,
     category: "Umgang mit Menschen",
     question: 'Erkläre den Begriff "Erster Eindruck".',
     answer:
       "Zählt zu den Wahrnehmungs- und Beurteilungsfehlern.<br>Wahrnehmung und Beurteilung findet in den ersten Sekunden statt.<br> Mehr unterbewusst als bewusst, durch Beobachtung, meistens Registrierung der Körpersprache.<br>Danach findet ein unterbewusster Vergleich mit Erfahrungen, Vorurteilen und Stereotypen statt.",
   },
   {
-    id: 54,
+    id: 76,
     category: "Umgang mit Menschen",
     question: 'Was ist der sogenannte \"Halo Effekt\"?',
     answer:
       "Auch <strong>Überstrahlungseffekt</strong>, zählt zu den Wahrnehmungs- und Beurteilungsfehlern.<br>Ein einzelnes Merkmal einer Person (z.B. Aussehen, Auftreten) überstrahlt alles andere, sodass die Gesamtbewertung verzerrt wird.",
   },
   {
-    id: 55,
+    id: 77,
     category: "Umgang mit Menschen",
     question: 'Was ist der sogenannte "Hierarchieeffekt"?',
     answer:
       "Man traut Menschen, die in der Hierarchie weiter oben stehen, mehr Kompetenzen zu als Menschen, die sich weiter unten befinden.",
   },
   {
-    id: 56,
+    id: 78,
     category: "Umgang mit Menschen",
     question: "Was sind Vorurteile?",
     answer:
       "Übernahme von Einstellungen ohne ausreichende Erfahrung oder eine falsche Verallgemeinerung. Negative Einstellungen gegenüber Menschen oder Gruppen, die meistens durch Feindseligkeit oder Stereotypen verankert sind. Beeinflussen unsere Wahrnehmung erheblich.",
   },
   {
-    id: 57,
+    id: 79,
     category: "Umgang mit Menschen",
     question: "Was sind Stereotypen?",
     answer: "Falsche Verallgemeinerungen, die nicht immer negativ sein müssen.",
   },
   {
-    id: 58,
+    id: 80,
     category: "Umgang mit Menschen",
     question: "Beschreibe das JOHARI-Fenster.",
     answer:
