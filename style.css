@@ -21,13 +21,14 @@
 }
 
 .dark {
-  --text: hsl(0, 0%, 88%);
+  --text: hsl(0, 0%, 90%);
   --bg: hsl(210, 40%, 10%);
   --bg-container: hsl(218, 32%, 15%);
   --bg-body: hsl(0, 0%, 15%);
+
   /* button header */
-  --btn-header-text: hsl(0, 0%, 0%);
-  --btn-header-bg: hsl(0, 0%, 70%);
+  --btn-header-text: white;
+  --btn-header-bg: hsl(207, 44%, 40%);
   --btn-header-hover: hsl(0, 0%, 100%);
   /*  buttons main */
   --btn-text: hsl(0, 0%, 100%);
@@ -42,7 +43,7 @@
   padding: 0.1rem 0.5rem;
   border-radius: 2px;
   border: 1px solid transparent;
-
+  border-radius: 16px;
   color: var(--btn-header-text);
   background-color: var(--btn-header-bg);
   transition:
@@ -82,7 +83,7 @@
   padding: 0.5rem;
   border-radius: 4px;
   border: 1px solid transparent;
-
+  border-radius: 16px;
   color: var(--btn-text);
   background-color: var(--btn-bg);
   transition:
@@ -179,7 +180,7 @@ main {
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-
+  border-radius: 4px;
   background-color: var(--bg);
 }
 
@@ -189,6 +190,7 @@ main {
 
 .card-start-gameplay {
   padding: 1rem;
+  border-radius: 4px;
   background-color: var(--bg);
 }
 
@@ -234,6 +236,7 @@ main {
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  border-radius: 4px;
   background-color: var(--bg);
 }
 
@@ -243,7 +246,7 @@ main {
   padding: 1rem;
   width: 100%;
   height: 100%;
-
+  border-radius: 4px;
   background-color: var(--bg);
 }
 
@@ -284,6 +287,7 @@ main {
   width: 100%;
   height: 100%;
   padding: 1rem;
+  border-radius: 4px;
   color: var(--text);
   background-color: var(--bg);
 }
@@ -315,6 +319,7 @@ main {
   height: 100%;
   padding: 1rem;
   font-weight: 700;
+  border-radius: 4px;
   color: var(--text);
   background-color: var(--bg);
 }
@@ -343,7 +348,7 @@ main {
   width: 100%;
   height: 100%;
   padding: 1rem;
-
+  border-radius: 4px;
   color: var(--text);
   background-color: var(--bg);
 }

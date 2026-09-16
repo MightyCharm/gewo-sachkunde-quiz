@@ -85,7 +85,7 @@ function updateStartScreenStats() {
 }
 
 function createQuizData() {
-  console.log("createQuizData()");
+  //console.log("createQuizData()");
   quizData = [...data]; // change this line for small/big dataset
   //quizData = [...testData]; // change this line for small/big dataset
   totalQuestions = quizData.length;
@@ -174,7 +174,7 @@ function setIndexCurrentQuestion() {
 }
 
 function toggleVisibilityGame(state) {
-  console.log("toggleVisibilityGame(state):", state);
+  //console.log("toggleVisibilityGame(state):", state);
   start.container.classList.add("hidden");
   end.container.classList.add("hidden");
   game.container.classList.add("hidden");
@@ -233,7 +233,7 @@ function toggleVisibilityGame(state) {
 }
 
 function setButtonState(state) {
-  console.log("setButtonState(state):", state);
+  //console.log("setButtonState(state):", state);
   start.btnStart.disabled = true;
   game.btnQuit.disabled = true;
   game.btnShowAnswer.disabled = true;
@@ -360,17 +360,14 @@ function toggleTheme() {
   if (!currentTheme) {
     currentTheme = "light";
   }
-  console.log("currentTheme: ", currentTheme);
-
   const newTheme = currentTheme === "light" ? "dark" : "light";
 
-  console.log("newTheme:", newTheme);
   setThemeStorage(newTheme);
   displayTheme(newTheme);
 }
 
 function headerEventHandler(event) {
-  console.log("headerEventHandler()");
+  //console.log("headerEventHandler()");
   const button = event.target.closest("button");
   if (!button) return;
   const btnId = button.id;
@@ -390,7 +387,6 @@ main.addEventListener("click", (event) => {
   mainEventHandler(event);
 });
 
-// Was beschreibt, Was besagt, Was definiert, Was regelt
 const testData = [
   {
     id: 4,
