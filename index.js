@@ -31,6 +31,7 @@ const game = {
   spanTotalMax: document.getElementById("stat-total-max"),
   spanCorrect: document.getElementById("stat-correct"),
   spanWrong: document.getElementById("stat-wrong"),
+  divProgressBar: document.getElementById("progress-bar"),
   cardQuestion: document.getElementById("card-question"),
   headerQuestion: document.getElementById("header-question-category"),
   paraQuestion: document.getElementById("para-question"),
@@ -82,21 +83,6 @@ function updateStartScreenStats() {
 
   start.spanQuestionCount.textContent = countQuestions;
   start.spanCategoryCount.textContent = countCategories;
-}
-
-function createQuizData() {
-  //console.log("createQuizData()");
-  quizData = [...data]; // change this line for small/big dataset
-  //quizData = [...testData]; // change this line for small/big dataset
-  totalQuestions = quizData.length;
-
-  for (let i = quizData.length - 1; i >= 0; i--) {
-    const randomIndex = Math.floor(Math.random() * (i + 1));
-    const randomValue = quizData[randomIndex];
-    const currentValue = quizData[i];
-    quizData[randomIndex] = currentValue;
-    quizData[i] = randomValue;
-  }
 }
 
 function resetGameStats() {
@@ -273,70 +259,6 @@ function setButtonState(state) {
   }
 }
 
-function mainEventHandler(event) {
-  console.log("mainEventHandler()");
-  const button = event.target.closest("button");
-  if (!button) return;
-  //console.log(button);
-  const btnId = button.id;
-  //console.log(btnId);
-  switch (btnId) {
-    case "btn-start":
-      resetGame();
-      createQuizData();
-      displayQuestion();
-      displayStats();
-      toggleVisibilityGame(GAME_START);
-      setButtonState(GAME_START);
-      break;
-
-    case "btn-quit":
-      displayStats();
-      toggleVisibilityGame(GAME_QUIT);
-      setButtonState(GAME_QUIT);
-      break;
-
-    case "btn-show-answer":
-      displayAnswer();
-      setIndexCurrentQuestion();
-      toggleVisibilityGame(GAME_SHOW_ANSWER);
-      setButtonState(GAME_SHOW_ANSWER);
-      break;
-
-    case "btn-correct":
-      toggleVisibilityGame(GAME_ANSWER_CORRECT);
-      setStatsLogic(GAME_ANSWER_CORRECT);
-      displayStats();
-
-      if (countQuestions >= totalQuestions) break;
-      displayQuestion();
-      setButtonState(GAME_ANSWER_CORRECT);
-      break;
-
-    case "btn-wrong":
-      toggleVisibilityGame(GAME_ANSWER_WRONG);
-      setStatsLogic(GAME_ANSWER_WRONG);
-      displayStats();
-      if (countQuestions >= totalQuestions) break;
-      displayQuestion();
-      setButtonState(GAME_ANSWER_WRONG);
-      break;
-
-    case "btn-result":
-      //setButtonState(GAME_OVER);
-      toggleVisibilityGame(GAME_RESULT);
-      displayStatsEndScreen();
-      setButtonState(GAME_RESULT);
-      break;
-    case "btn-main-menu":
-      toggleVisibilityGame(GAME_MAIN_MENU);
-      setButtonState(GAME_MAIN_MENU);
-      break;
-    default:
-      console.log("no btn was clicked");
-  }
-}
-
 function getThemeStorage() {
   const theme = localStorage.getItem("theme");
   return theme;
@@ -366,6 +288,67 @@ function toggleTheme() {
   displayTheme(newTheme);
 }
 
+function clearProgressBar() {
+  console.log("clearProgressBar()");
+  const rows = document.querySelectorAll(".progress-bar-row");
+  for (const row of rows) {
+    game.divProgressBar.removeChild(row);
+  }
+}
+
+function updateProgressBar(value) {
+  console.log("updateProgressBar()", value);
+  console.log(countQuestions);
+  const columns = document.querySelectorAll(".progress-bar-column");
+
+  for (let i = 0; i < columns.length; i++) {
+    if (i === countQuestions) {
+      console.log(columns[i]);
+      if (value === "correct") {
+        columns[i].classList.add("correct");
+      } else {
+        columns[i].classList.add("wrong");
+      }
+    }
+  }
+}
+
+function initializeProgressBar() {
+  console.log("initializeProgressBar()");
+  const COLUMNS_IN_ROW = 20;
+  let count = 0;
+  while (count < totalQuestions) {
+    const row = document.createElement("div");
+    row.classList.add("progress-bar-row");
+
+    for (let i = 0; i < COLUMNS_IN_ROW; i++) {
+      const column = document.createElement("div");
+      column.classList.add("progress-bar-column");
+      if (count === totalQuestions) break;
+      row.appendChild(column);
+      count++;
+    }
+    if (count <= totalQuestions) {
+      game.divProgressBar.appendChild(row);
+    }
+  }
+}
+
+function createQuizData() {
+  //console.log("createQuizData()");
+  quizData = [...data]; // change this line for small/big dataset
+  //quizData = [...testData]; // change this line for small/big dataset
+  totalQuestions = quizData.length;
+
+  for (let i = quizData.length - 1; i >= 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    const randomValue = quizData[randomIndex];
+    const currentValue = quizData[i];
+    quizData[randomIndex] = currentValue;
+    quizData[i] = randomValue;
+  }
+}
+
 function headerEventHandler(event) {
   //console.log("headerEventHandler()");
   const button = event.target.closest("button");
@@ -379,6 +362,77 @@ function headerEventHandler(event) {
   }
 }
 
+function mainEventHandler(event) {
+  //console.log("mainEventHandler()");
+  const button = event.target.closest("button");
+  if (!button) return;
+  //console.log(button);
+  const btnId = button.id;
+  //console.log(btnId);
+  switch (btnId) {
+    case "btn-start":
+      resetGame();
+      createQuizData();
+      displayStats();
+      clearProgressBar();
+      initializeProgressBar();
+      displayQuestion();
+      toggleVisibilityGame(GAME_START);
+      setButtonState(GAME_START);
+      break;
+
+    case "btn-quit":
+      displayStats();
+      toggleVisibilityGame(GAME_QUIT);
+      setButtonState(GAME_QUIT);
+      break;
+
+    case "btn-show-answer":
+      displayAnswer();
+      setIndexCurrentQuestion();
+      toggleVisibilityGame(GAME_SHOW_ANSWER);
+      setButtonState(GAME_SHOW_ANSWER);
+      break;
+
+    case "btn-correct":
+      toggleVisibilityGame(GAME_ANSWER_CORRECT);
+      updateProgressBar(GAME_ANSWER_CORRECT);
+      setStatsLogic(GAME_ANSWER_CORRECT);
+
+      displayStats();
+
+      if (countQuestions >= totalQuestions) break;
+      displayQuestion();
+      setButtonState(GAME_ANSWER_CORRECT);
+      break;
+
+    case "btn-wrong":
+      toggleVisibilityGame(GAME_ANSWER_WRONG);
+      updateProgressBar(GAME_ANSWER_WRONG);
+      setStatsLogic(GAME_ANSWER_WRONG);
+
+      displayStats();
+
+      if (countQuestions >= totalQuestions) break;
+      displayQuestion();
+      setButtonState(GAME_ANSWER_WRONG);
+      break;
+
+    case "btn-result":
+      //setButtonState(GAME_OVER);
+      toggleVisibilityGame(GAME_RESULT);
+      displayStatsEndScreen();
+      setButtonState(GAME_RESULT);
+      break;
+    case "btn-main-menu":
+      toggleVisibilityGame(GAME_MAIN_MENU);
+      setButtonState(GAME_MAIN_MENU);
+      break;
+    default:
+      console.log("no btn was clicked");
+  }
+}
+
 header.addEventListener("click", (event) => {
   headerEventHandler(event);
 });
@@ -389,14 +443,28 @@ main.addEventListener("click", (event) => {
 
 const testData = [
   {
-    id: 4,
-    category: "Strafrecht und Strafverfahrensrecht",
-    question: "Was besagt § 252 Strafgesetzbuch (StGB)?",
+    id: 1,
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "Was bedeutet Föderalismus?",
     answer:
-      "<strong>Räuberischer Diebstahl</strong>.<br> Erst klauen, dann hauen.<br><strong>§ 242 Diebstahl</strong> + auf frischer Tat betroffen und mit <strong>Gewalt</strong> oder <strong>Drohung</strong> mit gegenwärtiger Gefahr für Leib und Leben, sich im Besitz des gestohlenen Gutes zu erhalten.",
+      "Ein <strong>staatliches Organisationsprinzip</strong>, bei dem die Staatsgewalt zwischen Bund und Bundesländern aufgeteilt ist.",
+  },
+  {
+    id: 2,
+    category: "Recht der öffentlichen Sicherheit und Ordnung",
+    question: "Was ist das Grundgesetz?",
+    answer:
+      "<strong>Die Verfassung</strong>.<br>Sie steht über allen anderen Gesetzen und regelt die Grundrechte der Bürger sowie die Staatsorganisation.",
   },
 ];
-
+//
+//
+//
+//
+//
+//
+//
+//
 const data = [
   {
     id: 1,
@@ -973,4 +1041,8 @@ const data = [
 // 9. Grundzüge der Sicherheitstechnik (Zutrittskontrolle, Videoüberwachung)
 initialize();
 
-// refactor(app): group DOM references into objects by screen
+// feat(ui) add porgress bar
+// added initializeProgressBar
+// add colors for correct/ wrong answers
+// clear after game
+// commit !
