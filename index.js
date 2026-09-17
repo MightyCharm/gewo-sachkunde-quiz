@@ -10,6 +10,7 @@ const start = {
   container: document.getElementById("container-start"),
   spanQuestionCount: document.getElementById("question-count"),
   spanCategoryCount: document.getElementById("category-count"),
+  selectQuestionCount: document.getElementById("select-question-count"), // <----------------------
   btnStart: document.getElementById("btn-start"),
 };
 
@@ -289,7 +290,7 @@ function toggleTheme() {
 }
 
 function clearProgressBar() {
-  console.log("clearProgressBar()");
+  //console.log("clearProgressBar()");
   const rows = document.querySelectorAll(".progress-bar-row");
   for (const row of rows) {
     game.divProgressBar.removeChild(row);
@@ -303,7 +304,6 @@ function updateProgressBar(value) {
 
   for (let i = 0; i < columns.length; i++) {
     if (i === countQuestions) {
-      console.log(columns[i]);
       if (value === "correct") {
         columns[i].classList.add("correct");
       } else {
@@ -314,7 +314,7 @@ function updateProgressBar(value) {
 }
 
 function initializeProgressBar() {
-  console.log("initializeProgressBar()");
+  //console.log("initializeProgressBar()");
   const COLUMNS_IN_ROW = 20;
   let count = 0;
   while (count < totalQuestions) {
@@ -334,19 +334,28 @@ function initializeProgressBar() {
   }
 }
 
-function createQuizData() {
-  //console.log("createQuizData()");
-  quizData = [...data]; // change this line for small/big dataset
-  //quizData = [...testData]; // change this line for small/big dataset
-  totalQuestions = quizData.length;
+function createQuizData(value) {
+  console.log("createQuizData()", value);
+  copyData = [...data];
 
-  for (let i = quizData.length - 1; i >= 0; i--) {
-    const randomIndex = Math.floor(Math.random() * (i + 1));
-    const randomValue = quizData[randomIndex];
-    const currentValue = quizData[i];
-    quizData[randomIndex] = currentValue;
-    quizData[i] = randomValue;
+  let limit;
+  if (value === "all") {
+    limit = copyData.length;
+  } else {
+    limit = Number(value);
   }
+  totalQuestions = limit; // Game Over Condition / Progressbar / quizData size
+
+  for (let i = copyData.length - 1; i >= 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    const randomValue = copyData[randomIndex];
+    const currentValue = copyData[i];
+    copyData[randomIndex] = currentValue;
+    copyData[i] = randomValue;
+  }
+
+  quizData = copyData.slice(0, limit);
+  console.log(quizData);
 }
 
 function headerEventHandler(event) {
@@ -372,7 +381,7 @@ function mainEventHandler(event) {
   switch (btnId) {
     case "btn-start":
       resetGame();
-      createQuizData();
+      createQuizData(start.selectQuestionCount.value);
       displayStats();
       clearProgressBar();
       initializeProgressBar();

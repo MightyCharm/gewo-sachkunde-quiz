@@ -27,36 +27,29 @@
       </button>
     </header>
     <main id="main">
-      <div id="container-start" class="container-start-screen">
+      <div id="container-start" class="container-start">
         <div class="card-start-introduction">
           <p>
-            Dieses Programm hilft dir, dich besser auf die Sachkundeprüfung
-            vorzubereiten.
+            Dieser virtuelle Karteikasten dient der Vorbereitung auf die
+            Sachkundeprüfung im Bewachungsgewerbe.
           </p>
           <p>
-            In jeder neuen Runde wird ein Set aus zufällig ausgewählten Fragen
-            für dich erstellt.
-          </p>
-          <p>
-            Momentan sind <span id="question-count"></span> Fragen aus
-            <span id="category-count"></span> Kategorien enthalten.
+            Teste dein Wissen mit
+            <span id="question-count" class="question-count"></span> Fragen aus
+            <span id="category-count" class="category-count"></span> Kategorien.
           </p>
         </div>
 
-        <div class="card-start-gameplay">
-          <ul class="list-game-play">
-            <li>
-              Es wird dir eine Frage gestellt, die du versuchen solltest zu
-              beantworten.
-            </li>
-            <li>
-              Klicke auf <span>"Zeige Antwort"</span>, um die Lösung zu sehen.
-            </li>
-            <li>
-              Bewerte dich, indem du <span>"Gewusst"</span> oder
-              <span>"Nicht Gewusst"</span> klickst.
-            </li>
-          </ul>
+        <div class="card-start-options">
+          <div class="start-options-question-count">
+            <label for="select-question-count">Anzahl Fragen</label>
+            <select id="select-question-count" name="select-question-count">
+              <option value="20">20</option>
+              <option value="40">40</option>
+              <option value="60">60</option>
+              <option value="all">ALL</option>
+            </select>
+          </div>
         </div>
         <div>
           <button id="btn-start" class="btn btn-start">START</button>
