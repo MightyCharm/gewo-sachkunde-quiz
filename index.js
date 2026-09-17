@@ -1040,9 +1040,3 @@ const data = [
 // 8. Umgang mit Menschen (Deeskalatation, Kommunikation, Verhalten)
 // 9. Grundzüge der Sicherheitstechnik (Zutrittskontrolle, Videoüberwachung)
 initialize();
-
-// feat(ui) add porgress bar
-// added initializeProgressBar
-// add colors for correct/ wrong answers
-// clear after game
-// commit !

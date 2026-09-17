@@ -101,19 +101,22 @@
         </div>
 
         <div id="card-stats" class="card-stats hidden">
-          <p class="para-stats">
-            <span class="stats-description">Gesamt:</span>
-            <span id="stat-total-current" class="stats-value"></span>/
-            <span id="stat-total-max" class="stats-value"></span>
-          </p>
-          <p class="para-stats">
-            <span class="stats-description">Gewusst:</span
-            ><span id="stat-correct" class="stats-value"></span>
-          </p>
-          <p class="para-stats">
-            <span class="stats-description">Falsch:</span
-            ><span id="stat-wrong" class="stats-value"></span>
-          </p>
+          <div class="para-stats">
+            <p class="stats-description">Gesamt</p>
+            <p>
+              <span id="stat-total-current" class="stats-value"></span>
+              <span>|</span>
+              <span id="stat-total-max" class="stats-value"></span>
+            </p>
+          </div>
+          <div class="para-stats">
+            <p class="stats-description">Gewusst</p>
+            <p id="stat-correct" class="stats-value"></p>
+          </div>
+          <div class="para-stats">
+            <p class="stats-description">Falsch</p>
+            <p id="stat-wrong" class="stats-value"></p>
+          </div>
           <div id="progress-bar" class="progress-bar"></div>
         </div>
 
