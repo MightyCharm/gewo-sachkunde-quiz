@@ -10,7 +10,7 @@ const start = {
   container: document.getElementById("container-start"),
   spanQuestionCount: document.getElementById("question-count"),
   spanCategoryCount: document.getElementById("category-count"),
-  selectQuestionCount: document.getElementById("select-question-count"), // <----------------------
+  selectQuestionCount: document.getElementById("select-question-count"),
   btnStart: document.getElementById("btn-start"),
 };
 
@@ -20,6 +20,10 @@ const end = {
   spanTotalMax: document.getElementById("end-screen-stat-total-max"),
   spanCorrect: document.getElementById("end-screen-stat-correct"),
   spanWrong: document.getElementById("end-screen-stat-wrong"),
+  spanPercentage: document.getElementById("end-screen-percentage"),
+  spanPercentageMessage: document.getElementById(
+    "end-screen-percentage-message",
+  ),
   btnMenu: document.getElementById("btn-main-menu"),
 };
 
@@ -125,6 +129,34 @@ function setStatsLogic(value) {
   }
 }
 
+function getPercentage() {
+  //console.log("getPercentag()");
+  return Math.round((countCorrect / totalQuestions) * 100);
+}
+
+function setPercentageResult(percentage) {
+  //console.log("setPercentageResult()");
+  end.spanPercentage.classList.remove("very-good");
+  end.spanPercentage.classList.remove("good");
+  end.spanPercentage.classList.remove("mediocre");
+  end.spanPercentage.classList.remove("bad");
+  let message = undefined;
+  if (percentage >= 90) {
+    message = "Sehr gut";
+    end.spanPercentage.classList.add("very-good");
+  } else if (percentage >= 70) {
+    message = "Gut";
+    end.spanPercentage.classList.add("good");
+  } else if (percentage >= 50) {
+    message = "Mittelmäßig";
+    end.spanPercentage.classList.add("mediocre");
+  } else {
+    message = "Nochmal versuchen";
+    end.spanPercentage.classList.add("bad");
+  }
+  return message;
+}
+
 function displayStats() {
   //console.log("displayStats()");
   game.spanTotalCurrent.textContent = countQuestions;
@@ -138,6 +170,9 @@ function displayStatsEndScreen() {
   end.spanTotalMax.textContent = totalQuestions;
   end.spanCorrect.textContent = countCorrect;
   end.spanWrong.textContent = countWrong;
+  const percentage = getPercentage();
+  end.spanPercentage.textContent = `${percentage} %`;
+  end.spanPercentageMessage.textContent = setPercentageResult(percentage);
 }
 
 function displayQuestion() {
@@ -298,8 +333,7 @@ function clearProgressBar() {
 }
 
 function updateProgressBar(value) {
-  console.log("updateProgressBar()", value);
-  console.log(countQuestions);
+  //console.log("updateProgressBar()", value);
   const columns = document.querySelectorAll(".progress-bar-column");
 
   for (let i = 0; i < columns.length; i++) {
@@ -335,7 +369,7 @@ function initializeProgressBar() {
 }
 
 function createQuizData(value) {
-  console.log("createQuizData()", value);
+  //console.log("createQuizData()", value);
   copyData = [...data];
 
   let limit;
@@ -355,7 +389,7 @@ function createQuizData(value) {
   }
 
   quizData = copyData.slice(0, limit);
-  console.log(quizData);
+  //console.log(quizData);
 }
 
 function headerEventHandler(event) {
@@ -375,7 +409,6 @@ function mainEventHandler(event) {
   //console.log("mainEventHandler()");
   const button = event.target.closest("button");
   if (!button) return;
-  //console.log(button);
   const btnId = button.id;
   //console.log(btnId);
   switch (btnId) {
@@ -466,14 +499,7 @@ const testData = [
       "<strong>Die Verfassung</strong>.<br>Sie steht über allen anderen Gesetzen und regelt die Grundrechte der Bürger sowie die Staatsorganisation.",
   },
 ];
-//
-//
-//
-//
-//
-//
-//
-//
+
 const data = [
   {
     id: 1,

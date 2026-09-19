@@ -154,7 +154,7 @@ header {
 main {
   position: relative;
 }
-/* ========================================================================== */
+
 .container-start {
   position: absolute;
 
@@ -202,8 +202,6 @@ main {
   gap: 0.51rem;
 }
 
-/* ================================================= */
-
 .container-end-screen {
   position: absolute;
 
@@ -211,7 +209,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
+  gap: 1rem;
   padding: 0rem 2rem;
 
   height: 100%;
@@ -224,6 +222,7 @@ main {
 .card-end-stats {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   gap: 1rem;
   width: 100%;
 }
@@ -239,12 +238,44 @@ main {
   background-color: var(--bg);
 }
 
-.end-screen-para-stats {
+.end-screen-total {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 0.1rem;
+  border-radius: 4px;
+  background-color: var(--bg);
+}
+
+.end-screen-total-values {
+  display: flex;
+  gap: 0.1rem;
+  font-size: 1.2rem;
+}
+
+.end-screen-success,
+.end-screen-wrong {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.1rem;
   padding: 1rem;
   width: 100%;
   height: 100%;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  background-color: var(--bg);
+}
+
+.end-screen-percentage {
+  grid-column: 1 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
   border-radius: 4px;
   background-color: var(--bg);
 }
@@ -252,6 +283,22 @@ main {
 .end-screen-stats-description {
   opacity: 0.8;
   margin-right: 0.2rem;
+}
+
+.very-good {
+  color: hsl(123, 100%, 50%);
+}
+
+.good {
+  color: hsl(128, 97%, 40%);
+}
+
+.mediocre {
+  color: yellow;
+}
+
+.bad {
+  color: red;
 }
 
 .container-game-content {
@@ -277,7 +324,7 @@ main {
   width: 100%;
   height: 100;
 }
-/* ===================================================== */
+
 .card-stats {
   display: grid;
   grid-template-rows: auto auto;

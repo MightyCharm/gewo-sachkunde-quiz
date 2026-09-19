@@ -57,32 +57,37 @@
       </div>
       <div id="container-end" class="container-end-screen hidden">
         <div class="card-end-stats">
-          <p class="end-screen-text">Ergebnis</p>
-          <p class="end-screen-para-stats">
-            <span class="end-screen-stats-description">Gesamt:</span>
-            <span
-              id="end-screen-stat-total-current"
-              class="end-screen-stats-value"
-            ></span
-            >/<span
-              id="end-screen-stat-total-max"
-              class="end-screen-stats-value"
-            ></span>
-          </p>
-          <p class="end-screen-para-stats">
-            <span class="end-screen-stats-description">Gewusst:</span>
-            <span
-              id="end-screen-stat-correct"
-              class="end-screen-stats-value"
-            ></span>
-          </p>
-          <p class="end-screen-para-stats">
-            <span class="end-screen-stats-description">Falsch:</span>
-            <span
-              id="end-screen-stat-wrong"
-              class="end-screen-stats-value"
-            ></span>
-          </p>
+          <div class="end-screen-text">
+            <h2>Ergebnis</h2>
+          </div>
+          <div class="end-screen-total">
+            <p class="end-screen-stats-description">Gesamt</p>
+            <p class="end-screen-total-values">
+              <span
+                id="end-screen-stat-total-current"
+                class="end-screen-stats-value"
+              ></span
+              ><span>|</span
+              ><span
+                id="end-screen-stat-total-max"
+                class="end-screen-stats-value"
+              ></span>
+            </p>
+          </div>
+          <div class="end-screen-success">
+            <p class="end-screen-stats-description">Gewusst</p>
+            <p id="end-screen-stat-correct" class="end-screen-stats-value"></p>
+          </div>
+          <div class="end-screen-wrong">
+            <p class="end-screen-stats-description">Falsch</p>
+            <p id="end-screen-stat-wrong" class="end-screen-stats-value"></p>
+          </div>
+          <div class="end-screen-percentage">
+            <p>
+              <span id="end-screen-percentage"></span> →
+              <span id="end-screen-percentage-message"></span>
+            </p>
+          </div>
         </div>
         <div>
           <button id="btn-main-menu" class="btn btn-menu">Menu</button>
