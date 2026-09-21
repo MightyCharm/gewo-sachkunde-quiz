@@ -4,12 +4,14 @@ Interactive Quiz for Sachkundeprüfung §34a GewO (Sololearn Code Bits)
 
 ## 🖥️ Live Demo
 
-[Play Demo](https://mightycharm.github.io/gewo-sachkunde-quiz/)
+[Play Quiz](https://mightycharm.github.io/gewo-sachkunde-quiz/)
 
 ## 📸 Screenshots
 
-![Start Screen](images/start-screen.png)
-![Game Screen](images/game-screen.png)
+![Start Screen](images/start.png)
+![Game Screen](images/game.png)
+![End Screen](images/end.png)
+![Dark theme](images/dark.png)
 
 ## ℹ️ Description
 
@@ -18,9 +20,13 @@ Interactive Quiz for Sachkundeprüfung §34a GewO (Sololearn Code Bits)
 ## ✅ Features
 
 - Randomized Question Order
+- Question count selection
 - Self-assessment: Gewusst/Falsch
-- Stats during game
-- At the moment 15 questions across 2 categories
+- Progress bar
+- Stats showing during game
+- Percentage rating at end screen
+- Currently 80 questions across 4 categories
+- Light / Dark Theme
 
 ## ⚙️ Tech Stack
 
