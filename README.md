@@ -25,7 +25,7 @@ Interactive Quiz for Sachkundeprüfung §34a GewO (Sololearn Code Bits)
 - Progress bar
 - Stats showing during game
 - Percentage rating at end screen
-- Currently 80 questions across 4 categories
+- Currently 114 questions across 5 categories
 - Light / Dark Theme
 
 ## ⚙️ Tech Stack
