@@ -370,6 +370,7 @@ function initializeProgressBar() {
 
 function createQuizData(value) {
   //console.log("createQuizData()", value);
+  //copyData = [...testData];
   copyData = [...data];
 
   let limit;
@@ -485,18 +486,10 @@ main.addEventListener("click", (event) => {
 
 const testData = [
   {
-    id: 1,
-    category: "Recht der öffentlichen Sicherheit und Ordnung",
-    question: "Was bedeutet Föderalismus?",
-    answer:
-      "Ein <strong>staatliches Organisationsprinzip</strong>, bei dem die Staatsgewalt zwischen Bund und Bundesländern aufgeteilt ist.",
-  },
-  {
-    id: 2,
-    category: "Recht der öffentlichen Sicherheit und Ordnung",
-    question: "Was ist das Grundgesetz?",
-    answer:
-      "<strong>Die Verfassung</strong>.<br>Sie steht über allen anderen Gesetzen und regelt die Grundrechte der Bürger sowie die Staatsorganisation.",
+    id: 99999,
+    category: "",
+    question: "",
+    answer: "",
   },
 ];
 
@@ -1063,6 +1056,257 @@ const data = [
     question: "Beschreibe das JOHARI-Fenster.",
     answer:
       "Ein Modell, das besagt, umso deckungsgleicher Selbstbild und Fremdbild, umso besser ist die Kommunikation. Es beschreibt 4 Felder.<br><strong>Öffentliche Person</strong>: mir bekannt / anderen bekannt<br><strong>Mein Geheimnis</strong>: mir bekannt / anderen nicht bekannt<br><strong>Blinder Fleck</strong>: mir unbekannt / anderen bekannt<br><strong>Unbekannt</strong>: mir unbekannt / anderen unbekannt<br>Umso kleiner der Blinde Fleck, umso besser ist die Kommunikation. Hier sind wir jedoch auf das Feedback von anderen angewiesen.",
+  },
+  {
+    id: 81,
+    category: "Umgang mit Waffen",
+    question: "Was wird durch § 7 Waffengesetz (WaffG) geregelt?",
+    answer:
+      "<strong>Sachkunde</strong>.<br>Den Nachweis der Sachkunde hat erbracht, wer eine <strong>Prüfung</strong> vor der dafür bestimmten Stelle bestanden hat oder seine Sachkunde durch eine <strong>Tätigkeit</strong> oder <strong>Ausbildung</strong> nachweist.",
+  },
+  {
+    id: 82,
+    category: "Umgang mit Waffen",
+    question:
+      "Beschreibe die Voraussetzungen um gemäß § 7 Waffengesetz (WaffG) die Waffensachkunde abzulegen?",
+    answer:
+      "Die Waffensachkundeprüfung benötigt jeder, der Erlaubnisinhaber einer Waffenbesitzkarte oder eines Waffenscheins werden möchte. Hierfür muss man einen anerkannten <strong>Sachkundelehrgang</strong> besuchen. Für Bewachungspersonal gilt eine Mindestteilnahme von 24 Vollzeitstunden (32 Unterrichtseinheiten), Theorie und Praxis. Am Ende finden eine theoretische und praktische <strong>Prüfung</strong> statt.",
+  },
+  {
+    id: 83,
+    category: "Umgang mit Waffen",
+    question: "Was definiert § 19 Waffengesetz (WaffG)?",
+    answer:
+      "<strong>Erwerb und Besitz von Schusswaffen und Munition, Führen von Schusswaffen durch gefährdete Personen</strong><br>Man muss von der Behörde als gefährdet eingestuft werden. Voraussetzung:<br>Eine Person, die glaubhaft macht,<br>1. wesentlich mehr als die Allgemeinheit durch Angriffe auf Leib oder Leben gefährdet zu sein und<br>2. dass der Erwerb der Schusswaffe und der Munition geeignet und erforderlich ist, diese Gefährdung zu mindern.",
+  },
+  {
+    id: 84,
+    category: "Umgang mit Waffen",
+    question: "Was besagt § 28 Waffengesetz (WaffG)?",
+    answer:
+      "<strong>Erwerb, Besitz und Führen von Schusswaffen und Munition durch Bewachungsunternehmer und ihr Bewachungspersonal</strong>.<br>Der Bewachungsunternehmer muss glaubhaft machen, dass er Bewachungsaufträge durchführt, bei denen zum Schutz einer gefährdeten Person, gemäß § 19 des Waffengesetzes, oder zum Schutz gefährdeter Objekte, die Erforderlichkeit besteht, eine Schusswaffe selbst oder durch sein Personal zu führen.",
+  },
+  {
+    id: 85,
+    category: "Umgang mit Waffen",
+    question: "Was beinhaltet § 42 Waffengesetz (WaffG)?",
+    answer:
+      "<strong>Verbot des Führens von Waffen und Messern bei öffentlichen Veranstaltungen; Verordnungsermächtigung für Verbotszonen</strong>.<br>Grundsätzliches Waffenverbot bei öffentlichen Veranstaltungen (Waffen im Sinne des Waffengesetzes).",
+  },
+  {
+    id: 86,
+    category: "Umgang mit Waffen",
+    question:
+      "Besitzt Sicherheitspersonal besondere Befugnisse im Umgang mit Waffen?",
+    answer:
+      "Privates Sicherheitspersonal besitzt <strong>keine</strong> besonderen Befugnisse. Einzig nach § 42a Waffengesetz (WaffG) können Sicherheitskräfte aus beruflichen Gründen berechtigt sein, gewisse Hieb- und Stoßwaffen im <strong>öffentlichen Raum</strong> tragen zu dürfen.<br>Bei <strong>öffentlichen Veranstaltungen</strong> gilt ein grundsätzliches Waffenverbot. Wenn ein Sicherheitsunternehmen aufgrund besonderer Gefahren das Personal mit Selbstschutzinstrumenten ausrüsten möchte, besteht die Möglichkeit, bei der zuständigen Behörde um Erlaubnis zu bitten.<br>In der Bewachungsverordnung finden sich alle sonstigen Sonderregelungen.",
+  },
+  {
+    id: 87,
+    category: "Umgang mit Waffen",
+    question: "Was regelt das Waffengesetz (WaffG)?",
+    answer:
+      "Es beinhaltet <strong>Regeln</strong> zum <strong>Umgang</strong> mit <strong>Waffen</strong> und <strong>Munition</strong>, unter Berücksichtigung der <strong>öffentlichen Sicherheit und Ordnung</strong>.<br>Es sollen die <strong>Gefahren</strong>, die durch den Umgang mit Waffen und Munition entstehen können, <strong>reduziert</strong> werden.",
+  },
+  {
+    id: 88,
+    category: "Umgang mit Waffen",
+    question:
+      "Welche Rechtsvorschriften enthalten wichtige Regelungen im Umgang mit Waffen für das Sicherheitsgewerbe?",
+    answer:
+      "<strong>Waffengesetz</strong> (WaffG): Regelt den Umgang mit Waffen und Munition<br><strong>DGUV Vorschrift 23</strong>: Unfallverhütungvorschrift für das Wach- und Sicherheitsgewerbe<br><strong>Bewachungsverordnung</strong>: Regelt das Bewachungsgewerbe",
+  },
+  {
+    id: 89,
+    category: "Umgang mit Waffen",
+    question: "Wie werden Waffen gemäß Waffengesetz (WaffG) definiert?",
+    answer:
+      "1. <strong>Schusswaffen</strong> oder ihnen <strong>gleichgestellte Gegenstände</strong> und<br>2. <strong>tragbare Gegenstände</strong>,<br>a) die ihrem Wesen nach <strong>dazu bestimmt sind</strong>, die Angriffs- oder Abwehrfähigkeit von Menschen zu beseitigen oder herabzusetzen, insbesondere Hieb- und Stoßwaffen;<br>b) die <strong>dazu geeignet sind</strong>, die Angriffs- oder Abwehrfähigkeit von Menschen zu beseitigen oder herabzusetzen, und die im Waffengesetz genannt sind.",
+  },
+  {
+    id: 90,
+    category: "Umgang mit Waffen",
+    question: "Wie sind Schusswaffen gemäß Waffengesetz Anlage 1 definiert?",
+    answer:
+      "Schusswaffen sind Gegenstände, die zum <strong>Angriff</strong> oder zur <strong>Verteidigung</strong>, zur <strong>Signalgebung</strong>, zur <strong>Jagd</strong>, zur <strong>Distanzinjektion</strong>, zur <strong>Markierung</strong>, zum <strong>Sport</strong> oder zum <strong>Spiel</strong> bestimmt sind und bei denen Geschosse durch einen <strong>Lauf getrieben</strong> werden,<br>oder ihnen gleichgestellte Gegenstände,<br>tragbare Gegenstände, die zum Verschießen von Munition bestimmt sind (SRS-Waffen),<br>tragbare Gegenstände, die zum gezielten Verschießen von festen Körpern bestimmt sind, unter Ausnutzung der Muskelkraft (Armbrust).",
+  },
+  {
+    id: 91,
+    category: "Umgang mit Waffen",
+    question: "Wie sind Hieb- und Stoßwaffen gemäß Waffengesetz definiert?",
+    answer:
+      "<strong>Tragbare Gegenstände</strong>, die ihrem Wesen nach, unter Ausnutzung der Muskelkraft dazu bestimmt sind, mit <strong>Schlag</strong>, <strong>Hieb</strong>, <strong>Stoß</strong>, <strong>Stich</strong> oder <strong>Wurf</strong> Menschen Verletzungen beizuführen.",
+  },
+  {
+    id: 92,
+    category: "Umgang mit Waffen",
+    question: 'Erkläre den Begriff "Besitzen" in Bezug auf eine Waffe.',
+    answer:
+      "Besitz einer Waffe erlangt jemand, wenn er die Möglichkeit hat, über diesen Gegenstand nach <strong>eigenem Willen</strong> frei <strong>zu verfügen</strong>.",
+  },
+  {
+    id: 93,
+    category: "Umgang mit Waffen",
+    question: 'Definiere den Begriff "Erwerben" in Bezug auf eine Waffe.',
+    answer:
+      "Wer die <strong>tatsächliche Gewalt</strong> über eine Waffe oder Munition <strong>erlangt</strong>, der erwirbt diese Waffe oder Munition.",
+  },
+  {
+    id: 94,
+    category: "Umgang mit Waffen",
+    question: 'Definiere den Begriff "Führen" in Bezug auf eine Waffe.',
+    answer:
+      "Wer die <strong>tatsächliche Gewalt</strong> über eine Waffe oder Munition, <strong>außerhalb</strong> seiner Wohnung, Geschäftsräume, befriedeten Besitztums oder Schießstandes, ausübt.",
+  },
+  {
+    id: 95,
+    category: "Umgang mit Waffen",
+    question: 'Definiere den Begriff "Überlassen" in Bezug auf eine Waffe.',
+    answer:
+      "Wenn man die <strong>tatsächliche Gewalt</strong> über eine Waffe oder Munition, einer <strong>anderen Person</strong> einräumt.",
+  },
+  {
+    id: 96,
+    category: "Umgang mit Waffen",
+    question: "Was erlaubt eine Waffenbesitzkarte?",
+    answer:
+      "Erlaubt den <strong>Erwerb</strong> und <strong>Besitz</strong> einer <strong>Schusswaffe</strong>. Sie gilt ein Jahr für den Erwerb und unbefristet für den Besitz. Es gibt sie in verschiedenen Farben:<br>Grün = Jäger, Sportschützen<br>Gelb = Sportschützen<br>Rot = Sammler, Sachverständige",
+  },
+  {
+    id: 97,
+    category: "Umgang mit Waffen",
+    question: "Wozu bevollmächtigt ein Munitionserwerbschein?",
+    answer:
+      "Wird normalerweise bei einem Waffenbesitzkarteninhaber in die Waffenbesitzkarte eingetragen, so dass die Munition damit erworben werden kann. Spezielle Gruppen wie <strong>Sammler</strong>, <strong>Sachverständige</strong>, <strong>Schießstandbetreiber</strong>, brauchen diese Berechtigung.<br><strong>Erwerb</strong> ist auf 6 Jahre befristet.<br><strong>Besitz</strong> ist unbefristet.",
+  },
+  {
+    id: 98,
+    category: "Umgang mit Waffen",
+    question: "Wozu bevollmächtigt ein Waffenschein?",
+    answer:
+      "Erlaubt das schussbereite, zugriffsbereite <strong>Führen</strong> einer <strong>Schusswaffe</strong>. Wird nur im Ausnahmefall von der Genehmigungsbehörde ausgestellt. Gültigkeit besteht für drei Jahre, danach kann er zweimal um jeweils drei Jahre verlängert werden. Die Überprüfung der Zuverlässigkeit findet alle drei Jahre statt.",
+  },
+  {
+    id: 99,
+    category: "Umgang mit Waffen",
+    question: "Wozu erlaubt der kleine Waffenschein?",
+    answer:
+      "Erlaubt das <strong>Führen</strong> von <strong>Schreckschuss-, Reizstoff- und Signalwaffen</strong> (SRS Waffen + PTB). Jeder Bürger hat die Möglichkeit, ab dem <strong>18. Lebensjahr</strong> gegen eine Gebühr den kleinen Waffenschein zu beantragen. Es wird die <strong>Zuverlässigkeit</strong> sowie körperliche, geistige <strong>Eignung</strong> überprüft. Bei Genehmigung gilt er grundsätzlich unbefristet. Zuverlässigkeit wird jedoch alle drei Jahre überprüft.",
+  },
+  {
+    id: 100,
+    category: "Umgang mit Waffen",
+    question:
+      "Benenne die Grundvoraussetzungen für eine waffenrechtliche Erlaubnis?",
+    answer:
+      "<strong>Volljährigkeit</strong> = Erlaubnisinhaber muss mindestens 18 Jahre alt sein, wenn er unter 25 Jahre ist, muss er durch ein fachärztliches oder fachpsychologisches Gutachten nachweisen, dass er die besonderen charakterlichen, gesundheitlichen Voraussetzungen erfüllt.<br><strong>Zuverlässigkeit</strong> = keine Vorstrafen oder laufende Ermittlungen vorhanden, zusätzlich gibt die örtliche Polizeidienstelle eine Stellungnahme ab.<br><strong>Eignung</strong> = bestimmte körperliche und geistige Einschränkungen, wie z.B. Geschäftsunfähigkeit, Drogenabhängigkeit, krankhafte geistige oder seelische Störungen dürfen nicht vorhanden sein.<br><strong>Waffensachkunde</strong> = Sachkundeprüfung oder anerkannte Sachkunde erforderlich.<br><strong>Bedürfnis</strong> = muss nachgewiesen werden, für Waffenschein muss eine Gefährdung vorliegen<br><strong>Haftpflichtversicherung</strong> = für Waffenschein oder Schießstandbetreiber.",
+  },
+  {
+    id: 101,
+    category: "Umgang mit Waffen",
+    question:
+      "Was sind erlaubnisfreie Waffen im Sinne des Waffengesetzes (WaffG)?",
+    answer:
+      "<strong>Besitz und Erwerb</strong> ist erlaubnisfrei für Druckluftwaffen, SRS-Waffen (Schreckschuss-, Reizstoff- und Signalwaffen), die oft auch PTB-Waffen (Prüfzeichen der Physikalisch-Technischen Bundesanstalt) genannt werden.<br><strong>Besitz, Erwerb und Führen</strong> ist erlaubnisfrei für Armbrüste, geprüfte Reizstoffsprühgeräte, geprüfte Elektroschockgeräte.<br>Grundsätzlich <strong>ausgenommen vom Waffengesetz</strong> sind Spielzeugwaffen bis 0,5 Joule, Blasrohre, Pfeil und Bogen, Nachbildungen von Schusswaffen (Anscheinswaffen).",
+  },
+  {
+    id: 102,
+    category: "Umgang mit Waffen",
+    question: "Was sind Druckluftwaffen im Sinne des Waffengesetzes (WaffG)?",
+    answer:
+      'Druckluft-, Federdruck oder CO2 Waffen,<br> auch Luftpistole oder Luftgewehr genannt, werden mit dem "F" im Fünfeck gekennzeichnet.<br><strong>Besitz und Erwerb</strong> ist erlaubnisfrei.<br><strong>Führen</strong> nur mit dem kleinen Waffenschein.',
+  },
+  {
+    id: 103,
+    category: "Umgang mit Waffen",
+    question: "Was sind die sogenannten SRS-Waffen?",
+    answer:
+      "<strong>Schreckschuss-, Reizstoff- und Signalwaffen</strong>.<br>Da diese Waffen mit dem PTB-Zeichen (Physikalisch-Technische Bundesanstalt) versehen werden müssen, nennt man sie auch <strong>PTB-Waffen</strong>.<br>Das Bereithalten und Führen ist für private Sicherheitskräfte gemäß Unfallverhütungsvorschrift (DGUV Vorschrift 23) absolut verboten.<br><strong>Erwerb und Besitz</strong> ist erlaubnisfrei.<br><strong>Führen</strong> nur mit einem kleinen Waffenschein erlaubt.",
+  },
+  {
+    id: 104,
+    category: "Umgang mit Waffen",
+    question: 'Was ist eine sogenannte "Anscheinswaffe"?',
+    answer:
+      "Es handelt sich um Gegenstände, die echten Schusswaffen täuschend ähnlich sehen.<br>1. Softairwaffen<br>2. Dekowaffen (Dekorationsschusswaffen)<br>3. Ehemalige, unbrauchbar gemachte Schusswaffen",
+  },
+  {
+    id: 105,
+    category: "Umgang mit Waffen",
+    question:
+      "Wo werden Waffen, deren Besitz verboten oder beschränkt ist, aufgeführt?",
+    answer:
+      "<strong>In Anlage 2 des Waffengesetzes (WaffG)</strong> findet man die <strong>Waffenliste</strong>.<br>In ihr sind alle Waffen, deren Besitz verboten oder beschränkt ist, enthalten.",
+  },
+  {
+    id: 106,
+    category: "Umgang mit Waffen",
+    question:
+      "Nenne Beispiele für verbotene Waffen, laut Waffengesetz (WaffG)?",
+    answer:
+      "Schlagring, Totschläger, Elektroimpulsgerät (Air-Taser), Nunchaku, Wurfstern, Molotowcocktails, Stahlrute, Präzisionsschleuder mit Armstütze, vollautomatische Schusswaffen, getarnte Waffen, Pump-Gun mit Pistolengriff.<br><br><strong>Die vier Arten von grundsätzlich verbotenen Messer</strong>:<br>Faustmesser, Fallmesser, Butterflymesser,<br>Springmesser, außer es erfüllt drei Kriterien:<br>1. Klinge nicht länger als 8,5 cm.<br>2. Klinge springt seitlich heraus.<br>3. Klinge nicht beidseitig geschliffen.",
+  },
+  {
+    id: 107,
+    category: "Umgang mit Waffen",
+    question:
+      "Beschreibe den Unterschied zwischen Tierabwehrspray und einem Reizstoffsprühgerät.",
+    answer:
+      "Pfefferspray darf in Deutschland nur als Tierabwehrspray verkauft werden. Dadurch sind diese Sprays keine Waffen im Sinne des Waffengesetzes.<br>Erlaubnisfreies Erwerben und Führen.<br>Sie sind jedoch zu unterscheiden von geprüften Reizstoffsprühgeräten, diese unterliegen den waffenrechtlichen Bestimmungen und sind ab 14 Jahren frei erhältlich.",
+  },
+  {
+    id: 108,
+    category: "Umgang mit Waffen",
+    question: "Was definiert §42a Waffengesetz (WaffG)?",
+    answer:
+      "<strong>Verbot des Führens von Anscheinswaffen und bestimmten tragbaren Gegenständen</strong>.<br>Es ist verboten<br>1. Anscheinswaffen<br>2. Hieb- und Stoßwaffen<br>3. Messer mit einhändig feststellbarer Klinge (Einhandmesser) oder festestehende Messer mit einer Klingenlänge über 12 cm<br>zu führen.<br><strong>Ausnahmen</strong> entstehen durch berechtigte Interessen, wie z.B. Berufsausübung oder Brauchtumspflege.",
+  },
+  {
+    id: 109,
+    category: "Umgang mit Waffen",
+    question: "Was für Aufbewahrungspflichten hat ein Schusswaffenbesitzer?",
+    answer:
+      "Der Schusswaffenbesitzer muss <strong>zertifizierte Sicherheitsbehältnisse</strong>, Tresore, mit denen er Waffe und Munition <strong>getrennt</strong> voneinander, verschlossen, sicher unterbringen kann, verwenden. Je nach Anzahl oder Gefährlichkeit der Waffen unterscheiden sich die Anforderungen. Die ordnungsgemäße Aufbewahrung muss gegenüber der zuständigen Genehmigungsbehörde nachgewiesen werden, außerdem können von ihr verdachtsunabhängige Kontrollen durchgeführt werden.",
+  },
+  {
+    id: 110,
+    category: "Umgang mit Waffen",
+    question:
+      "Was muss der Waffenbesitzer bei Verlust von Schusswaffe oder Munition unternehmen?",
+    answer:
+      "Bei Verlust von Erlaubnisurkunden, Schusswaffen oder Munition muss <strong>unverzüglich</strong> der zuständigen Stelle Anzeige erstattet werden (z.B. Polizeibehörde).<br>unverzüglich = ohne schuldhaftes Verzögern",
+  },
+  {
+    id: 111,
+    category: "Umgang mit Waffen",
+    question:
+      "Was für Dokumente muss man beim Führen einer Schusswaffe bei sich tragen?",
+    answer:
+      "Es müssen <strong>Personalausweis</strong> oder Pass + <strong>Waffenschein</strong> jederzeit mitgeführt werden.",
+  },
+  {
+    id: 112,
+    category: "Umgang mit Waffen",
+    question:
+      "Welche Meldepflichten hat ein Bewachungsunternehmen, das im Besitz einer waffenrechtlichen Erlaubnis ist?",
+    answer:
+      "Wachpersonen, die mit Schusswaffen ausgerüstet werden sollen, müssen vom Unternehmen der zuständigen Behörde benannt werden. Erst nach Zustimmung der Behörde dürfen Wachpersonen eingesetzt werden. Das mit Schusswaffen ausgerüstete Personal darf diese nur weisungsgemäß und nur zum Zwecke der dienstlichen Tätigkeit führen.",
+  },
+  {
+    id: 113,
+    category: "Umgang mit Waffen",
+    question:
+      "Eine Sicherheitskraft findet bei einer Einlasskontrolle eine verbotene Waffe. Wie sollte sie sich verhalten?",
+    answer:
+      "Bedeutet:<br>1. Die Betroffene Person begeht eine Straftat nach dem Waffengesetz. Hier wäre die <strong>vorläufige Festnahme nach § 127 Abs. 1 StPO</strong> eine Handlungsmöglichkeit.<br>2. Nimmt die Sicherheitskraft eine verbotene Waffe an sich, um auf die Polizei zu warten, macht sie sich ohne Rechtfertigungsgrund strafbar. Mit der Wegnahme einer verbotenen Waffe, zum Schutz von Leben und Gesundheit anderer Menschen, könnte nach dieser Rechtsgüterabwägung  <strong>§ 34 StGB Rechtfertigender Notstand</strong> greifen.",
+  },
+  {
+    id: 114,
+    category: "Umgang mit Waffen",
+    question:
+      "Was sind mögliche Rechtsfolgen bei Verstößen gegen das Waffengesetz (WaffG)?",
+    answer:
+      "1. Leichte Verstöße werden als <strong>Ordnungwidrigkeit</strong> verfolgt = bis 10.000 € Geldbuße.<br>2. Verstöße gegen das Waffengesetz, die als <strong>Vergehen</strong> verfolgt werden = Geldstrafe oder Freiheitsstrafe.<br>3. Schwere Verstöße können als <strong>Verbrechen</strong> verfolgt werden = Freiheitsstrafe nicht unter einem Jahr.",
   },
 ];
 // 1. Recht der öffentlichen Sicherheit und Ordnung (Grundrechte, Polizeirecht, Staatsaufbau)
