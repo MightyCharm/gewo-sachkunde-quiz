@@ -11,6 +11,7 @@ const start = {
   spanQuestionCount: document.getElementById("question-count"),
   spanCategoryCount: document.getElementById("category-count"),
   selectQuestionCount: document.getElementById("select-question-count"),
+  selectQuestionCategory: document.getElementById("select-question-category"),
   btnStart: document.getElementById("btn-start"),
 };
 
@@ -368,17 +369,16 @@ function initializeProgressBar() {
   }
 }
 
-function createQuizData(value) {
-  //console.log("createQuizData()", value);
-  //copyData = [...testData];
-  copyData = [...data];
-
-  let limit;
-  if (value === "all") {
-    limit = copyData.length;
-  } else {
-    limit = Number(value);
+function createQuizData(userCount, userCategory) {
+  console.log("createQuizData(", userCount, userCategory, ")");
+  const count = Number(userCount);
+  let copyData = [...data];
+  if (userCategory !== "all") {
+    copyData = copyData.filter((obj) => obj.category === userCategory);
   }
+
+  const limit = copyData.length > count ? count : copyData.length;
+
   totalQuestions = limit; // Game Over Condition / Progressbar / quizData size
 
   for (let i = copyData.length - 1; i >= 0; i--) {
@@ -390,7 +390,6 @@ function createQuizData(value) {
   }
 
   quizData = copyData.slice(0, limit);
-  //console.log(quizData);
 }
 
 function headerEventHandler(event) {
@@ -415,7 +414,10 @@ function mainEventHandler(event) {
   switch (btnId) {
     case "btn-start":
       resetGame();
-      createQuizData(start.selectQuestionCount.value);
+      createQuizData(
+        start.selectQuestionCount.value,
+        start.selectQuestionCategory.value,
+      );
       displayStats();
       clearProgressBar();
       initializeProgressBar();
