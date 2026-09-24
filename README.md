@@ -21,6 +21,7 @@ Interactive Quiz for Sachkundeprüfung §34a GewO (Sololearn Code Bits)
 
 - Randomized Question Order
 - Question count selection
+- Question category selection
 - Self-assessment: Gewusst/Falsch
 - Progress bar
 - Stats showing during game
