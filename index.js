@@ -69,6 +69,7 @@ const GAME_MAIN_MENU = "game_main_menu";
 const GAME_START = "game_start";
 const GAME_OVER = "game_over";
 const GAME_RESULT = "game_result";
+const GAME_RESULT_MISTAKES = "game_result_mistakes";
 const GAME_QUIT = "game_quit";
 const GAME_SHOW_ANSWER = "game_show_answer";
 
@@ -245,6 +246,10 @@ function toggleVisibilityGame(state) {
       game.cardGameControl.classList.remove("hidden");
       game.btnResult.classList.remove("removed");
       break;
+    case GAME_RESULT_MISTAKES:
+      end.container.classList.remove("hidden");
+      end.btnPracticeMistakes.classList.remove("removed");
+      break;
     case GAME_RESULT:
       end.container.classList.remove("hidden");
       break;
@@ -287,6 +292,9 @@ function setButtonState(state) {
     case GAME_OVER:
       game.btnResult.disabled = false;
       break;
+    case GAME_RESULT_MISTAKES:
+      end.btnMenu.disabled = false;
+      end.btnPracticeMistakes.disabled = false;
     case GAME_RESULT:
       end.btnMenu.disabled = false;
       break;
@@ -404,8 +412,12 @@ function headerEventHandler(event) {
   }
 }
 
-function updateMistakesData() {
+function addMistakes() {
   mistakesData.push(quizData[indexCurrentQuestion]);
+}
+
+function hasMistakes() {
+  return mistakesData.length > 0;
 }
 
 function mainEventHandler(event) {
@@ -458,7 +470,7 @@ function mainEventHandler(event) {
       updateProgressBar(GAME_ANSWER_WRONG);
       setStatsLogic(GAME_ANSWER_WRONG);
       displayStats();
-      updateMistakesData();
+      addMistakes();
       setIndexCurrentQuestion();
       if (countQuestions >= totalQuestions) break;
       displayQuestion();
@@ -466,9 +478,14 @@ function mainEventHandler(event) {
       break;
 
     case "btn-result":
-      //setButtonState(GAME_OVER);
-      toggleVisibilityGame(GAME_RESULT);
       displayStatsEndScreen();
+      if (hasMistakes()) {
+        console.log("we have wrong answers");
+        toggleVisibilityGame(GAME_RESULT_MISTAKES);
+        setButtonState(GAME_RESULT_MISTAKES);
+        break;
+      }
+      toggleVisibilityGame(GAME_RESULT);
       setButtonState(GAME_RESULT);
       break;
     case "btn-main-menu":
@@ -476,6 +493,7 @@ function mainEventHandler(event) {
       setButtonState(GAME_MAIN_MENU);
       break;
     case "btn-practice-mistakes":
+      console.log("mistakes button was clicked");
       break;
     default:
       console.log("no btn was clicked");
