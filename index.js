@@ -26,6 +26,7 @@ const end = {
     "end-screen-percentage-message",
   ),
   btnMenu: document.getElementById("btn-main-menu"),
+  btnPracticeMistakes: document.getElementById("btn-practice-mistakes"),
 };
 
 const game = {
@@ -199,7 +200,6 @@ function setIndexCurrentQuestion() {
 function toggleVisibilityGame(state) {
   //console.log("toggleVisibilityGame(state):", state);
   start.container.classList.add("hidden");
-  end.container.classList.add("hidden");
   game.container.classList.add("hidden");
   game.cardMenuControl.classList.add("hidden");
   game.cardStats.classList.add("hidden");
@@ -210,6 +210,8 @@ function toggleVisibilityGame(state) {
   game.btnCorrect.classList.add("removed");
   game.btnWrong.classList.add("removed");
   game.btnResult.classList.add("removed");
+  end.container.classList.add("hidden");
+  end.btnPracticeMistakes.classList.add("removed");
   switch (state) {
     case GAME_MAIN_MENU:
     case GAME_QUIT:
@@ -264,6 +266,7 @@ function setButtonState(state) {
   game.btnWrong.disabled = true;
   game.btnResult.disabled = true;
   end.btnMenu.disabled = true;
+  end.btnPracticeMistakes.disabled = true;
   switch (state) {
     case GAME_MAIN_MENU:
       start.btnStart.disabled = false;
@@ -443,7 +446,6 @@ function mainEventHandler(event) {
       toggleVisibilityGame(GAME_ANSWER_CORRECT);
       updateProgressBar(GAME_ANSWER_CORRECT);
       setStatsLogic(GAME_ANSWER_CORRECT);
-
       displayStats();
 
       if (countQuestions >= totalQuestions) break;
@@ -455,7 +457,6 @@ function mainEventHandler(event) {
       toggleVisibilityGame(GAME_ANSWER_WRONG);
       updateProgressBar(GAME_ANSWER_WRONG);
       setStatsLogic(GAME_ANSWER_WRONG);
-
       displayStats();
 
       if (countQuestions >= totalQuestions) break;
@@ -472,6 +473,8 @@ function mainEventHandler(event) {
     case "btn-main-menu":
       toggleVisibilityGame(GAME_MAIN_MENU);
       setButtonState(GAME_MAIN_MENU);
+      break;
+    case "btn-practice-mistakes":
       break;
     default:
       console.log("no btn was clicked");

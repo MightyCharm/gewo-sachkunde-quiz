@@ -311,20 +311,10 @@ main {
   margin-right: 0.2rem;
 }
 
-.very-good {
-  color: hsl(123, 100%, 50%);
-}
-
-.good {
-  color: hsl(128, 97%, 40%);
-}
-
-.mediocre {
-  color: yellow;
-}
-
-.bad {
-  color: red;
+.card-end-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .container-game-content {
@@ -508,4 +498,20 @@ footer {
 
 .removed {
   display: none;
+}
+
+.very-good {
+  color: hsl(123, 100%, 50%);
+}
+
+.good {
+  color: hsl(128, 97%, 40%);
+}
+
+.mediocre {
+  color: yellow;
+}
+
+.bad {
+  color: red;
 }
