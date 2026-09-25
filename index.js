@@ -59,6 +59,7 @@ let countCorrect = 0;
 let countWrong = 0;
 
 let quizData = [];
+let mistakesData = [];
 let indexCurrentQuestion = 0;
 
 const GAME_ANSWER_CORRECT = "correct";
@@ -102,13 +103,8 @@ function resetGameStats() {
 function resetData() {
   //console.log("resetData()");
   quizData = [];
+  mistakesData = [];
   indexCurrentQuestion = 0;
-}
-
-function resetGame() {
-  //console.log("resetGame()");
-  resetGameStats();
-  resetData();
 }
 
 function setStatsLogic(value) {
@@ -408,6 +404,10 @@ function headerEventHandler(event) {
   }
 }
 
+function updateMistakesData() {
+  mistakesData.push(quizData[indexCurrentQuestion]);
+}
+
 function mainEventHandler(event) {
   //console.log("mainEventHandler()");
   const button = event.target.closest("button");
@@ -416,7 +416,8 @@ function mainEventHandler(event) {
   //console.log(btnId);
   switch (btnId) {
     case "btn-start":
-      resetGame();
+      resetGameStats();
+      resetData();
       createQuizData(
         start.selectQuestionCount.value,
         start.selectQuestionCategory.value,
@@ -437,7 +438,6 @@ function mainEventHandler(event) {
 
     case "btn-show-answer":
       displayAnswer();
-      setIndexCurrentQuestion();
       toggleVisibilityGame(GAME_SHOW_ANSWER);
       setButtonState(GAME_SHOW_ANSWER);
       break;
@@ -447,7 +447,7 @@ function mainEventHandler(event) {
       updateProgressBar(GAME_ANSWER_CORRECT);
       setStatsLogic(GAME_ANSWER_CORRECT);
       displayStats();
-
+      setIndexCurrentQuestion();
       if (countQuestions >= totalQuestions) break;
       displayQuestion();
       setButtonState(GAME_ANSWER_CORRECT);
@@ -458,7 +458,8 @@ function mainEventHandler(event) {
       updateProgressBar(GAME_ANSWER_WRONG);
       setStatsLogic(GAME_ANSWER_WRONG);
       displayStats();
-
+      updateMistakesData();
+      setIndexCurrentQuestion();
       if (countQuestions >= totalQuestions) break;
       displayQuestion();
       setButtonState(GAME_ANSWER_WRONG);
