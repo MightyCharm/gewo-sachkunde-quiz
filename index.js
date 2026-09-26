@@ -73,6 +73,8 @@ const GAME_RESULT_MISTAKES = "game_result_mistakes";
 const GAME_QUIT = "game_quit";
 const GAME_SHOW_ANSWER = "game_show_answer";
 
+let isNormalMode = true;
+
 function initialize() {
   //console.log("inititalize()");
   toggleVisibilityGame(GAME_MAIN_MENU);
@@ -94,18 +96,20 @@ function updateStartScreenStats() {
   start.spanCategoryCount.textContent = countCategories;
 }
 
-function resetGameStats() {
-  //console.log("resetGameStats()");
+function resetGameVariables() {
+  //console.log("resetGameVariables()");
   countQuestions = 0;
   countCorrect = 0;
   countWrong = 0;
+  indexCurrentQuestion = 0;
 }
 
-function resetData() {
-  //console.log("resetData()");
+function clearData() {
   quizData = [];
+}
+
+function clearMistakesData() {
   mistakesData = [];
-  indexCurrentQuestion = 0;
 }
 
 function setStatsLogic(value) {
@@ -388,6 +392,16 @@ function createQuizData(userCount, userCategory) {
   const shuffledData = shuffleArray(copyData);
   quizData = shuffledData.slice(0, limit);
 }
+
+function createMistakesData() {
+  //console.log("function createMistakesData()");
+  let copyData = [...mistakesData];
+  totalQuestions = copyData.length;
+  console.log(totalQuestions);
+  const shuffledData = shuffleArray(copyData);
+  quizData = shuffledData;
+}
+
 function addMistakes() {
   mistakesData.push(quizData[indexCurrentQuestion]);
 }
@@ -429,8 +443,10 @@ function mainEventHandler(event) {
   //console.log(btnId);
   switch (btnId) {
     case "btn-start":
-      resetGameStats();
-      resetData();
+      isNormalMode = true;
+      resetGameVariables();
+      clearData();
+      clearMistakesData();
       createQuizData(
         start.selectQuestionCount.value,
         start.selectQuestionCategory.value,
@@ -471,7 +487,9 @@ function mainEventHandler(event) {
       updateProgressBar(GAME_ANSWER_WRONG);
       setStatsLogic(GAME_ANSWER_WRONG);
       displayStats();
-      addMistakes();
+      if (isNormalMode) {
+        addMistakes();
+      }
       setIndexCurrentQuestion();
       if (countQuestions >= totalQuestions) break;
       displayQuestion();
@@ -481,7 +499,6 @@ function mainEventHandler(event) {
     case "btn-result":
       displayStatsEndScreen();
       if (hasMistakes()) {
-        console.log("wrong answers available");
         toggleVisibilityGame(GAME_RESULT_MISTAKES);
         setButtonState(GAME_RESULT_MISTAKES);
         break;
@@ -494,7 +511,18 @@ function mainEventHandler(event) {
       setButtonState(GAME_MAIN_MENU);
       break;
     case "btn-practice-mistakes":
-      console.log("mistakes button was clicked");
+      isNormalMode = false;
+      resetGameVariables();
+      clearData();
+
+      createMistakesData();
+      displayStats();
+      clearProgressBar();
+      initializeProgressBar();
+      displayQuestion();
+      toggleVisibilityGame(GAME_START);
+      setButtonState(GAME_START);
+
       break;
     default:
       console.log("no btn was clicked");
