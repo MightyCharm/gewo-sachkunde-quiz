@@ -377,26 +377,35 @@ function initializeProgressBar() {
 }
 
 function createQuizData(userCount, userCategory) {
-  console.log("createQuizData(", userCount, userCategory, ")");
+  //console.log("createQuizData(", userCount, userCategory, ")");
   const count = Number(userCount);
   let copyData = [...data];
   if (userCategory !== "all") {
     copyData = copyData.filter((obj) => obj.category === userCategory);
   }
-
   const limit = copyData.length > count ? count : copyData.length;
-
   totalQuestions = limit; // Game Over Condition / Progressbar / quizData size
+  const shuffledData = shuffleArray(copyData);
+  quizData = shuffledData.slice(0, limit);
+}
+function addMistakes() {
+  mistakesData.push(quizData[indexCurrentQuestion]);
+}
 
-  for (let i = copyData.length - 1; i >= 0; i--) {
+function shuffleArray(data) {
+  let shuffledData = [...data];
+  for (let i = shuffledData.length - 1; i >= 0; i--) {
     const randomIndex = Math.floor(Math.random() * (i + 1));
-    const randomValue = copyData[randomIndex];
-    const currentValue = copyData[i];
-    copyData[randomIndex] = currentValue;
-    copyData[i] = randomValue;
+    const randomValue = shuffledData[randomIndex];
+    const currentValue = shuffledData[i];
+    shuffledData[randomIndex] = currentValue;
+    shuffledData[i] = randomValue;
   }
+  return shuffledData;
+}
 
-  quizData = copyData.slice(0, limit);
+function hasMistakes() {
+  return mistakesData.length > 0;
 }
 
 function headerEventHandler(event) {
@@ -410,14 +419,6 @@ function headerEventHandler(event) {
       toggleTheme();
       break;
   }
-}
-
-function addMistakes() {
-  mistakesData.push(quizData[indexCurrentQuestion]);
-}
-
-function hasMistakes() {
-  return mistakesData.length > 0;
 }
 
 function mainEventHandler(event) {
@@ -480,7 +481,7 @@ function mainEventHandler(event) {
     case "btn-result":
       displayStatsEndScreen();
       if (hasMistakes()) {
-        console.log("we have wrong answers");
+        console.log("wrong answers available");
         toggleVisibilityGame(GAME_RESULT_MISTAKES);
         setButtonState(GAME_RESULT_MISTAKES);
         break;
