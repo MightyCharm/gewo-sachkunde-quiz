@@ -83,17 +83,77 @@ function initialize() {
   updateStartScreenStats();
 }
 
-function updateStartScreenStats() {
-  const countQuestions = data.length;
+function initializeProgressBar() {
+  //console.log("initializeProgressBar()");
+  const COLUMNS_IN_ROW = 20;
+  let count = 0;
+  while (count < totalQuestions) {
+    const row = document.createElement("div");
+    row.classList.add("progress-bar-row");
 
-  const uniqueCategories = new Set();
-  for (const question of data) {
-    uniqueCategories.add(question.category);
+    for (let i = 0; i < COLUMNS_IN_ROW; i++) {
+      const column = document.createElement("div");
+      column.classList.add("progress-bar-column");
+      if (count === totalQuestions) break;
+      row.appendChild(column);
+      count++;
+    }
+    if (count <= totalQuestions) {
+      game.divProgressBar.appendChild(row);
+    }
   }
-  const countCategories = uniqueCategories.size;
+}
 
-  start.spanQuestionCount.textContent = countQuestions;
-  start.spanCategoryCount.textContent = countCategories;
+function clearProgressBar() {
+  //console.log("clearProgressBar()");
+  const rows = document.querySelectorAll(".progress-bar-row");
+  for (const row of rows) {
+    game.divProgressBar.removeChild(row);
+  }
+}
+
+function updateProgressBar(value) {
+  //console.log("updateProgressBar()", value);
+  const columns = document.querySelectorAll(".progress-bar-column");
+
+  for (let i = 0; i < columns.length; i++) {
+    if (i === countQuestions) {
+      if (value === "correct") {
+        columns[i].classList.add("correct");
+      } else {
+        columns[i].classList.add("wrong");
+      }
+    }
+  }
+}
+
+function getThemeStorage() {
+  const theme = localStorage.getItem("theme");
+  return theme;
+}
+
+function setThemeStorage(newTheme) {
+  localStorage.setItem("theme", newTheme);
+}
+
+function displayTheme(newTheme) {
+  //console.log("displayTheme()", newTheme);
+  if (newTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    return;
+  }
+  document.documentElement.classList.remove("dark");
+}
+
+function toggleTheme() {
+  let currentTheme = getThemeStorage();
+  if (!currentTheme) {
+    currentTheme = "light";
+  }
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+
+  setThemeStorage(newTheme);
+  displayTheme(newTheme);
 }
 
 function resetGameVariables() {
@@ -110,6 +170,19 @@ function clearData() {
 
 function clearMistakesData() {
   mistakesData = [];
+}
+
+function updateStartScreenStats() {
+  const countQuestions = data.length;
+
+  const uniqueCategories = new Set();
+  for (const question of data) {
+    uniqueCategories.add(question.category);
+  }
+  const countCategories = uniqueCategories.size;
+
+  start.spanQuestionCount.textContent = countQuestions;
+  start.spanCategoryCount.textContent = countCategories;
 }
 
 function setStatsLogic(value) {
@@ -196,6 +269,54 @@ function setIndexCurrentQuestion() {
   if (indexCurrentQuestion < quizData.length - 1) {
     indexCurrentQuestion += 1;
   }
+}
+
+function createQuizData(userCount, userCategory) {
+  //console.log("createQuizData(", userCount, userCategory, ")");
+  const count = Number(userCount);
+  let copyData = [...data];
+  if (userCategory !== "all") {
+    copyData = copyData.filter((obj) => obj.category === userCategory);
+  }
+  const limit = copyData.length > count ? count : copyData.length;
+  totalQuestions = limit; // Game Over Condition / Progressbar / quizData size
+  const shuffledData = shuffleArray(copyData);
+  quizData = shuffledData.slice(0, limit);
+}
+
+function createMistakesData() {
+  //console.log("function createMistakesData()");
+  let copyData = [...mistakesData];
+  totalQuestions = copyData.length;
+  const shuffledData = shuffleArray(copyData);
+  quizData = shuffledData;
+}
+
+function addMistake() {
+  mistakesData.push(quizData[indexCurrentQuestion]);
+}
+
+function hasMistakes() {
+  return mistakesData.length > 0;
+}
+
+function removeMistake() {
+  //console.log("function removeMistakes()");
+  mistakesData = mistakesData.filter(
+    (obj) => obj.id !== quizData[indexCurrentQuestion].id,
+  );
+}
+
+function shuffleArray(data) {
+  let shuffledData = [...data];
+  for (let i = shuffledData.length - 1; i >= 0; i--) {
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+    const randomValue = shuffledData[randomIndex];
+    const currentValue = shuffledData[i];
+    shuffledData[randomIndex] = currentValue;
+    shuffledData[i] = randomValue;
+  }
+  return shuffledData;
 }
 
 function toggleVisibilityGame(state) {
@@ -307,121 +428,6 @@ function setButtonState(state) {
   }
 }
 
-function getThemeStorage() {
-  const theme = localStorage.getItem("theme");
-  return theme;
-}
-
-function setThemeStorage(newTheme) {
-  localStorage.setItem("theme", newTheme);
-}
-
-function displayTheme(newTheme) {
-  //console.log("displayTheme()", newTheme);
-  if (newTheme === "dark") {
-    document.documentElement.classList.add("dark");
-    return;
-  }
-  document.documentElement.classList.remove("dark");
-}
-
-function toggleTheme() {
-  let currentTheme = getThemeStorage();
-  if (!currentTheme) {
-    currentTheme = "light";
-  }
-  const newTheme = currentTheme === "light" ? "dark" : "light";
-
-  setThemeStorage(newTheme);
-  displayTheme(newTheme);
-}
-
-function clearProgressBar() {
-  //console.log("clearProgressBar()");
-  const rows = document.querySelectorAll(".progress-bar-row");
-  for (const row of rows) {
-    game.divProgressBar.removeChild(row);
-  }
-}
-
-function updateProgressBar(value) {
-  //console.log("updateProgressBar()", value);
-  const columns = document.querySelectorAll(".progress-bar-column");
-
-  for (let i = 0; i < columns.length; i++) {
-    if (i === countQuestions) {
-      if (value === "correct") {
-        columns[i].classList.add("correct");
-      } else {
-        columns[i].classList.add("wrong");
-      }
-    }
-  }
-}
-
-function initializeProgressBar() {
-  //console.log("initializeProgressBar()");
-  const COLUMNS_IN_ROW = 20;
-  let count = 0;
-  while (count < totalQuestions) {
-    const row = document.createElement("div");
-    row.classList.add("progress-bar-row");
-
-    for (let i = 0; i < COLUMNS_IN_ROW; i++) {
-      const column = document.createElement("div");
-      column.classList.add("progress-bar-column");
-      if (count === totalQuestions) break;
-      row.appendChild(column);
-      count++;
-    }
-    if (count <= totalQuestions) {
-      game.divProgressBar.appendChild(row);
-    }
-  }
-}
-
-function createQuizData(userCount, userCategory) {
-  //console.log("createQuizData(", userCount, userCategory, ")");
-  const count = Number(userCount);
-  let copyData = [...data];
-  if (userCategory !== "all") {
-    copyData = copyData.filter((obj) => obj.category === userCategory);
-  }
-  const limit = copyData.length > count ? count : copyData.length;
-  totalQuestions = limit; // Game Over Condition / Progressbar / quizData size
-  const shuffledData = shuffleArray(copyData);
-  quizData = shuffledData.slice(0, limit);
-}
-
-function createMistakesData() {
-  //console.log("function createMistakesData()");
-  let copyData = [...mistakesData];
-  totalQuestions = copyData.length;
-  console.log(totalQuestions);
-  const shuffledData = shuffleArray(copyData);
-  quizData = shuffledData;
-}
-
-function addMistakes() {
-  mistakesData.push(quizData[indexCurrentQuestion]);
-}
-
-function shuffleArray(data) {
-  let shuffledData = [...data];
-  for (let i = shuffledData.length - 1; i >= 0; i--) {
-    const randomIndex = Math.floor(Math.random() * (i + 1));
-    const randomValue = shuffledData[randomIndex];
-    const currentValue = shuffledData[i];
-    shuffledData[randomIndex] = currentValue;
-    shuffledData[i] = randomValue;
-  }
-  return shuffledData;
-}
-
-function hasMistakes() {
-  return mistakesData.length > 0;
-}
-
 function headerEventHandler(event) {
   //console.log("headerEventHandler()");
   const button = event.target.closest("button");
@@ -476,6 +482,9 @@ function mainEventHandler(event) {
       updateProgressBar(GAME_ANSWER_CORRECT);
       setStatsLogic(GAME_ANSWER_CORRECT);
       displayStats();
+      if (!isNormalMode) {
+        removeMistake();
+      }
       setIndexCurrentQuestion();
       if (countQuestions >= totalQuestions) break;
       displayQuestion();
@@ -488,7 +497,7 @@ function mainEventHandler(event) {
       setStatsLogic(GAME_ANSWER_WRONG);
       displayStats();
       if (isNormalMode) {
-        addMistakes();
+        addMistake();
       }
       setIndexCurrentQuestion();
       if (countQuestions >= totalQuestions) break;
