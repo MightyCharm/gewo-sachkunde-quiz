@@ -549,9 +549,10 @@ main.addEventListener("click", (event) => {
 const testData = [
   {
     id: 99999,
-    category: "",
-    question: "",
-    answer: "",
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Wie sollten Brände bekämpft und gelöscht werden?",
+    answer:
+      "Nur <strong>Entstehungsbrände</strong> können gelöscht werden.<br>Immer <strong>mit</strong> der <strong>Windrichtung</strong> löschen (Rauchgase).<br>Grundsätzlich von vorne nach hinten und von unten nach oben löschen.<br><strong>Tropf- und Fließbränden</strong> die von der Decke kommen, werden von oben nach unten gelöscht.<br><strong>Wandbrände</strong> werden von unten nach oben gelöscht.<br>Stehen mehrere Feuerlöscher zur Verfügung, müssen alle gleichzeitig eingesetzt werden.<br><strong>Brandwache</strong> muss gehalten werden um Wiederentzündung zu verhindern.<br>Eingesetzte Handfeuerlöscher müssen sofort ersetzt, aufgefüllt oder ausgetauscht und neu besieglt werden.",
   },
 ];
 
@@ -1370,7 +1371,265 @@ const data = [
     answer:
       "1. Leichte Verstöße werden als <strong>Ordnungwidrigkeit</strong> verfolgt = bis 10.000 € Geldbuße.<br>2. Verstöße gegen das Waffengesetz, die als <strong>Vergehen</strong> verfolgt werden = Geldstrafe oder Freiheitsstrafe.<br>3. Schwere Verstöße können als <strong>Verbrechen</strong> verfolgt werden = Freiheitsstrafe nicht unter einem Jahr.",
   },
+  {
+    id: 115,
+    category: "Grundzüge der Sicherheitstechnik",
+    question:
+      "Benenne die drei Grundelemente eines jeden Sicherheitskonzeptes?",
+    answer:
+      "1) <strong>mechanisch-bauliche</strong>, 2) <strong>elektronische</strong>, 3) <strong>organisatorisch-personelle</strong> Maßnahmen und Sicherheitseinrichtungen.",
+  },
+  {
+    id: 116,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Was beschreibt der Widerstandszeitwert?",
+    answer:
+      "Dieser Wert definiert die Zeit, die ein geübter Täter benötigt, um eine mechanische Sicherheitseinrichtung zu überwinden.<br>Der Widerstandszeitwert sollte größer als die Interventionszeit.",
+  },
+  {
+    id: 117,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: 'Was sind "Einfriedungen" und wozu dienen sie?',
+    answer:
+      "Es handelt sich um eine bauliche Maßnahme, die ein <strong>Gelände</strong> äußerlich erkennbar vom öffentlichen Raum <strong>abgrenzt</strong> und so ein <strong>befriedetes Besitztum</strong> (§ 123 StGB) erkennbar macht. Unbefugter Zutritt wird dadurch erschwert und potentielle Täter abgeschreckt.",
+  },
+  {
+    id: 118,
+    category: "Grundzüge der Sicherheitstechnik",
+    question:
+      'Beschreibe die Vor- und Nachteile einer "Mauer" als Einfriedung für ein Schutzobjekt.',
+    answer:
+      "<strong>Vorteile</strong><br><strong>Robust</strong>, schwer zu zerstören,<br><strong>Glatte Oberfläche</strong>, schwer zu überklettern,<br><strong>Langlebig</strong>,<br><strong>Schallschutz</strong>,<br><strong>Blickdicht</strong>, manchmal nützlich.<br><br><strong>Nachteile</strong><br>Hohe <strong>Kosten</strong> verglichen mit einem Zaun,<br><strong>Blickdicht</strong>, man kann nicht sehen, was auf der anderen Seite passiert.",
+  },
+  {
+    id: 119,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: 'Welche Anforderungen muss ein "Sicherheitszaun" erfüllen?',
+    answer:
+      "Mindestens 2,5 m hoch,<br>Maschenweite maximal 5x5 cm,<br>lückenlos,<br>geradlinig,<br>frei von Bewuchs und durchschaubar,<br>speziell gehärtet,<br>standfest,<br>von innen mit Spezialwerkzeug verschraubt.<br>Muss Schutz bieten gegen:<br>Überklettern, mit Übersteigschutz,<br>Unterkriechen und Untergraben, fest im Boden verankert,<br>Durchdringen, muss stabil sein.",
+  },
+  {
+    id: 120,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: 'Was ist die Aufgabe von "Durchlässen" in einer Einfriedung?',
+    answer:
+      "In einer Einfriedung müssen Durchlässe vorhanden sein, damit es Zugänge für Berechtigte Personen gibt. Diese Durchlässe müssen den gleichen Widerstandszeitwert haben wie die Einfriedung selbst.<br><br>Beispiele:<br><strong>Tore</strong>, Widerstandszeitwert muss der gleiche sein wie bei Einfriedung.<br><strong>Schranken</strong>, kein Widerstandszeitwert, reine Ordnungsfunktion.<br><strong>Sperren</strong>, Durchfahrtssperren, eingesetzt bei starker Gefährdung, sollen ein gewaltsames Eindringen mit Fahrzeugen verhindern. Es gibt pneumatische Systeme, aber auch einfach große Steine oder Betonklötze.",
+  },
+  {
+    id: 121,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: 'Was sind "Vereinzelungsanlagen" und wozu dienen sie?',
+    answer:
+      "<strong>Personenvereinzelungsanlagen</strong><br>Es handelt sich um eine <strong>mechanische</strong> Einrichtung, die einen gewissen <strong>Widerstandszeitwert</strong> aufweisen muss. Sie ermöglichen, dass der Personenverkehr <strong>gesteuert</strong> und <strong>kontrolliert</strong> werden kann. Sie sorgen dafür, dass nur Berechtigte Zutritt zu einem Gelände oder Gebäude erhalten. Potentielle Täter sollen <strong>abgeschreckt</strong> werden.<br>Beispiele:<br><strong>Drehkreuze</strong>, <strong>Drehsperren</strong>, <strong>Drehtüren</strong>.",
+  },
+  {
+    id: 122,
+    category: "Grundzüge der Sicherheitstechnik",
+    question:
+      "Nenne die wesentlichen Bauteile und Widerstandklassen einer Türe.",
+    answer:
+      "Türblatt, Türbänder, Türzarge, Türschloss, Türbeschlag (Türschild), Schließblech.<br>Diese Bauteile entscheiden über Widerstandszeitwert.<br>Einbruchhemmende Türen und Fenster werden in sechs verschiedene Klassen, laut europischer DIN-Norm, eingeteilt: <strong>RC 1 - RC 6 (Resistance Class)</strong>.<br>RC 1: schützt vor Aufbruch mit körperlicher Gewalt eines spontanen Täters. Widerstandszeitwert unter 1 min.<br>RC 6: schützt vor Aufbruch bei sehr erfahrenem Täter mit leistungsfähigem Elektrowerkzeug, schützt 20 min.<br>RC 1-3 = privater Bereich, RC 4-6 = gewerblicher Bereich",
+  },
+  {
+    id: 123,
+    category: "Grundzüge der Sicherheitstechnik",
+    question:
+      "Mit welchen Bauteilen lässt sich die Sicherheit eines Fensters erhöhen und welche RC (Resistance Class) sollten Betriebe mindestens wählen?",
+    answer:
+      "<strong>Bauteile</strong>: Fenstervergitterungen, Fensterbänder, schließbare Fenstergriffe, spezielle Verankerungen in den Fensterrahmen, einbruchhemmende Rolläden, Sicherheitsverglasung, eine Folierung für das Glas, Pilzkopfverriegelung.<br>Für Betriebe wird eine <strong>Widerstandklasse von 4</strong> empfohlen.<br>Die Fenster müssen die gleiche Widerstandsklasse haben wie die Türen.",
+  },
+  {
+    id: 124,
+    category: "Grundzüge der Sicherheitstechnik",
+    question:
+      "Welche unterschiedlichen Arten der Sicherheitsverglasung (S-Verglasung) gibt es?",
+    answer:
+      "<strong>Es gibt vier Arten:</strong><br>Durchwurfhemmende<br>Durchbruchhemmende<br>Durchschusshemmende<br>Sprengwirkungshemmende",
+  },
+  {
+    id: 125,
+    category: "Grundzüge der Sicherheitstechnik",
+    question:
+      "Aus welchen Teilen besteht ein Schloss und vor welchen Handlungen schützt es?",
+    answer:
+      "Ein Schloss besteht aus:<br>Schließzylinder, Schließblech, Türbeschlag (Türschild).<br>Es bietet Schutz gegen:<br><strong>Abbrechen</strong><br><strong>Ziehen</strong><br><strong>Aufbohren</strong><br><strong>Nachschließen</strong><br>Arten von Zylindern:<br>Profil-, Rund-, Ovalzylinder.",
+  },
+  {
+    id: 126,
+    category: "Grundzüge der Sicherheitstechnik",
+    question:
+      "Erkläre das Prinzip einer Hauptschlüsselanlage/Hauptschließanlage?",
+    answer:
+      "Wird gerne an Schulen verwendet. Man hat verschiedene Schließzylinder nach dem Prinzip der <strong>Einzelschließung</strong>, ein Schlüssel passt zu einer Türe, ein Lehrer kann nur sein Klassenzimmer schließen.<br>Es existiert aber ein <strong>Hauptschlüssel</strong>, dieser <strong>schließt alle Türen</strong> und ist oft im Besitz des Direktors oder Hausmeisters.",
+  },
+  {
+    id: 127,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Erkläre den Aufbau einer Zentralschlossanlage.",
+    answer:
+      "Sie wird oft in Mietshäusern verwendet.<br>Die Mieter sind im Besitz eines Schlüssels, mit dem sie nur ihre eigene Wohnungstüre schließen können. Es gibt jedoch Türen, z.B. die Eingangs- oder Kellertüre, die sich mit diesem Schlüssel von allen Mietern schließen lassen.<br><strong>Einzelschloss</strong> = Wohnungstüre, nur der Mieter.<br><strong>Zentralschloss</strong> = Eingang/Keller, alle Mieter.",
+  },
+  {
+    id: 128,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Beschreibe den Aufbau einer Generalhauptschlüsselanlage.",
+    answer:
+      "Es besteht eine Hierarchie von Schlüsseln. Der Verlust eines Schlüssels hat zur Folge, dass alle untergeordneten Schlüssel ausgetauscht werden müssen.<br><strong>Generalhauptschlüssel</strong><br><strong>Hauptschlüssel</strong><br><strong>Obergruppenschlüssel</strong><br><strong>Gruppenschlüssel</strong><br><strong>Einzelschlüssel</strong>",
+  },
+  {
+    id: 129,
+    category: "Grundzüge der Sicherheitstechnik",
+    question:
+      "Was für Kriterien muss ein Tresor erfüllen damit man ihn versichern kann?",
+    answer:
+      "Es gibt sie in verschiedenen <strong>Widerstandsklassen</strong>. Die Sicherheit hängt von vielen Faktoren ab: Unterbringung, Schließsystem, Panzerung, Wandstärke, Art der zu lagernden Objekten.<br><strong>Mindestgewicht</strong>: privat 200 kg, gewerblich 300 kg.<br>Wenn <strong>Eigengewicht unter 1000 kg</strong> liegt, müssen sie <strong>im Boden verankert werden</strong>.<br><strong>Verdeckte Unterbringung</strong>.",
+  },
+  {
+    id: 130,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Wozu dienen Zutrittskontrollsysteme (ZKS)?",
+    answer:
+      "Sie werden dort eingesetzt, wo sichergestellt werden muss, dass nur Berechtigte Zugang erhalten.<br>Beispiel: <strong>Personenvereinzelungsanlagen</strong> beantworten die Fragen<br><strong>Wer? Wann? Wo?</strong><br> Die Kontrolle kann umgesetzt werden mit Pin, Ausweiskarten oder biometrischen Daten.<br>Es geht um die Abschreckung potentieller Täter, Steuerung und Überwachung des Personenverkehrs, Identifizierung und Überprüfung von Berechtigten, Alarmauslösung falls notwendig.",
+  },
+  {
+    id: 131,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Nenne die Grundelemente einer Videoüberwachung?",
+    answer:
+      "Bildaufnahme<br>Bildübertragung<br>Bildauswertung<br>Bildverteilung<br>Bildaufzeichnung<br>Bildwiedergabe<br><br>Teil der elektronischen Überwachung.",
+  },
+  {
+    id: 132,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Wozu dienen Gefahrenmeldeanlagen (GMA)?",
+    answer:
+      "Sie erkennen Gefahren (Einbruch, Feuer, Überfall) für Rechtsgüter, Sachwerte und melden diese weiter. Es gibt unterschiedliche Arten, die Gefahren durch spezielle Meldesensoren erkennen und diese durch Übertragungswege zu einer ständig besetzten Hilfestelle weiterleiten. Übertragungswege selbst müssen überwacht werden, um vor Störungen zu schützen.",
+  },
+  {
+    id: 133,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Welche Arten von Gefahrenmeldeanlagen (GMA) gibt es?",
+    answer:
+      "<strong>Einbruchmeldeanlagen</strong> (EMA): Überwachen Flächen und Räume auf unbefugten Zutritt bzw. Einzelobjekte auf Wegnahme.<br><strong>Überfallmeldeanlagen</strong> (ÜMA): ermöglichen direkten Hilferuf von Personen zu einer Notruf- und Serviceleitstelle (NSL) oder Polizei.<br><strong>Brandmeldeanlagen</strong> (BMA): Brandgefahren automatisch oder manuell erkennen und weiter melden.<br><strong>Störmeldeanlagen</strong>: Überwachen Betriebsbereitschaft der eigenen Anlagen und melden technische Störungen.",
+  },
+  {
+    id: 134,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Welche Arten von Einbruchmeldesensoren gibt es?",
+    answer:
+      "Es gibt unterschiedliche Melder, die dafür sorgen sollen, dass Einbrüche schnell erkannt und weitergemeldet werden.<br><strong>elektrische Melder</strong>: Mikrowellenmelder.<br><strong>elektromechanische Melder</strong>: Magnetkontakte, Riegelschaltkontakte.<br><strong>elektroakustische Melder</strong>: Glasbruchmelder, Körperschall und Ultraschallbewegungsmelder.<br><strong>elektrooptische Melder</strong>: Infrarotbewegungsmelder.",
+  },
+  {
+    id: 135,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Was ist ein Wächterkontrollsystem (WKS)?",
+    answer:
+      "Sie dienen zum <strong>Dokumentieren</strong> eines <strong>Rundganges</strong> gegenüber des Auftraggebers und werden von Sicherheitskräften mitgeführt. Das System besteht aus <strong>Kontrollgerät</strong> und <strong>Kontrollstellen</strong>. Das Kontrollgerät wird an die Kontrollstelle herangeführt und dies wird im Kontrollgerät gespeichert. Die Daten werden später ausgelesen oder direkt weitergeleitet. Manche Geräte sind mit GPS (Global Positioning System) ausgestattet, mit denen man Routen überwachen und Abweichungen erkennen und Alarm auslösen kann.",
+  },
+  {
+    id: 136,
+    category: "Grundzüge der Sicherheitstechnik",
+    question:
+      "Beschreibe den Aufgabenbereich einer Notruf- und Serviceleitstelle.",
+    answer:
+      "Schritte bei eingehendem Alarm:<br>1. <strong>Ereigniserfassung</strong><br>2. <strong>Informationsbereitstellung</strong><br>3. <strong>Nachrichtenabwicklung</strong><br>4. <strong>Dokumentation</strong><br>Das Sicherheitsunternehmen arbeitet mit dem Kunden eine <strong>Interventionsvereinbarung</strong> aus. In dieser wird beschrieben, was im Alarmfall zu tun ist und die NSL handelt nach dieser. Wenn so vereinbart, wird ein Interventionsfahrer losgeschickt, der sich in ständiger Kommunikation mit der NSL befindet.",
+  },
+  {
+    id: 137,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Was ist ein Totmannschalter und wofür wird er verwendet?",
+    answer:
+      "Eine technische Möglichkeit, <strong>willensunabhängig</strong> vom Träger eine <strong>Alarmauslösung</strong> zu ermöglichen, wenn dieser nicht mehr handlungsfähig oder anwesend ist.<br>Es gibt Systeme, die <strong>lageabhängig</strong> oder <strong>bewegungsabhängig</strong> sind. Andere verlangen einen regelmäßigen Knopfdruck, damit kein Alarm ausgelöst wird.",
+  },
+  {
+    id: 138,
+    category: "Grundzüge der Sicherheitstechnik",
+    question:
+      "Nenne Beispiele für drahtlose und drahtgebundene Kommunikationsmittel.",
+    answer:
+      "<strong>Drahtlose Kommunikationsmittel</strong>:<br> Mobilfunknetze, Funknetze, Jedermannfunk, Betriebs- und Bündelfunk.<br><br><strong>Drahtgebundene Kommunikationsmittel</strong>:<br> Telefon, Fax, Computer, Elektrische Lautsprecheranlagen, Gegen- und Wechselsprechanlagen.",
+  },
+  {
+    id: 139,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Was ist analoger Betriebsfunk?",
+    answer:
+      "Er ist am weitesten verbreitet, anmelde- und gebührenpflichtig. Die Zuständigkeit liegt bei der <strong>Bundesnetzagentur</strong>, von dieser wird man bestimmte Frequenzen zugeteilt. Diese sind nicht exklusiv, es können verschiedene Bedarfsträger zusammengefasst werden, deswegen ist es wichtig den Datenschutz zu beachten, da andere mithören können.",
+  },
+  {
+    id: 140,
+    category: "Grundzüge der Sicherheitstechnik",
+    question:
+      "Was sind die Vorteile von digitalem Betriebsfunk verglichen mit analogem?",
+    answer:
+      "Bietet:<br>Bessere Sprachqualität, Verschlüsselung, Datenübertragung, Statusübertragung.",
+  },
+  {
+    id: 141,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Beschreibe den Bündelfunk?",
+    answer:
+      "Er wird von verschiedenen Netzanbietern angeboten und ist <strong>gebührenpflichtig</strong>. Man bekommt ein Bündel von Frequenzen zugeteilt. Ermöglicht wird unter anderem: das Absetzen eines <strong>Einzelrufes</strong> mit einem Gesprächspartner, <strong>Gruppenruf</strong>, <strong>Notruf</strong>, <strong>Statusnachrichten</strong>.",
+  },
+  {
+    id: 142,
+    category: "Grundzüge der Sicherheitstechnik",
+    question:
+      "Was sind Sprechfunkverkehrsgrundsätze, die man im öffentlichen Funk einhalten sollte?",
+    answer:
+      "Auf verständliche Art und Weise kommunizieren,<br>nur notwendigste Information austauschen,<br>Funkdisziplin,<br>Abkürzungen sind zu vermeiden,<br>Schwierige Wörter sind zu buchstabieren (Nato- und deutsches Buchstabieralphabet),<br>Verwendung von Funkrufnamen,<br>Gesprächspartner mit Sie anreden,<br>Höflichkeitsformen unterlassen.",
+  },
+  {
+    id: 143,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Was beinhaltet der vorbeugende Brandschutz?",
+    answer:
+      "Alle Maßnahmen, die <strong>vor</strong> einem Brandfall geplant und umgesetzt werden.<br><strong>Baulicher Brandschutz</strong>:<br> brandschutzgerechte Baustoffe, Brandwände.<br><strong>Technischer Brandschutz</strong>:<br>sachgerechte Elektroinstallationen, keine brennbaren Materialien in Reichweite von Hitzequellen, ordnungsgemäße Lagerung, regelmäßige Wartungen.",
+  },
+  {
+    id: 144,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Was beinhaltet der abwehrende Brandschutz?",
+    answer:
+      "Beschreibt alles, was unternommen werden muss, <strong>nachdem</strong> ein Brand ausgebrochen ist.<br>Organisatorische Art, wie wird reagiert. Hauptaufgaben: <strong>Melden, Retten und Bekämpfen</strong>.",
+  },
+  {
+    id: 145,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Was beinhaltet der abwehrende Brandschutz?",
+    answer:
+      "Beschreibt alles, was unternommen werden muss, <strong>nachdem</strong> ein Brand ausgebrochen ist.<br>Organisatorische Art, wie reagiert wird.<br>Hauptaufgaben:<br><strong>Melden, Retten und Bekämpfen</strong>.",
+  },
+  {
+    id: 146,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Welche Brandklassen gibt es?",
+    answer:
+      "<strong>Brandklasse A</strong>: Bränder fester Stoffe: Holz, Textilien<br><strong>Brandklasse B</strong>: Brände Flüssiger Stoffe<br><strong>Brandklasse C</strong>: Brände von Gasen<br><strong>Brandklasse D</strong>: Metallbrände<br><strong>Brandklasse F</strong>: Fettbrände",
+  },
+  {
+    id: 147,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Was für Kriterien müssen Feuerlöscher erfüllen?",
+    answer:
+      "Alle <strong>2 Jahre</strong> sind diese durch einen <strong>zertifizierten Sachverständigen</strong> zu überprüfen.<br>Sie müssen gut <strong>sichtbar</strong>, gut <strong>erreichbar</strong>, <strong>gekennzeichnet</strong> platziert werden.",
+  },
+  {
+    id: 148,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Nenne die Grundsätze im Brandfall.",
+    answer:
+      "Melden - Retten - Bekämpfen<br><br><strong>Melden</strong>: Feuerwehr<br><strong>Retten</strong>: Personen sind zu retten unter Berücksichtigung der eigenen Sicherheit.<br><strong>Bekämpfen</strong>: löschen.",
+  },
+  {
+    id: 149,
+    category: "Grundzüge der Sicherheitstechnik",
+    question: "Wie sollten Brände bekämpft und gelöscht werden?",
+    answer:
+      "Nur <strong>Entstehungsbrände</strong> können gelöscht werden.<br>Immer <strong>mit</strong> der <strong>Windrichtung</strong> löschen (Rauchgase).<br>Grundsätzlich von vorne nach hinten und von unten nach oben löschen.<br><strong>Tropf- und Fließbränden</strong> die von der Decke kommen, werden von oben nach unten gelöscht.<br><strong>Wandbrände</strong> werden von unten nach oben gelöscht.<br>Stehen mehrere Feuerlöscher zur Verfügung, müssen alle gleichzeitig eingesetzt werden.<br><strong>Brandwache</strong> muss gehalten werden um Wiederentzündung zu verhindern.<br>Eingesetzte Handfeuerlöscher müssen sofort ersetzt, aufgefüllt oder ausgetauscht und neu besieglt werden.",
+  },
 ];
+
 // 1. Recht der öffentlichen Sicherheit und Ordnung (Grundrechte, Polizeirecht, Staatsaufbau)
 // 2. Gewerberecht (GewO, Bewachungsverodrnung)
 // 3. Bürgerliches Gesetzbuch (BGB)
