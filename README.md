@@ -24,9 +24,9 @@ Interactive Quiz for Sachkundeprüfung §34a GewO (Sololearn Code Bits)
 - Question category selection
 - Self-assessment: Gewusst/Falsch
 - Progress bar
-- Stats showing during game
-- Percentage rating at end screen
-- Currently 114 questions across 5 categories
+- Stats showing during game and Percentage rating at end screen
+- "Fehler Üben" to replay wrong answers
+- Currently 149 questions across 6 categories
 - Light / Dark Theme
 
 ## ⚙️ Tech Stack
