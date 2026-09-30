@@ -338,6 +338,7 @@ function toggleVisibilityGame(state) {
     case GAME_MAIN_MENU:
     case GAME_QUIT:
       start.container.classList.remove("hidden");
+      break;
     case GAME_START:
       game.container.classList.remove("hidden");
       game.cardMenuControl.classList.remove("hidden");
@@ -420,6 +421,7 @@ function setButtonState(state) {
     case GAME_RESULT_MISTAKES:
       end.btnMenu.disabled = false;
       end.btnPracticeMistakes.disabled = false;
+      break;
     case GAME_RESULT:
       end.btnMenu.disabled = false;
       break;
