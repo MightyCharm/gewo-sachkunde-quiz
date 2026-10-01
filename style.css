@@ -176,7 +176,7 @@ main {
 .card-start-introduction {
   display: flex;
   flex-direction: column;
-  gap: 0.1rem;
+  gap: 1rem;
   padding: 1rem;
   border-radius: 4px;
   background-color: var(--bg);
@@ -185,6 +185,21 @@ main {
 .question-count,
 .category-count {
   font-weight: bold;
+}
+
+.card-start-information {
+  padding: 1rem;
+  width: 100%;
+  border-radius: 4px;
+  background-color: var(--bg);
+}
+
+.card-start-information ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  list-style-type: none;
 }
 
 .card-start-options {
